@@ -44,6 +44,9 @@
 
     <link rel="stylesheet" href="../../assets/css/morioh.css">
 
+    <!-- css -->
+    <link rel="stylesheet" href="../../assets/css/calendar.css">
+    <!-- css -->
 
 </head>
 
@@ -159,7 +162,7 @@
         <div class="menubar menubar-dark" id="main-menu">
 
             <div class="menubar-header text-center bg-primary">
-                <a class="menubar-brand" href="https://morioh.com">
+                <a class="menubar-brand" href="https://morioh.com" style="background-color:#8e352e;">
                     <img src="https://i.imgur.com/RFG2le2.png" title="Morioh" class="menubar-logo"
                         style="height: 50px;">
                 </a>
