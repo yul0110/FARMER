@@ -48,6 +48,14 @@
     <link rel="stylesheet" href="../../assets/css/calendar.css">
     <!-- css -->
 
+    
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="../../assets/js/base/base.js"></script>
+    <script src="../../assets/js/base/common.js"></script>
+    <!-- js -->
+
 </head>
 
 <body class="menubar-enabled navbar-top-fixed">

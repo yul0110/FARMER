@@ -1,4 +1,6 @@
 
+<script src="../../assets/js/main/main.js"></script>
+
         <div class="container-fluid mt-15">
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
@@ -7,10 +9,12 @@
                 <div class="card mb-15">
                     <div class="card-body">
                         <span class="badge bg-success float-right">month</span>
-                        <h6 class="card-title text-muted">Views</h6>
-                        <h3 class="mb-10">120,160,001</h3>
-                        <p class="text-muted mb-0">Total: 1,5B
-                            <span class="float-right"> <i class="fas fa-angle-up text-success"></i> 5.5%</span>
+                        <h6 id="location" class="card-title text-muted mb-10"></h6>
+                        <p class="text-muted mb-0">최고온도
+                            <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
+                        </p>
+                        <p class="text-muted mb-0">최저온도
+                            <span class="float-right"> <i id="minTa" class="fas fa-angle-down text-success"></i></span>
                         </p>
                     </div>
                 </div>
