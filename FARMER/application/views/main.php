@@ -1,14 +1,14 @@
 
 <script src="../../assets/js/main/main.js"></script>
 
-        <div class="container-fluid mt-15">
+    <div class="container-fluid mt-15">
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
             <div class="col">
                 <div class="card mb-15">
                     <div class="card-body">
-                        <span class="badge bg-success float-right">month</span>
+                        <span class="badge bg-success float-right">온도</span>
                         <h6 id="location" class="card-title text-muted mb-10"></h6>
                         <p class="text-muted mb-0">최고온도
                             <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
@@ -51,8 +51,8 @@
                 <div class="card mb-15">
                     <div class="card-body">
                         <span class="badge bg-success float-right">month</span>
-                        <h6 class="card-title text-muted">Income</h6>
-                        <h3 class="mb-10">$89,909</h3>
+                        <h6 class="card-title text-muted">영향예보 </h6>
+                        <h3 class="mb-10">폭염or 한파</h3>
                         <p class="text-muted mb-0">Total: $890,789
                             <span class="float-right"> <i class="fas fa-angle-up text-success"></i> 5.5%</span>
                         </p>
@@ -369,338 +369,167 @@
                 <div class="col-lg-8 col-md-12">
 
                     <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15">Latest orders</div>
+                            <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>농부 일정 리스트</b></div>
 
-                        <div class="table-responsive">
-                            <table class="table">
+                            <div class="table-responsive">
+                                <table class="table">
 
-                                <thead>
-                                    <tr>
-                                        <th>Email</th>
-                                        <th>Qty</th>
-                                        <th>Amount</th>
-                                        <th class="text-right">Time</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-right">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
+                                    <thead>
+                                        <tr>
+                                            <th>날짜</th>
+                                            <th>날씨</th>
+                                            <th>제목</th>
+                                            <th>일정</th>
+                                            <th>중요도</th>
+                                            <th class="text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                2023-04-13 10:10:10 AM
+                                            </td>
 
-                                        <td>
-                                            3
-                                        </td>
+                                            <td>
+                                                햇님
+                                            </td>
 
-                                        <td>
-                                            $1285.23
-                                        </td>
+                                            <td>
+                                                고구마밭 
+                                            </td>
 
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
+                                            <td>
+                                                비닐 씌우기
+                                            </td>
 
-                                        <td class="text-center">
-                                            <span class="badge bg-primary">Paid</span>
-                                        </td>
+                                            <td>
+                                                <span class="badge bg-danger">별이 다섯개</span>
+                                            </td>
 
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
+                                                        type="button" id="d350ad" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="mdi mdi-dots-horizontal"></i>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="d350ad">
+                                                            <a class="dropdown-item" href="#">View</a>
+                                                            <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="#">Detele</a>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
 
+                                    </tbody>
 
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                2023-04-13 10:10:10 AM
+                                            </td>
 
-                                        <td>
-                                            3
-                                        </td>
+                                            <td>
+                                                햇님
+                                            </td>
 
-                                        <td>
-                                            $1685.23
-                                        </td>
+                                            <td>
+                                                고구마밭 
+                                            </td>
 
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
+                                            <td>
+                                                비닐 씌우기
+                                            </td>
 
-                                        <td class="text-center">
-                                            <span class="badge bg-success">Shipped</span>
-                                        </td>
+                                            <td>
+                                                <span class="badge bg-info">중요</span>
+                                            </td>
 
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
+                                                        type="button" id="d350ad" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="mdi mdi-dots-horizontal"></i>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="d350ad">
+                                                            <a class="dropdown-item" href="#">View</a>
+                                                            <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="#">Detele</a>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
+                                    </tbody>
 
-                                        <td>
-                                            3
-                                        </td>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                2023-04-13 10:10:10 AM
+                                            </td>
 
-                                        <td>
-                                            $1685.23
-                                        </td>
+                                            <td>
+                                                햇님
+                                            </td>
 
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge bg-info">Shipping</span>
-                                        </td>
+                                            <td>
+                                                고구마밭 
+                                            </td>
 
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            <td>
+                                                비닐 씌우기
+                                            </td>
 
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
+                                            <td>
+                                                <span class="badge bg-warning">낮음</span>
+                                            </td>
 
-                                        <td>
-                                            3
-                                        </td>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
+                                                        type="button" id="d350ad" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="mdi mdi-dots-horizontal"></i>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="d350ad">
+                                                            <a class="dropdown-item" href="#">View</a>
+                                                            <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="#">Detele</a>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                        <td>
-                                            $1685.23
-                                        </td>
+                                    </tbody>
+                                </table>
 
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
+                                </table>
 
-                                        <td class="text-center">
-                                            <span class="badge bg-danger">Cancel</span>
-                                        </td>
-
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
-
-                                        <td>
-                                            3
-                                        </td>
-
-                                        <td>
-                                            $1685.23
-                                        </td>
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
-
-                                        <td class="text-center">
-                                            <span class="badge bg-warning">Delay</span>
-                                        </td>
-
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            neha******@gmail.com
-                                        </td>
-
-                                        <td>
-                                            3
-                                        </td>
-
-                                        <td>
-                                            $1685.23
-                                        </td>
-                                        <td class="text-right">
-                                            2019-12-30 10:10:10 AM
-                                        </td>
-
-                                        <td class="text-center">
-                                            <span class="badge bg-success">Shipped</span>
-                                        </td>
-
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
+                                </table>
+                            </div>
+                        </div>   
                     </div>
-
-                </div>
 
 
                 <div class="col-lg-4 col-md-12">
 
                     <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15">Latest members</div>
+                        <div class="card-header bg-transparent py-15"  style="font-size:30px"><b>이번달 대표일정</b></div>
 
                         <div class="card-body">
                             <div class="mb-15">
                                 <div class="d-flex">
-                                    <a href="javascript://" class="avatar avatar-lg mr-20">
-                                        <img src="https://i.imgur.com/Y7cK0Jg.png">
-                                    </a>
                                     <div class="flex-fill">
                                         <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">Chat</button>
+                                            <button class="btn btn-outline-primary btn-sm">보러가기</button>
                                         </div>
-                                        <h6 class="my-3">Vlastimil Kočvara</h6>
-                                        <small class="text-muted">vla*****@gmail.com</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-15">
-                                <div class="d-flex">
-                                    <a href="javascript://" class="avatar avatar-lg mr-20">
-                                        <img src="https://i.imgur.com/urMsIe0.png">
-                                    </a>
-                                    <div class="flex-fill">
-                                        <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">Chat</button>
-                                        </div>
-                                        <h6 class="my-3">Kurt L. Oliver</h6>
-                                        <small class="text-muted">kurt*****@gmail.com</small>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="mb-15">
-                                <div class="d-flex">
-                                    <a href="javascript://" class="avatar avatar-lg mr-20">
-                                        <img src="https://i.imgur.com/Y7cK0Jg.png">
-                                    </a>
-                                    <div class="flex-fill">
-                                        <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">Chat</button>
-                                        </div>
-                                        <h6 class="my-3">Kevin D. Shirley</h6>
-                                        <small class="text-muted">kev*****@gmail.com</small>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="mb-15">
-                                <div class="d-flex">
-                                    <a href="javascript://" class="avatar avatar-lg mr-20">
-                                        <img src="https://i.imgur.com/mtHKlth.png">
-                                    </a>
-                                    <div class="flex-fill">
-                                        <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">Chat</button>
-                                        </div>
-                                        <h6 class="my-3">Ella D. Wentworth</h6>
-                                        <small class="text-muted">ell*****@gmail.com</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-15">
-                                <div class="d-flex">
-                                    <a href="javascript://" class="avatar avatar-lg mr-20">
-                                        <img src="https://i.imgur.com/sqRDrAe.png">
-                                    </a>
-                                    <div class="flex-fill">
-                                        <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">Chat</button>
-                                        </div>
-                                        <h6 class="my-3">Nora C. Cantin</h6>
-                                        <small class="text-muted">nora*****@gmail.com</small>
+                                        <h6 class="my-3">율이 맛있는거 사주기</h6>
+                                        <small class="text-muted">족발</small>
                                     </div>
                                 </div>
                             </div>

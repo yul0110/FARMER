@@ -180,7 +180,7 @@
                 <ul class="menu accordion">
 
                     <li class="menu-item">
-                        <a href="started.html" class="menu-link">
+                        <a href="/yearCalendar" class="menu-link">
                             <!-- <i class="menu-icon fas fa-info"></i> -->
                             <!-- <i class="menu-icon fas fa-seedling"></i> -->
                             <i class="menu-icon mdi mdi-code-braces-box"></i>
