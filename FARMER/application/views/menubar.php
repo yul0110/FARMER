@@ -170,7 +170,7 @@
         <div class="menubar menubar-dark" id="main-menu">
 
             <div class="menubar-header text-center bg-primary">
-                <a class="menubar-brand" href="https://morioh.com" style="background-color:#8e352e;">
+                <a class="menubar-brand" href="/main" style="background-color:#8e352e;">
                     <img src="https://i.imgur.com/RFG2le2.png" title="Morioh" class="menubar-logo"
                         style="height: 50px;">
                 </a>
@@ -188,7 +188,16 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="typography.html" class="menu-link">
+                        <a href="/farmList" class="menu-link">
+                            <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
+
+                            <i class="menu-icon mdi mdi-format-size"></i>
+                            <!-- <i class="fas fa-heading"></i> -->
+                            <span class="menu-label">일지 목록</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/farmDiary" class="menu-link">
                             <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
 
                             <i class="menu-icon mdi mdi-format-size"></i>
@@ -204,7 +213,7 @@
                         </a>
                     </li> -->
                     <li class="menu-item">
-                        <a href="dashboard-01.html" class="menu-link">
+                        <a href="photoAlbum" class="menu-link">
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
                             <i class="menu-icon mdi mdi-view-dashboard"></i>
                             <span class="menu-label">앨범</span>
