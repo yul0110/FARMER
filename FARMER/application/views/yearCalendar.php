@@ -66,9 +66,9 @@
             </div><!-- end col -->
 
         </div>
-
+        <br>
         <hr>
-
+        <br>
         <div class="row">
 
             <div class="col-md-6 col-lg-3">
@@ -125,9 +125,9 @@
             </div><!-- end col -->
 
         </div>
-
+        <br>
         <hr>
-        
+        <br>
         <div class="row">
 
             <div class="col-md-6 col-lg-3">
@@ -184,7 +184,10 @@
             </div><!-- end col -->
 
         </div>
-
+        
+        <br>
+        <hr>
+        <br>
 
     </div>
 
