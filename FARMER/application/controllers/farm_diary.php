@@ -9,5 +9,10 @@ class farm_diary extends CI_Controller {
 		$this->load->view('farm_diary');
 	}
 	
+	public function diary_ajax()
+	{
+		$this->load->model('base');
+		$this->base->file_upload_ajax(1);
+	}
 }
 
