@@ -5,7 +5,7 @@
 
             <div class="card mb-15">
                 <div class="card-body">
-                    <h2>농사일기</h2>
+                    <h2>농사일지</h2>
                     <br>                  
                     <hr>
                     <br>
@@ -20,28 +20,39 @@
                     <hr>
                     <br>
                     <br>
-
                     <form role="form" class="form-horizontal">
 
                         <div class="mb-15">
                                 <label class="col-sm-2 col-form-label" for="date">날짜 선택</label>  
                                     <input type="date" id="date" max="2077-06-20"min="2077-06-05"value="2023-04-22">
                             </div>
+                            <br>
 
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">일지 제목</label>
                             <div class="col-sm-10">
                                 <input type="text" id="example-input-normal" name="example-input-normal"
-                                    class="form-control" placeholder="일기 제목을 입력해주세요">
+                                    class="form-control" placeholder="일지 제목을 입력해주세요">
                             </div>
                         </div>
+                        <br>
 
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">내용</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="2" placeholder="일기 내용을 입력해주세요"></textarea>
+                                <textarea class="form-control" rows="2" placeholder="일지 내용을 입력해주세요"></textarea>
                             </div>
                         </div>
+                        <br>
+
+                        <div class="mb-15">
+
+                            <button id="" type="button" class="btn btn-block btn-outline-primary">
+                                일지 올리기
+                            </button>
+
+                        </div>
+                        <br>
 
                     </form>
 

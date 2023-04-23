@@ -11,8 +11,8 @@ class farm_diary extends CI_Controller {
 	
 	public function diary_ajax()
 	{
-		$this->load->model('base');
-		$this->base->file_upload_ajax(1);
+		$this->load->model('diarymodel');
+		$this->diarymodel->file_upload_ajax(1);
 	}
 }
 
