@@ -180,7 +180,7 @@
                 <ul class="menu accordion">
 
                     <li class="menu-item">
-                        <a href="/yearCalendar" class="menu-link">
+                        <a href="/year_calendar" class="menu-link">
                             <!-- <i class="menu-icon fas fa-info"></i> -->
                             <!-- <i class="menu-icon fas fa-seedling"></i> -->
                             <i class="menu-icon mdi mdi-code-braces-box"></i>
@@ -188,7 +188,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/farmList" class="menu-link">
+                        <a href="/farm_list" class="menu-link">
                             <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
 
                             <i class="menu-icon mdi mdi-format-size"></i>
@@ -197,7 +197,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/farmDiary" class="menu-link">
+                        <a href="/farm_diary" class="menu-link">
                             <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
 
                             <i class="menu-icon mdi mdi-format-size"></i>
@@ -213,7 +213,7 @@
                         </a>
                     </li> -->
                     <li class="menu-item">
-                        <a href="photoAlbum" class="menu-link">
+                        <a href="photo_album" class="menu-link">
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
                             <i class="menu-icon mdi mdi-view-dashboard"></i>
                             <span class="menu-label">앨범</span>
