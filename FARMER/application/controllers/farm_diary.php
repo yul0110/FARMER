@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class photoAlbum extends CI_Controller {
+class farm_diary extends CI_Controller {
 
 	public function index()
 	{
 		$this->load->view('menubar');
-		$this->load->view('photoAlbum');
+		$this->load->view('farm_diary');
 	}
-
+	
 }
 

@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class yearCalendar extends CI_Controller {
+class photo_album extends CI_Controller {
 
 	public function index()
 	{
 		$this->load->view('menubar');
-		$this->load->view('yearCalendar');
+		$this->load->view('photo_album');
 	}
 
 }

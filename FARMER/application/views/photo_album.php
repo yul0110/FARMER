@@ -1,6 +1,6 @@
 
 
-<script src="../../assets/js/yearCalendar/yearCalendar.js"></script>
+<script src="../../assets/js/photo_album/photo_album.js"></script>
         
         <div class="container-fluid mt-15">
     

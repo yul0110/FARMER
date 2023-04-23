@@ -1,5 +1,5 @@
 
-        <script src="../../assets/js/farmDiary/farmDiary.js"></script>
+        <script src="../../assets/js/farm_diary/farm_diary.js"></script>
 
         <div class="container-fluid mt-15">
 

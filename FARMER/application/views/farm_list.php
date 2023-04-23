@@ -1,5 +1,5 @@
 
-<script src="../../assets/js/main/main.js"></script>
+<script src="../../assets/js/farm_list/farm_list.js"></script>
 
     <div class="container-fluid mt-15">
 
