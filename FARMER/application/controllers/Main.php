@@ -12,7 +12,7 @@ class main extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('menubar');
+		$this->load->view('menu_bar');
 		$this->load->view('main');
 	}
 
@@ -20,7 +20,7 @@ class main extends CI_Controller {
 	{
 		$result = $this->db->get('member')->result();
 //      $result = $this->db->query('select * from member')->result();
-		$this->load->view('menubar');
+		$this->load->view('menu_bar');
 		$this->load->view('main');
 	}
 
