@@ -7,12 +7,21 @@ class farm_diary extends CI_Controller {
 	{
 		$this->load->view('menu_bar');
 		$this->load->view('farm_diary');
+
 	}
 	
-	public function diary_ajax()
+	//일지등록 ajax
+	public function diary()
 	{
-		$this->load->model('diarymodel');
-		$this->diarymodel->file_upload_ajax(1);
+		// model('diarymodel')로드시킴
+		$this->load->model('diarymodel'); 
+		$result = $this->diarymodel->insert_diary();  
+		
+		//데이터 result
+		echo json_encode(array(
+			'result'	=> $result
+		));
+
 	}
 }
 

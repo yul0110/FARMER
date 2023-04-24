@@ -10,7 +10,7 @@
                     <hr>
                     <br>
                     <div class="form-file">
-                        <input type="file" class="form-file-input" id="customFile">
+                        <input id="img" type="file" class="form-file-input" id="customFile">
                         <label class="form-file-label" for="customFile">
                             <span class="form-file-text">이미지</span>
                             <span class="form-file-button">파일 찾기</span>
@@ -31,8 +31,8 @@
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">일지 제목</label>
                             <div class="col-sm-10">
-                                <input type="text" id="example-input-normal" name="example-input-normal"
-                                    class="form-control" placeholder="일지 제목을 입력해주세요">
+                                <input type="text" id="title" name="example-input-normal"
+                                    class="form-control " placeholder="일지 제목을 입력해주세요">
                             </div>
                         </div>
                         <br>
@@ -40,14 +40,14 @@
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">내용</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="2" placeholder="일지 내용을 입력해주세요"></textarea>
+                                <textarea id="contents" class="form-control" rows="2" placeholder="일지 내용을 입력해주세요"></textarea>
                             </div>
                         </div>
                         <br>
 
                         <div class="mb-15">
 
-                            <button id="" type="button" class="btn btn-block btn-outline-primary">
+                            <button id="upload_ajax" type="button" class="btn btn-block btn-outline-primary">
                                 일지 올리기
                             </button>
 
@@ -70,7 +70,6 @@
 
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50750921-19"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }

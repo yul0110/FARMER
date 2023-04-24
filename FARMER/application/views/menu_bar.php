@@ -70,7 +70,7 @@
             </button>
 
 
-            <img src="https://i.imgur.com/QTZ8pU1.png" title="Morioh" class="navbar-logo d-md-none"
+            <img src="../../assets/images/profile.png" title="Morioh" class="navbar-logo d-md-none"
                 style="height: 36px;">
 
 
@@ -123,7 +123,7 @@
                                         <li class="list-group-item list-group-item-action">
                                             <div class="d-flex">
                                                 <a href="javascript://" class="avatar mr-10">
-                                                    <img src="https://i.imgur.com/ROPF2fQ.png" alt="...">
+                                                    <img src="../../assets/images/profile.png" alt="...">
                                                 </a>
                                                 <div class="flex-fill">
                                                     <div><strong>Nandu Singh</strong> like your post</div>
@@ -150,7 +150,7 @@
                     <li class="nav-item mr-10 dropdown">
                         <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                             data-toggle="dropdown" aria-expanded="false">
-                            <img src="https://i.imgur.com/ROPF2fQ.png">
+                            <img src="../../assets/images/profile.png">
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
@@ -171,7 +171,7 @@
 
             <div class="menubar-header text-center bg-primary">
                 <a class="menubar-brand" href="/main" style="background-color:#8e352e;">
-                    <img src="https://i.imgur.com/RFG2le2.png" title="Morioh" class="menubar-logo"
+                    <img src="../../assets/images/profile.png" title="Morioh" class="menubar-logo"
                         style="height: 50px;">
                 </a>
             </div>
