@@ -14,9 +14,13 @@ class farm_diary extends CI_Controller {
 	public function diary()
 	{		
 		// model('diarymodel')로드시킴
-		$this->load->model('diarymodel'); 
-		$number_result = $this->diarymodel->numbering_diary();  
-		$result = $this->diarymodel->insert_diary($number_result);  
+		$this->load->model('common_model'); 
+		$this->load->model('diary_model'); 
+		
+		$table_nm = 'farmDiary';
+		//테이블id 넘버링
+		$number_result = $this->common_model->numbering($table_nm);  
+		$result = $this->diary_model->insert_diary($number_result);  
 		
 		//데이터 result
 		echo json_encode(array(
