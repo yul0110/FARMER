@@ -37,6 +37,7 @@
     <meta name="image" content="https://i.imgur.com/gWYKl5F.png">
 
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.4.0/css/perfect-scrollbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@4.7.95/css/materialdesignicons.min.css">
@@ -148,7 +149,7 @@
                     </li>
                     <!-- 마이 페이지 -->
                     <li class="nav-item mr-10 dropdown">
-                        <a href="/login" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
+                        <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                             data-toggle="dropdown" aria-expanded="false">
                             <img src="../../assets/images/profile.png">
                         </a>
