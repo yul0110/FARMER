@@ -24,7 +24,7 @@
 
                         <div class="mb-15">
                                 <label class="col-sm-2 col-form-label" for="date">날짜 선택</label>  
-                                    <input type="date" id="date" max="2077-06-20"min="2077-06-05"value="2023-04-22">
+                                    <input type="date" id="nowDate" value="">
                             </div>
                             <br>
 
