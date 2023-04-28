@@ -11,7 +11,7 @@ class farm_diary extends CI_Controller {
 	}
 	
 	//일지등록 ajax
-	public function diary()
+	public function diary_ajax()
 	{		
 		// model('diarymodel')로드시킴
 		$this->load->model('common_model'); 

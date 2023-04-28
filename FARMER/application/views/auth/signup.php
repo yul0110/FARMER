@@ -18,18 +18,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
+    <!-- css -->
     <link rel="stylesheet" href="../../assets/css/login.css">
+    <!-- css -->
+
+    <!-- JS -->
+    <script src="../../assets/js/base/base.js"></script>
+    <script src="../../assets/js/base/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+
 
   <script>
   window.console = window.console || function(t) {};
 </script>
   
 </head>
+
+<script src="../../assets/js/join/join.js"></script>
 
 <body translate="no">
   <div class="container">
@@ -41,7 +51,7 @@
                 </div>
                 
                 <div class="col-lg-12 login-title">
-                    <p style="font-size: 50px;">회원가입</p>
+                    <p style="font-size: 40px;">회원가입</p>
                 </div>
                 </br>
                 <div class="col-lg-12 login-form">
@@ -52,28 +62,11 @@
                                 <label class="form-control-label" style="font-size: 20px;">이름</label>
                                 <input type="text" id="nm" class="form-control" maxlength="10" required>
                             </div>
-                            <br>
 
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">별명</label>
                                 <input type="text" id="userId" class="form-control" maxlength="10" required>
                             </div>
-                            <br>
-
-                            <div class="form-group">
-                                <label class="form-control-label" style="font-size: 20px;">휴대폰번호</label>
-                                <input type="text" id="pno" class="form-control" maxlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
-                            
-                                <div class="col-lg-12 loginbttm">
-                                    <div class="col-lg-6 login-btm login-button login-text">
-                                        <button type="button" id="pnoCheck" class="btn btn-outline-primary">중복확인</button>
-                                        <input type="hidden" id="pnoCheckFlag"/>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <br>
-                            <br>
 
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">비밀번호 [ 8~30자 영문,숫자,특수문자!@#$%^*,./ ]</label>
@@ -82,39 +75,48 @@
                             
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">비밀번호 확인</label>
-                                <input type="password" id="pwCheck" class="form-control" i="" maxlength="30" required>
+                                <input type="password" id="pwc" class="form-control" i="" maxlength="30" required>
                             </div>
                             
+                            
                             <div class="form-group">
-                                <label class="form-control-label" style="font-size: 20px;">메일주소</label>
-                                <input type="text" id="email" class="form-control" required>
-
+                                <label class="form-control-label" style="font-size: 20px;">휴대폰번호</label>
+                                <input type="text" id="pno" class="form-control" maxlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                            
                                 <div class="col-lg-12 loginbttm">
-                                    <div class="col-lg-6 login-btm login-button login-text">
-                                        <button type="button" id="emailCheck" class="btn btn-outline-primary">중복확인</button>
-                                        <input type="hidden" id="idCheckFlag"/>
+                                    <div class="col-lg-12 login-btm login-button">
+                                        <button type="button" id="pnoCheck" class="btn btn-outline-primary">중복확인</button>
+                                        <input type="hidden" id="pnoCheckFlag"/>
                                     </div>
                                 </div>
 
                             </div>
                             <br>
+
+                            <div class="form-group">
+                                <label class="form-control-label" style="font-size: 20px;">메일주소</label>
+                                <input type="text" id="email" class="form-control" required>
+
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-12 login-btm login-button ">
+                                        <button type="button" id="emailCheck" class="btn btn-outline-primary">중복확인</button>
+                                        <input type="hidden" id="emailCheckFlag"/>
+                                    </div>
+                                </div>
+
+                            </div>
                             <br>
 
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">주소</label>
-                                <input type="text" id="addr" class="form-control" value="1" maxlength="50" required>
+                                <input type="text" id="branchCode" class="form-control"  maxlength="50" required>
                             </div>
-                            <br>
 
                             <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-text">
-                                    <!-- Error Message -->
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="button" id="join" class="btn btn-outline-primary">회원가입</button>
+                                <div class="col-lg-12 login-btm login-button">
+                                    <button type="button" id="join_ajax" class="btn btn-outline-primary" style="width:100%">회원가입</button>
                                 </div>
                             </div>
-
 
                         </form>
 

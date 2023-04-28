@@ -38,7 +38,7 @@
 					"contents" : contents,
                 },
                 dataType: "json",
-                url : '/farm_diary/diary',
+                url : '/farm_diary/diary_ajax',
                 success : function(d){       
 					if(d.result == true){
 						alert("일지가 등록되었어요^^");

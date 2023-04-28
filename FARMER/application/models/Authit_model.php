@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Authit Authentication Library
  *
@@ -18,6 +19,9 @@ class Authit_model extends CI_Model {
 
 		$this->load->database();
 		$this->config->load('authit');
+
+        //한국시간으로 디폴트 설정
+        date_default_timezone_set("Asia/Seoul");
 
 		$this->users_table = $this->config->item('authit_users_table');
 		
@@ -51,17 +55,54 @@ class Authit_model extends CI_Model {
 		return $this->db->count_all($this->users_table);
 	}
 	
-	public function create_user($email, $password)
+
+
+   	//create_user
+	public function insert_member()
 	{
 		$data = array(
-			'email' => filter_var($email, FILTER_SANITIZE_EMAIL),
-			'password' => $password, // Should be hashed
-			'created' => date('Y-m-d H:i:s')
+			'id'          => 1,
+			'nm' 		  => $this->input->post('nm'),
+			'userId' 	  => $this->input->post('userId'),
+			'pw' 		  => $this->input->post('pw'),
+			'pwc' 		  => $this->input->post('pwc'),
+			'pno' 		  => $this->input->post('pno'),
+			'email' 	  => $this->input->post('email'),
+			'branchCode'  => $this->input->post('branchCode'),
+			'regDt'       => date('Y-m-d H:i:s'),
+            'regId'       => 1,
+            'updateDt'    => date('Y-m-d H:i:s'),
+            'updateId'    => 1,
+            'useYn'       => 'Y'
 		);
-		$this->db->insert($this->users_table, $data);
-		return $this->db->insert_id();
+		//$this->db->insert($this->member, $data);
+		//return $this->db->insert_id();
+		// insert 쿼리  //액티브레코드 = JPA
+		$insert_flag = $this->db->insert('member', $data);
+
+		return $insert_flag;
 	}
+
 	
+	// public function create_user($email, $password)
+	// {
+	// 	$data = array(
+	// 		'email' => filter_var($email, FILTER_SANITIZE_EMAIL),
+	// 		'password' => $password, // Should be hashed
+	// 		'created' => date('Y-m-d H:i:s')			
+	// 	);
+	// 	$this->db->insert($this->users_table, $data);
+	// 	return $this->db->insert_id();
+	// }
+	
+
+
+
+
+
+
+
+
 	public function update_user($user_id, $data)
 	{
 		$this->db->where('id', $user_id);

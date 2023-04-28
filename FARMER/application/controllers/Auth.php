@@ -24,7 +24,6 @@ class Auth extends CI_Controller {
 	public function index()
 	{
 		if(!logged_in()) redirect('auth/login');
-		 
 		// Redirect to your logged in landing page here  여기서 로그인 한 방문페이지로 리다이렉션
 		redirect('auth/dash');
 	}
@@ -42,20 +41,44 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/login');
 	}
 	
-	/**
-	 * Signup page
-	 */
+//----------------------------------------------------------------------------------
+	//회원가입 페이지
 	public function signup()
 	{
-		// Redirect to your logged in landing page here
-		if(logged_in()) redirect('auth/dash');
-		 
-		//검증폼 제작해야함
-		
-		
+		// model('diarymodel')로드시킴
+		$this->load->model('common_model'); 
+		$this->load->model('Authit_model'); 
 		$this->load->view('auth/signup');
+
+		// Redirect to your logged in landing page here
+		//if(logged_in()) redirect('auth/dash'); 
+	}
+
+	//회원가입 ajax
+	public function join_ajax()
+	{
+		// model('diarymodel')로드시킴
+		$this->load->model('common_model'); 
+		$this->load->model('Authit_model'); 
+
+
+		echo $this->input->post('nm');
+		exit;
+		//테이블id 넘버링
+		// $table_nm = 'member';
+		// $number_result = $this->common_model->numbering($table_nm);  
+		// $result = $this->Authit_model->insert_member($number_result);  
+
+		//데이터 result
+		echo json_encode(array(
+			'result'	=> '1'
+		));
+		// Redirect to your logged in landing page here
+		//if(logged_in()) redirect('auth/dash'); 
 	}
 	
+//----------------------------------------------------------------------------------
+
 	/**
 	 * Logout page
 	 */
@@ -80,7 +103,7 @@ class Auth extends CI_Controller {
 	/**
 	 * Forgot password page
 	 */
-	public function forgot()
+	public function forgot()  
 	{
 		// Redirect to your logged in landing page here
 		if(logged_in()) redirect('auth/dash');
@@ -94,7 +117,7 @@ class Auth extends CI_Controller {
 	/**
 	 * Reset password page
 	 */
-	public function reset()
+	public function reset()   //비밀번호 재설정
 	{
 		// Redirect to your logged in landing page here
 		if(logged_in()) redirect('auth/dash');
