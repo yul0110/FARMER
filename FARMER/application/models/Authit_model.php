@@ -24,7 +24,7 @@ class Authit_model extends CI_Model {
 		if(!$this->db->table_exists($this->users_table)) $this->create_users_table();
 	}
 	
-	public function get_user($user_id)
+	public function get_user($user_id)   
 	{
 		$query = $this->db->get_where($this->users_table, array('id' => $user_id));
 		if($query->num_rows()) return $query->row();

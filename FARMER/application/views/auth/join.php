@@ -40,7 +40,7 @@
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    <h1>로그인</h1>
+                    로그인
                 </div>
 
                 <div class="col-lg-12 login-form">
@@ -62,25 +62,20 @@
                                 <div class="col-lg-6 login-btm login-button">
                                     <button type="button" class="btn btn-outline-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                 </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="button" class="btn btn-outline-primary">아이디찾기</button>
-                                </div>
                             </div>
-
                             <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 find-id-btm login-text">
+                                <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
                                 </div>
-                                <div class="col-lg-6 find-id-btm find-id-button">
+                                <div class="col-lg-6 login-btm login-button">
                                     <button type="button" class="btn btn-outline-primary">비밀번호찾기</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
             </div>
-
-            
         </div>
     </div>
 </body>

@@ -21,6 +21,7 @@ class Authit {
 		$this->CI->load->library('session');
 		$this->CI->load->model('authit_model');
 		$this->CI->config->load('authit');
+
 	}
 	
 	public function logged_in()
@@ -58,14 +59,14 @@ class Authit {
 	public function signup($email, $password)
 	{
 		$user = $this->CI->authit_model->get_user_by_email($email);
-		if($user) return false;
+		if($user) return false; //메일을 조회 후 이미 가입이 된 유저일 경우 
 		 
 		$password = password_hash($password, PASSWORD_DEFAULT);
 		$this->CI->authit_model->create_user($email, $password);
 		return true;
 	}
 	
-	public function reset_password($user_id, $new_password)
+	public function reset_password($user_id, $new_password) //비밀번호 재설정 
 	{
 		$new_password = password_hash($new_password, PASSWORD_DEFAULT);
 		$this->CI->authit_model->update_user($user_id, array('password' => $new_password));

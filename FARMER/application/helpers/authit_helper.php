@@ -10,7 +10,7 @@
 
 function logged_in()
 {
-	$CI =& get_instance();
+	$CI =& get_instance(); //ci에서 & get_instance() 역할은 ci 내부 객체를 컨트롤러, 모델, 뷰 이외에서 사용할 수 있도록 하기 위함이다.
 	$CI->load->library('authit');
 	
 	return $CI->authit->logged_in();
