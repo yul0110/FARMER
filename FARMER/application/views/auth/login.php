@@ -34,7 +34,10 @@
 <body translate="no">
   <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-2"></div>
+
+            <div class="col-lg-3 col-md-2">
+            </div>
+
             <div class="col-lg-6 col-md-8 login-box">
                 <div class="col-lg-12 login-key">
                     <i class="fa fa-key" aria-hidden="true"></i>
@@ -46,41 +49,41 @@
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
                         <form>
+
                             <div class="form-group">
                                 <label class="form-control-label">메일</label>
                                 <input type="text" class="form-control">
                             </div>
+                            
                             <div class="form-group">
                                 <label class="form-control-label">비밀번호</label>
                                 <input type="password" class="form-control" i="">
                             </div>
 
                             <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-text">
-                                    <!-- Error Message -->
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="button" class="btn btn-outline-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="button" class="btn btn-outline-primary">아이디찾기</button>
+                                <div class="col-lg-12 login-btm login-button">
+                                    <button type="button" class="btn btn-outline-primary" style="width:100%">로그인</button>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 find-id-btm login-text">
-                                    <!-- Error Message -->
+
+                                <div class="col-lg-12 login-btm2">
+                                    <button type="button" class="btn btn-outline-primary">아이디찾기</button>
+                                    <input type="hidden" id="idCheckFlag"/>
+                                    <button type="button" id="emailCheck" class="btn btn-outline-primary">비밀번호찾기</button>
+                                    <input type="hidden" id="pwCheckFlag"/>
                                 </div>
-                                <div class="col-lg-6 find-id-btm find-id-button">
-                                    <button type="button" class="btn btn-outline-primary">비밀번호찾기</button>
-                                </div>
+
                             </div>
+
+
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
 
-            
+
         </div>
     </div>
 </body>

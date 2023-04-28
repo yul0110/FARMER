@@ -53,7 +53,7 @@ class Auth extends CI_Controller {
 		//검증폼 제작해야함
 		
 		
-		$this->load->view('auth/signup', $data);
+		$this->load->view('auth/signup');
 	}
 	
 	/**
