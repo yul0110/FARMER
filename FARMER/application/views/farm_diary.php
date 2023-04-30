@@ -10,7 +10,7 @@
                     <hr>
                     <br>
                     <div class="form-file">
-                        <input id="img" type="file" class="form-file-input" id="customFile">
+                        <input id="file_upload_ajax" type="file" class="form-file-input" id="customFile">
                         <label class="form-file-label" for="customFile">
                             <span class="form-file-text">이미지</span>
                             <span class="form-file-button">파일 찾기</span>
