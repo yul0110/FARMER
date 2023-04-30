@@ -22,7 +22,7 @@ function user($key = '')
 	$CI->load->library('session');
 	
 	$user = $CI->session->userdata('user');
-	if($key && isset($user->$key)) return $user->$key;
+	if($key && isset($user->$key)) return $user->$key;  //isset() => 변수가 설정되었는지 확인하고, 설정되었으면 TRUE, 설정되지 않았으면 FALSE를 반환
 	return $user;
 }
 

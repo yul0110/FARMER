@@ -18,7 +18,7 @@ class common extends CI_Controller {
 		}
 		
 
-		$upload_file	= $_FILES["uploadFile"];
+		$upload_file	= $_FILES["uploadFile"];//$_FILES안에 map형식으로 ["uploadFile"]들어있음
 		$upload_dir = $upload_path;
 
 		$upfile_name          = $upload_file["name"];     //실제 파일명
@@ -27,7 +27,7 @@ class common extends CI_Controller {
 		$upfile_size          = $upload_file["size"];     //파일 크기
 		$upfile_error         = $upload_file["error"];    //에러 메세지
 		
-		$file = explode(".",$upfile_name);
+		$file = explode(".",$upfile_name);  //explode() => 문자열을 분할하여 배열로 저장하는 함수
 		$file_name = $file[0];
 		$file_ext  = $file[1];
 		
@@ -39,12 +39,12 @@ class common extends CI_Controller {
 			$uploaded_file    	= $upload_dir.$copied_file_name;	// FARMER/upload/날짜.확장자명.
 			$src_path 			= "/upload/".$copied_file_name;		//db에 저장할 경로 및 result_path값
 			
-			//size 체크 (500KB)
+			//size 체크 (500KB)     history.go(-1) =>이전 페이지로 되돌아가기
 			if($upfile_size  > 5000000 ) {
 				echo("
 				<script>
 				alert('업로드 파일 크기가 지정된 용량(500KB)을 초과합니다!<br>파일 크기를 체크해주세요! ');
-				history.go(-1)
+				history.go(-1)  
 				</script>
 				");
 				exit;

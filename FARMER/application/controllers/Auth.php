@@ -23,7 +23,8 @@ class Auth extends CI_Controller {
 	
 	public function index()
 	{
-		if(!logged_in()) redirect('auth/login');
+		if(!logged_in()) redirect('auth/login');  //세션을 이용해서 로그인을 확인
+
 		// Redirect to your logged in landing page here  여기서 로그인 한 방문페이지로 리다이렉션
 		redirect('auth/dash');
 	}

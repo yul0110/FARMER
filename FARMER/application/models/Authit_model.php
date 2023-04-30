@@ -104,16 +104,16 @@ class Authit_model extends CI_Model {
 		$this->db->delete($this->users_table, array('id' => $user_id));
 	}
 	
-	private function create_users_table()
-	{
-		$this->load->dbforge();
-		$this->dbforge->add_field('id');
-		$this->dbforge->add_field('email VARCHAR(200) NOT NULL');
-		$this->dbforge->add_field('password VARCHAR(200) NOT NULL');
-		$this->dbforge->add_field('created DATETIME NOT NULL');
-		$this->dbforge->add_field('last_login DATETIME NULL');
-		$this->dbforge->create_table($this->users_table);
-	}
+	// private function create_users_table()
+	// {
+	// 	$this->load->dbforge();
+	// 	$this->dbforge->add_field('id');
+	// 	$this->dbforge->add_field('email VARCHAR(200) NOT NULL');
+	// 	$this->dbforge->add_field('password VARCHAR(200) NOT NULL');
+	// 	$this->dbforge->add_field('created DATETIME NOT NULL');
+	// 	$this->dbforge->add_field('last_login DATETIME NULL');
+	// 	$this->dbforge->create_table($this->users_table);
+	// }
 	
 }
 

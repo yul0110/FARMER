@@ -1,4 +1,5 @@
- /**	(function() { })(); 사용하는 이유
+
+/**	(function() { })(); 사용하는 이유
  *		IIFE(Immediately-invoked function expression: 즉시 작동하는 함수식)
  *		"이 안에 들어있는 코드를 바로 실행해라" 라는 표현으로 이해하시면 되겠습니다.
  */	  

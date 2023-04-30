@@ -89,7 +89,6 @@
 				console.log(data);
 
 				// nodeDetailCopy		= $('#detailImgTemple').clone();
-				
 				// nodeDetailCopy.attr('id', "");
 				// nodeDetailCopy.find('#detailPreviewImg').attr('src', data.path);
 				// nodeDetailCopy.addClass("deletImg");
