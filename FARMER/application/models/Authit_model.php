@@ -54,14 +54,12 @@ class Authit_model extends CI_Model {
 	{
 		return $this->db->count_all($this->users_table);
 	}
-	
 
-
-   	//create_user
-	public function insert_member()
+   	//회원가입 insert
+	public function insert_member($number_result)
 	{
 		$data = array(
-			'id'          => 1,
+			'id'          => $number_result + 1,
 			'nm' 		  => $this->input->post('nm'),
 			'userId' 	  => $this->input->post('userId'),
 			'pw' 		  => $this->input->post('pw'),
@@ -83,7 +81,6 @@ class Authit_model extends CI_Model {
 		return $insert_flag;
 	}
 
-	
 	// public function create_user($email, $password)
 	// {
 	// 	$data = array(
@@ -95,13 +92,6 @@ class Authit_model extends CI_Model {
 	// 	return $this->db->insert_id();
 	// }
 	
-
-
-
-
-
-
-
 
 	public function update_user($user_id, $data)
 	{

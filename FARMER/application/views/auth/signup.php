@@ -59,8 +59,8 @@
                         <form>
 
                             <div class="form-group">
-                                <label class="form-control-label" style="font-size: 20px;">이름</label>
-                                <input type="text" id="nm" class="form-control" maxlength="10" required>
+                                <label class="form-control-label" style="font-size: 20px;">이름 [한글로 작성해주세요^^]</label>
+                                <input type="text" id="nm" class="form-control" maxlength="10" oninput="this.value=this.value.replace(/[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g,'');" required>
                             </div>
 
                             <div class="form-group">
@@ -75,7 +75,7 @@
                             
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">비밀번호 확인</label>
-                                <input type="password" id="pwc" class="form-control" i="" maxlength="30" required>
+                                <input type="password" id="pwc" class="form-control" i="" maxlength="30"  required>
                             </div>
                             
                             
@@ -111,7 +111,7 @@
                                 <label class="form-control-label" style="font-size: 20px;">주소</label>
                                 <input type="text" id="branchCode" class="form-control"  maxlength="50" required>
                             </div>
-
+                            <br>
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-12 login-btm login-button">
                                     <button type="button" id="join_ajax" class="btn btn-outline-primary" style="width:100%">회원가입</button>

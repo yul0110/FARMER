@@ -9,8 +9,9 @@ class common_model extends CI_Model {
         parent::__construct();
     }
 
+    //테이블 'id'넘버링 
     function numbering($table_nm){
-        
+
         $this->load->database();
         $this->db->select('id');
         $this->db->from($table_nm);
@@ -22,7 +23,6 @@ class common_model extends CI_Model {
         foreach ($query->result() as $row){
             $numbering = $row->id;
         }
-
         return $numbering;
     }
 
