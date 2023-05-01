@@ -20,12 +20,13 @@
 		$(document).on('click', '#join_ajax', function(){
 			
 			var nm			= $('#nm').val();
-			var userId 		= $('#userId').val();
+			var nickName 	= $('#nickName').val();
 			var pno			= $('#pno').val();
 			var pw 			= $('#pw').val();
 			var pwc			= $('#pwc').val();
-			var email 		= $('#email').val();
+			var userId 		= $('#userId').val();
 			var branchCode	= $('#branchCode').val();
+			
 			
 			if(nm == ""){
 			alert("이름을 작성해주세요."); 		
@@ -36,7 +37,7 @@
 				return false; 		
 			}
 
-			if(userId == ""){
+			if(nickName == ""){
 			alert("별명을 작성해주세요."); 		
 			return false;
 			}
@@ -66,7 +67,7 @@
 				return false; 		
 			}		
 
-			if(email == ""){
+			if(userId == ""){
 			alert("메일 주소를 작성해주세요."); 		
 			return false;
 			}
@@ -83,13 +84,11 @@
                 data :
                 {
                     "nm"		 : nm,
-					"userId" 	 : userId,
+					"nickName" 	 : nickName,
 					"pw" 		 : pw,
-					"pwc" 		 : pwc,
 					"pno"		 : pno,
-					"email" 	 : email,
+					"userId" 	 : userId,
 					"branchCode" : branchCode,
-
                 },
                 dataType: "json",
                 url : '/auth/join_ajax',

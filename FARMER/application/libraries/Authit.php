@@ -31,9 +31,15 @@ class Authit {
 		//세션배열에 있는 logged_in(가져오고자하는 데이터의 배열 인덱스) 정보를 가져올수있다. 존재하지 않는경우에는 FALSE 를 리턴
 	}
 	
+
+
 	public function login($email, $password)
 	{
 		$user = $this->CI->authit_model->get_user_by_email($email);
+
+		$password 	= password_hash( $this->input->post('pw'), PASSWORD_DEFAULT); //비밀번호 암호화
+		 echo $this->input->post('pw'); exit;
+
 		if($user){
 			if(password_verify($password, $user->password)){ //password_verify=> password_hash()로 암호화한 비밀번호가 사용자가 입력한 값과 같은지 확인하는 함수
 				unset($user->password);						 //unset => 변수 또는 배열 내의 요소를 제거하는 함수
@@ -48,6 +54,13 @@ class Authit {
 		 
 		return false;
 	}
+
+
+
+
+
+
+
 	
 	public function logout($redirect = false)
 	{
@@ -57,10 +70,6 @@ class Authit {
 			redirect($redirect, 'refresh'); 
 		}
 	}
-	
-
-
-
 
 	public function signup($email, $password)
 	{

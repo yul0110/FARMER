@@ -22,33 +22,33 @@ class Authit_model extends CI_Model {
 
         //한국시간으로 디폴트 설정
         date_default_timezone_set("Asia/Seoul");
+	
+	}
+	
+	// public function get_user($user_id)   
+	// {
+	// 	$query = $this->db->get_where($this->users_table, array('id' => $user_id));
+	// 	if($query->num_rows()) return $query->row();
+	// 	return false;
+	// }
 
-		$this->users_table = $this->config->item('authit_users_table');
-		
-		if(!$this->db->table_exists($this->users_table)) $this->create_users_table();
-	}
-	
-	public function get_user($user_id)   
+
+
+
+	public function get_user_by_email($email) 
 	{
-		$query = $this->db->get_where($this->users_table, array('id' => $user_id));
+		$query = $this->db->get_where($this->member, array('email' => $email));
 		if($query->num_rows()) return $query->row();
 		return false;
 	}
 	
-	public function get_user_by_email($email)
-	{
-		$query = $this->db->get_where($this->users_table, array('email' => $email));
-		if($query->num_rows()) return $query->row();
-		return false;
-	}
-	
-	public function get_users($order_by = 'id', $order = 'asc', $limit = 0, $offset = 0)
-	{
-		$this->db->order_by($order_by, $order); 
-		if($limit) $this->db->limit($limit, $offset);
-		$query = $this->db->get($this->users_table);
-		return $query->result();
-	}
+	// public function get_users($order_by = 'id', $order = 'asc', $limit = 0, $offset = 0)
+	// {
+	// 	$this->db->order_by($order_by, $order); 
+	// 	if($limit) $this->db->limit($limit, $offset);
+	// 	$query = $this->db->get($this->users_table);
+	// 	return $query->result();
+	// }
 
 	public function get_user_count()
 	{
@@ -58,14 +58,16 @@ class Authit_model extends CI_Model {
    	//회원가입 insert
 	public function insert_member($number_result)
 	{
+		$password 	= password_hash( $this->input->post('pw'), PASSWORD_DEFAULT); //비밀번호 암호화
+		//-$password_c = password_hash( $this->input->post('pwc'), PASSWORD_DEFAULT); //비밀번호 확인 암호화
+		
 		$data = array(
 			'id'          => $number_result + 1,
 			'nm' 		  => $this->input->post('nm'),
-			'userId' 	  => $this->input->post('userId'),
-			'pw' 		  => $this->input->post('pw'),
-			'pwc' 		  => $this->input->post('pwc'),
+			'nickName' 	  => $this->input->post('nickName'),
+			'pw' 		  => $password,
 			'pno' 		  => $this->input->post('pno'),
-			'email' 	  => $this->input->post('email'),
+			'userId' 	  => $this->input->post('userId'),  //email
 			'branchCode'  => $this->input->post('branchCode'),
 			'regDt'       => date('Y-m-d H:i:s'),
             'regId'       => 1,

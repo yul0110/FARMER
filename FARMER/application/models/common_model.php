@@ -12,6 +12,8 @@ class common_model extends CI_Model {
     //테이블 'id'넘버링 
     function numbering($table_nm){
 
+        $numbering = 0;
+
         $this->load->database();
         $this->db->select('id');
         $this->db->from($table_nm);

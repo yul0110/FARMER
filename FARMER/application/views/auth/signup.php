@@ -30,7 +30,7 @@
     <script src="../../assets/js/base/base.js"></script>
     <script src="../../assets/js/base/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-
+    <!-- JS -->
 
 
   <script>
@@ -39,7 +39,7 @@
   
 </head>
 
-<script src="../../assets/js/join/join.js"></script>
+<script src="../../assets/js/join/join.js?ver=1111"></script>
 
 <body translate="no">
   <div class="container">
@@ -65,7 +65,7 @@
 
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">별명</label>
-                                <input type="text" id="userId" class="form-control" maxlength="10" required>
+                                <input type="text" id="nickName" class="form-control" maxlength="10" required>
                             </div>
 
                             <div class="form-group">
@@ -95,7 +95,7 @@
 
                             <div class="form-group">
                                 <label class="form-control-label" style="font-size: 20px;">메일주소</label>
-                                <input type="text" id="email" class="form-control" required>
+                                <input type="text" id="userId" class="form-control" required>
 
                                 <div class="col-lg-12 loginbttm">
                                     <div class="col-lg-12 login-btm login-button ">

@@ -22,14 +22,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-
+    
+    <!-- css -->
     <link rel="stylesheet" href="../../assets/css/login.css">
+    <!-- css -->
+
+    <!-- JS -->
+    <script src="../../assets/js/base/base.js"></script>
+    <script src="../../assets/js/base/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!-- JS -->
 
   <script>
   window.console = window.console || function(t) {};
 </script>
   
 </head>
+<script src="../../assets/js/login/login.js"></script>
 
 <body translate="no">
   <div class="container">
@@ -52,30 +61,21 @@
 
                             <div class="form-group">
                                 <label class="form-control-label">메일</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="email" class="form-control">
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-control-label">비밀번호</label>
-                                <input type="password" class="form-control" i="">
+                                <input type="password" id="pw" class="form-control" i="">
                             </div>
 
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-12 login-btm login-button">
-                                    <button type="button" class="btn btn-outline-primary" style="width:100%">로그인</button>
+                                    <button type="button" id="login_ajax" class="btn btn-outline-primary" style="width:100%">로그인</button>
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 loginbttm">
 
-                                <div class="col-lg-12 login-btm2">
-                                    <button type="button" class="btn btn-outline-primary">아이디찾기</button>
-                                    <input type="hidden" id="idCheckFlag"/>
-                                    <button type="button" id="emailCheck" class="btn btn-outline-primary">비밀번호찾기</button>
-                                    <input type="hidden" id="pwCheckFlag"/>
-                                </div>
-
-                            </div>
 
 
                         </form>

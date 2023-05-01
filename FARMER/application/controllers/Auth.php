@@ -28,10 +28,8 @@ class Auth extends CI_Controller {
 		// Redirect to your logged in landing page here  여기서 로그인 한 방문페이지로 리다이렉션
 		redirect('auth/dash');
 	}
-	
-	/**
-	 * Login page
-	 */
+//----------------------------------------------------------------------------------	
+	//로그인 페이지
 	public function login()
 	{
 		if(logged_in()) redirect('auth/dash');
@@ -42,6 +40,21 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/login');
 	}
 	
+	//로그인 ajax
+	public function login_ajax()
+	{
+		$this->load->model('common_model'); 
+		$this->load->model('Authit_model'); 
+
+		
+
+		//데이터 result
+		echo json_encode(array(
+			'result'	=> $result
+		));
+	}
+
+
 //----------------------------------------------------------------------------------
 	//회원가입 페이지
 	public function signup()
@@ -63,8 +76,7 @@ class Auth extends CI_Controller {
 		$this->load->model('Authit_model'); 
 
 		//서버에 데이터가 들어갔는지 확인하는 방법
-		// echo $this->input->post('nm');
-		// exit;
+		// echo $this->input->post('nm'); exit;
 
 		//테이블id 넘버링
 		$table_nm = 'member';
