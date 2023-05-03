@@ -7,12 +7,24 @@ class main extends CI_Controller {
     {
         parent::__construct();
         $this->load->database();
+		$this->load->library('session'); 
 
     }
 
 	public function index()
 	{
-		$this->load->view('menu_bar');
+		//로그인상태
+
+		$data = array(
+			'login_in' => false
+		);
+		//$data['login_in'] = false;
+
+		if(isset($this->session->userdata['logged_in'])){
+			$data['login_in'] = $this->session->userdata['logged_in'];
+		}
+
+		$this->load->view('menu_bar', $data);
 		$this->load->view('main');
 	}
 

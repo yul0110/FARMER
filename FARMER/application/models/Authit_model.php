@@ -22,6 +22,9 @@ class Authit_model extends CI_Model {
 
         //한국시간으로 디폴트 설정
         date_default_timezone_set("Asia/Seoul");
+
+		//중요한 정보는 분리하여 설정해줌
+		$this->users_table = $this->config->item('authit_users_table');
 	
 	}
 	
@@ -33,13 +36,14 @@ class Authit_model extends CI_Model {
 	// }
 
 
-
-
-	public function get_user_by_email($email) 
+	public function get_userId($userId) 
 	{
-		$query = $this->db->get_where($this->member, array('email' => $email));
-		if($query->num_rows()) return $query->row();
-		return false;
+		//SELECT * FROM member WHERE user_id = 'user_id' 
+		$query = $this->db->get_where($this->users_table, array('userId' => $userId));
+
+		//num_rows() 테이블의 행 개수를 구해준다
+
+		return $query->row();
 	}
 	
 	// public function get_users($order_by = 'id', $order = 'asc', $limit = 0, $offset = 0)
@@ -50,16 +54,15 @@ class Authit_model extends CI_Model {
 	// 	return $query->result();
 	// }
 
-	public function get_user_count()
-	{
-		return $this->db->count_all($this->users_table);
-	}
+	// public function get_user_count()
+	// {
+	// 	return $this->db->count_all($this->users_table);
+	// }
 
    	//회원가입 insert
 	public function insert_member($number_result)
 	{
 		$password 	= password_hash( $this->input->post('pw'), PASSWORD_DEFAULT); //비밀번호 암호화
-		//-$password_c = password_hash( $this->input->post('pwc'), PASSWORD_DEFAULT); //비밀번호 확인 암호화
 		
 		$data = array(
 			'id'          => $number_result + 1,
@@ -95,10 +98,10 @@ class Authit_model extends CI_Model {
 	// }
 	
 
-	public function update_user($user_id, $data)
+	public function update_user($userId, $data)
 	{
-		$this->db->where('id', $user_id);
-		$this->db->update($this->users_table, $data); 
+		$this->db->where('userId', $userId);
+		$this->db->update($this->member, $data); 
 	}
 	
 	public function delete_user($user_id)

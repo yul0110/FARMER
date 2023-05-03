@@ -30,36 +30,30 @@ class Authit {
 		return $this->CI->session->userdata('logged_in'); 
 		//세션배열에 있는 logged_in(가져오고자하는 데이터의 배열 인덱스) 정보를 가져올수있다. 존재하지 않는경우에는 FALSE 를 리턴
 	}
-	
 
 
-	public function login($email, $password)
+	public function login()
 	{
-		$user = $this->CI->authit_model->get_user_by_email($email);
+		//리턴값이 없는경우 null이나오고 있으면 array로 출력됨
+		$user = $this->CI->authit_model->get_userId($this->CI->input->post('userId'));
 
-		$password 	= password_hash( $this->input->post('pw'), PASSWORD_DEFAULT); //비밀번호 암호화
-		 echo $this->input->post('pw'); exit;
-
-		if($user){
-			if(password_verify($password, $user->password)){ //password_verify=> password_hash()로 암호화한 비밀번호가 사용자가 입력한 값과 같은지 확인하는 함수
-				unset($user->password);						 //unset => 변수 또는 배열 내의 요소를 제거하는 함수
-				$this->CI->session->set_userdata(array(
-					'logged_in' => true,
-					'user' => $user
-				));
-				$this->CI->authit_model->update_user($user->id, array('last_login' => date('Y-m-d H:i:s')));
-				return true;
-			}
+		//리턴값이 false가 나온 경우 리턴해준다
+		if(is_null($user)){
+			return false;
 		}
-		 
+		
+		if(password_verify($this->CI->input->post('pw'), $user->pw)){ //password_verify=> password_hash()로 암호화한 비밀번호가 사용자가 입력한 값과 같은지 확인하는 함수
+			unset($user->pw);	//세션에 유저의 데이터를 넣기 위해 pw의 중요한 data는 파괴함
+			$this->CI->session->set_userdata(
+				array( //set_userdata() => 한 번에 한 값씩 ​​userdata를 추가하려는 경우
+					'logged_in' => true,
+					'user' 		=> $user
+				)
+			);
+			return true;
+		}
 		return false;
 	}
-
-
-
-
-
-
 
 	
 	public function logout($redirect = false)

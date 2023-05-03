@@ -61,7 +61,7 @@
 
                             <div class="form-group">
                                 <label class="form-control-label">메일</label>
-                                <input type="text" id="email" class="form-control">
+                                <input type="text" id="userId" class="form-control">
                             </div>
                             
                             <div class="form-group">
@@ -74,9 +74,6 @@
                                     <button type="button" id="login_ajax" class="btn btn-outline-primary" style="width:100%">로그인</button>
                                 </div>
                             </div>
-
-
-
 
                         </form>
                     </div>

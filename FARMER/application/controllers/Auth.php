@@ -26,13 +26,13 @@ class Auth extends CI_Controller {
 		if(!logged_in()) redirect('auth/login');  //세션을 이용해서 로그인을 확인
 
 		// Redirect to your logged in landing page here  여기서 로그인 한 방문페이지로 리다이렉션
-		redirect('auth/dash');
+		redirect('/main');
 	}
 //----------------------------------------------------------------------------------	
 	//로그인 페이지
 	public function login()
 	{
-		if(logged_in()) redirect('auth/dash');
+		if(logged_in()) redirect('/main');
 		 
 		//검증폼 제작해야함
 
@@ -46,12 +46,13 @@ class Auth extends CI_Controller {
 		$this->load->model('common_model'); 
 		$this->load->model('Authit_model'); 
 
-		
+		$result = $this->authit->login();
 
 		//데이터 result
 		echo json_encode(array(
 			'result'	=> $result
 		));
+
 	}
 
 
@@ -65,7 +66,7 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/signup');
 
 		// Redirect to your logged in landing page here
-		//if(logged_in()) redirect('auth/dash'); 
+		//if(logged_in()) redirect('/main'); 
 	}
 
 	//회원가입 ajax
@@ -87,8 +88,6 @@ class Auth extends CI_Controller {
 		echo json_encode(array(
 			'result'	=> $result
 		));
-		// Redirect to your logged in landing page here
-		//if(logged_in()) redirect('auth/dash'); 
 	}
 //----------------------------------------------------------------------------------
 
@@ -104,22 +103,12 @@ class Auth extends CI_Controller {
 	}
 	
 	/**
-	 * Example dashboard page
-	 */
-	public function dash()
-	{
-		if(!logged_in()) redirect('auth/login');
-		
-		echo 'Hi, '. user('email') .'. You have successfully  logged in. <a href="'. site_url('auth/logout') .'">Logout</a>';
-	}
-	
-	/**
 	 * Forgot password page
 	 */
 	public function forgot()  
 	{
 		// Redirect to your logged in landing page here
-		if(logged_in()) redirect('auth/dash');
+		if(logged_in()) redirect('/main');
 
         //검증폼 제작해야함
 		
@@ -133,7 +122,7 @@ class Auth extends CI_Controller {
 	public function reset()   //비밀번호 재설정
 	{
 		// Redirect to your logged in landing page here
-		if(logged_in()) redirect('auth/dash');
+		if(logged_in()) redirect('/main');
 		 
 		$this->load->library('form_validation');
 		$this->load->helper('form');

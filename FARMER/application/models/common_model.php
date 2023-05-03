@@ -12,7 +12,7 @@ class common_model extends CI_Model {
     //테이블 'id'넘버링 
     function numbering($table_nm){
 
-        $numbering = 0;
+        $numbering = 0; //heap,stak->>공부할것--------------------------------------------
 
         $this->load->database();
         $this->db->select('id');

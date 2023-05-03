@@ -15,11 +15,11 @@
 		$(document).on('click', '#login_ajax', function(){
 			
 
-			var email	= $('#email').val();
+			var userId	= $('#userId').val();
 			var pw 		= $('#pw').val();
 			
 			//이메일 빈값 체크
-			if(email == ""){
+			if(userId == ""){
 			alert("이메일을 작성해주세요."); 		
 			return false;
 			}
@@ -34,15 +34,15 @@
                 type : "POST",
                 data :
                 {
-                    "email" : email,
-					"pw" 	: pw,
+                    "userId": userId,
+					"pw" 	: pw
                 },
                 dataType: "json",
                 url : '/auth/login_ajax',
                 success : function(d){       
 					if(d.result == true){
 						alert("어서오세요");
-						//location.href = '/farm_list';
+						location.href = '/main';
 					}else{
 						alert("로그인을 실패하였습니다. 다시시도해주세요.");
 					}

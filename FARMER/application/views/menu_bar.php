@@ -98,71 +98,105 @@
                   <!--오른쪽 상단 메뉴바-->
                 <ul class="navbar-nav my-2 my-lg-0">
 
-                    <li class="nav-item mr-10 dropdown">
-                        <span class="badge bg-danger">5</span>
-                        <a class="nav-icon font-2xl" href="#" id="QBDX05" role="button" data-toggle="dropdown"
-                            aria-expanded="false" data-flip="false">
-                            <i class="mdi mdi-bell-ring-outline"></i>
-                            
-                        </a>
+                    <?php
+                    if($login_in){
+                    ?>
 
-                        <div class="dropdown-menu dropdown-menu-right p-0 border-0 w-400" 
-                            aria-labelledby="QBDX05">
-                            
-                            <!-- 알림 -->
-                            <div class="card mb-15">
-                                <div class="card-header">
-                                    <a href="javascript://" class="float-right text-body">
-                                        Mask as read
-                                    </a>
-                                    Notifications
-                                </div>
+                        <li class="nav-item mr-10 dropdown">
+                            <span class="badge bg-danger">5</span>
+                            <a class="nav-icon font-2xl" href="#" id="QBDX05" role="button" data-toggle="dropdown"
+                                aria-expanded="false" data-flip="false">
+                                <i class="mdi mdi-bell-ring-outline"></i>
+                                
+                            </a>
 
-                                <div class="perfect-scrollbar position-relative" style="max-height: 400px;">
+                            <div class="dropdown-menu dropdown-menu-right p-0 border-0 w-400" 
+                                aria-labelledby="QBDX05">
+                                
+                                <!-- 알림 -->
+                                <div class="card mb-15">
+                                    <div class="card-header">
+                                        <a href="javascript://" class="float-right text-body">
+                                            Mask as read
+                                        </a>
+                                        Notifications
+                                    </div>
 
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item list-group-item-action">
-                                            <div class="d-flex">
-                                                <a href="javascript://" class="avatar mr-10">
-                                                    <img src="../../assets/images/profile.png" alt="...">
-                                                </a>
-                                                <div class="flex-fill">
-                                                    <div><strong>Nandu Singh</strong> like your post</div>
-                                                    <span class="text-muted">at few seconds</span>
+                                    <div class="perfect-scrollbar position-relative" style="max-height: 400px;">
+
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item list-group-item-action">
+                                                <div class="d-flex">
+                                                    <a href="javascript://" class="avatar mr-10">
+                                                        <img src="../../assets/images/profile.png" alt="...">
+                                                    </a>
+                                                    <div class="flex-fill">
+                                                        <div><strong>Nandu Singh</strong> like your post</div>
+                                                        <span class="text-muted">at few seconds</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
+                                            </li>
 
-                                    </ul>
-                                </div>
+                                        </ul>
+                                    </div>
 
-                                <div class="card-footer text-center border-0">
-                                    <a href="javascript://" class="text-body">
-                                        View all
-                                    </a>
+                                    <div class="card-footer text-center border-0">
+                                        <a href="javascript://" class="text-body">
+                                            View all
+                                        </a>
+                                    </div>
+
                                 </div>
 
                             </div>
 
-                        </div>
+                        </li>
+                        <!-- 마이 페이지 -->
+                        <li class="nav-item mr-10 dropdown">
+                            <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <img src="../../assets/images/profile.png">
+                            </a>
 
-                    </li>
-                    <!-- 마이 페이지 -->
-                    <li class="nav-item mr-10 dropdown">
-                        <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
-                            data-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/profile.png">
-                        </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
+                                <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-account-circle-outline"></i> My Account</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock-outline"></i> Change password</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/auth/logout"><i class="mdi mdi-exit-to-app"></i> Logout</a>
+                            </div>
+                        </li>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-account-circle-outline"></i> My Account</a>
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-lock-outline"></i> Change password</a>
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>Settings</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-exit-to-app"></i> Logout</a>
-                        </div>
-                    </li>
+                    <?php
+                    }else{
+                    ?>    
+                        <li class="nav-item mr-10 dropdown">
+                            <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <img src="../../assets/images/profile.png">로그인하세요
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
+                                <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-account-circle-outline"></i> My Account</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock-outline"></i> Change password</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-exit-to-app"></i> Logout</a>
+                            </div>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                    
+
+
+
+
+                    
+
+                    
                 </ul>
 
             </div>
