@@ -39,6 +39,7 @@
   
 </head>
 
+<!--JS, CSS 캐시 방지처리 .js?ver=1111 -->
 <script src="../../assets/js/join/join.js?ver=1111"></script>
 
 <body translate="no">
