@@ -27,6 +27,7 @@ class Authit {
 	
 	public function logged_in()
 	{
+		echo '라이브러리';
 		return $this->CI->session->userdata('logged_in'); 
 		//세션배열에 있는 logged_in(가져오고자하는 데이터의 배열 인덱스) 정보를 가져올수있다. 존재하지 않는경우에는 FALSE 를 리턴
 	}
@@ -82,6 +83,3 @@ class Authit {
 	}
 	
 }
-
-/* End of file: Authit.php */
-/* Location: application/libraries/Authit.php */

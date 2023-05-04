@@ -6,17 +6,17 @@ class main extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->database();
-		$this->load->library('session'); 
 
     }
 
 	public function index()
 	{
-		//로그인상태
+		$this->load->library('session'); 
 
+		//화면에 데이터를 내리기 위한 주머니
 		$data = array(
 			'login_in' => false
+			
 		);
 		//$data['login_in'] = false;
 
@@ -28,16 +28,19 @@ class main extends CI_Controller {
 		$this->load->view('main');
 	}
 
-	public function test()
-	{
-		$result = $this->db->get('member')->result();
-//      $result = $this->db->query('select * from member')->result();
-		$this->load->view('menu_bar');
-		$this->load->view('main');
-	}
+// 	public function test()
+// 	{
+// 		$result = $this->db->get('member')->result();
+// //      $result = $this->db->query('select * from member')->result();
+// 		$this->load->view('menu_bar');
+// 		$this->load->view('main');
+// 	}
 
 	public function day()
 	{
+
+		$this->load->database();
+
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/AsosDalyInfoService/getWthrDataList'; /*URL*/
 		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
@@ -62,6 +65,9 @@ class main extends CI_Controller {
 
 	public function time()
 	{
+
+		$this->load->database();
+
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList'; /*URL*/
 		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/

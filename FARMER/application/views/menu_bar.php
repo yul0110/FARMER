@@ -92,7 +92,6 @@
                             <i class="mdi mdi-menu"></i>
                         </a>
                     </li>
-
                 </ul>
 
                   <!--오른쪽 상단 메뉴바-->
@@ -101,9 +100,9 @@
                     <?php
                     if($login_in){
                     ?>
-
+                        <!-- 알림 숫자-->
                         <li class="nav-item mr-10 dropdown">
-                            <span class="badge bg-danger">5</span>
+                            <span class="badge bg-danger">1</span>
                             <a class="nav-icon font-2xl" href="#" id="QBDX05" role="button" data-toggle="dropdown"
                                 aria-expanded="false" data-flip="false">
                                 <i class="mdi mdi-bell-ring-outline"></i>
@@ -119,7 +118,7 @@
                                         <a href="javascript://" class="float-right text-body">
                                             Mask as read
                                         </a>
-                                        Notifications
+                                        알림
                                     </div>
 
                                     <div class="perfect-scrollbar position-relative" style="max-height: 400px;">
@@ -131,18 +130,17 @@
                                                         <img src="../../assets/images/profile.png" alt="...">
                                                     </a>
                                                     <div class="flex-fill">
-                                                        <div><strong>Nandu Singh</strong> like your post</div>
-                                                        <span class="text-muted">at few seconds</span>
+                                                        <div><strong>기상 중요알림</strong> 금일 폭염 주의보 </div>
+                                                        <span class="text-muted">최고 온도 오후2시 38도 </span>
                                                     </div>
                                                 </div>
                                             </li>
-
                                         </ul>
                                     </div>
 
                                     <div class="card-footer text-center border-0">
                                         <a href="javascript://" class="text-body">
-                                            View all
+                                            상세보기
                                         </a>
                                     </div>
 
@@ -151,20 +149,20 @@
                             </div>
 
                         </li>
+
                         <!-- 마이 페이지 -->
                         <li class="nav-item mr-10 dropdown">
                             <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                                 data-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/profile.png">
+                                <img src="../../assets/images/dodam.jpg">
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
                                 <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-account-circle-outline"></i> My Account</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock-outline"></i> Change password</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>Settings</a>
+                                    <i class="mdi mdi-account-circle-outline"></i>마이 페이지</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>설정</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/auth/logout"><i class="mdi mdi-exit-to-app"></i> Logout</a>
+                                <a class="dropdown-item" href="/auth/logout"><i class="mdi mdi-exit-to-app"></i>로그아웃</a>
                             </div>
                         </li>
 
@@ -174,29 +172,23 @@
                         <li class="nav-item mr-10 dropdown">
                             <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                                 data-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/profile.png">로그인하세요
+                                <i class="mdi mdi-account-circle-outline"></i>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-account-circle-outline"></i> My Account</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock-outline"></i> Change password</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>Settings</a>
+                                <a class="dropdown-item" href="/auth/login">
+                                <i class="mdi mdi-exit-to-app"></i>로그인
+                                </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-exit-to-app"></i> Logout</a>
+                                <a class="dropdown-item" href="/auth/signup">
+                                    <i class="mdi mdi-account-circle-outline"></i>회원가입
+                                </a>
                             </div>
                         </li>
                     <?php
                     }
                     ?>
-                    
-
-
-
-
-                    
-
-                    
+                       
                 </ul>
 
             </div>
@@ -206,14 +198,15 @@
 
             <div class="menubar-header text-center bg-primary">
                 <a class="menubar-brand" href="/main" style="background-color:#8e352e;">
-                    <img src="../../assets/images/profile.png" title="Morioh" class="menubar-logo"
+                    <img src="../../assets/images/dodam.jpg" title="Morioh" class="menubar-logo"
                         style="height: 50px;">
                 </a>
             </div>
 
             <div class="menubar-body">
+                 
                 <ul class="menu accordion">
-
+                    
                     <li class="menu-item">
                         <a href="/year_calendar" class="menu-link">
                             <!-- <i class="menu-icon fas fa-info"></i> -->
@@ -240,13 +233,6 @@
                             <span class="menu-label">일지 쓰러가기</span>
                         </a>
                     </li>
-                    <!-- <li class="menu-item">
-                        <a href="colors.html" class="menu-link">
-                            <i class="menu-icon mdi mdi-invert-colors"></i>
-                            
-                            <span class="menu-label">Colors</span>
-                        </a>
-                    </li> -->
                     <li class="menu-item">
                         <a href="photo_album" class="menu-link">
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
@@ -255,10 +241,8 @@
                             <span class="menu-badge">
                                 <span class="badge bg-info">1</span>
                             </span>
-
                         </a>
                     </li>
-    
 
                 </ul>
             </div>

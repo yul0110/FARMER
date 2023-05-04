@@ -18,7 +18,7 @@ function logged_in()
 
 function user($key = '')
 {
-	$CI =& get_instance();
+	$CI =& get_instance();     
 	$CI->load->library('session');
 	
 	$user = $CI->session->userdata('user');

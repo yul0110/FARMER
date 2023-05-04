@@ -78,8 +78,20 @@
                         </form>
                     </div>
                 </div>
-            </div> 
 
+                <div class="col-lg-12 loginbttm">
+
+                    <div class="col-lg-12 login-btm2">
+                        <button type="button" class="btn btn-outline-primary">아이디찾기</button>
+                        <input type="hidden" id="idCheckFlag"/>
+                        <button type="button" id="emailCheck" class="btn btn-outline-primary">비밀번호찾기</button>
+                        <input type="hidden" id="pwCheckFlag"/>
+                    </div>
+                    </br>
+                    </br>
+                </div>
+
+            </div> 
 
         </div>
     </div>
