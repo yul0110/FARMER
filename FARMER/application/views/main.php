@@ -5,7 +5,7 @@
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 
-            <div class="col">
+            <div class="col col-lg-4">
                 <div class="card mb-15">
                     <div class="card-body">
                         <span class="badge bg-success float-right">온도</span>
@@ -20,51 +20,98 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col col-lg-4">
                 <div class="card mb-15">
                     <div class="card-body">
-                        <span class="badge bg-success float-right">month</span>
-                        <h6 class="card-title text-muted">Members</h6>
-                        <h3 class="mb-10">100,007</h3>
-                        <p class="text-muted mb-0">Total: 150M
-                            <span class="float-right"> <i class="fas fa-angle-up text-success"></i> 5.5%</span>
+                        <h6 id="" class="card-title text-muted mb-10"></h6>
+                        <p class="text-muted mb-0">강수량
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">습도
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">풍속
+                            <span class="float-right"></span>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col col-lg-4">
                 <div class="card mb-15">
                     <div class="card-body">
-                        <span class="badge bg-success float-right">month</span>
-                        <h6 class="card-title text-muted">Orders</h6>
-                        <h3 class="mb-10">1,234</h3>
-                        <p class="text-muted mb-0">Total: 329,890
-                            <span class="float-right"> <i class="fas fa-angle-up text-success"></i> 5.5%</span>
+                        <h6 id="" class="card-title text-muted mb-10">생활지수 & 영향예보</h6>
+                        <p class="text-muted mb-0">여름 체감온도
+                            <span class="float-right"></span>
                         </p>
-
+                        <p class="text-muted mb-0">자외선
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">태풍
+                            <span class="float-right"></span>
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col">
+        </div>
+
+<!-- 카드2 ----------------------------------------------------------------------------------------------------------->      
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+
+            <div class="col col-lg-4">
                 <div class="card mb-15">
                     <div class="card-body">
-                        <span class="badge bg-success float-right">month</span>
-                        <h6 class="card-title text-muted">영향예보 </h6>
-                        <h3 class="mb-10">폭염or 한파</h3>
-                        <p class="text-muted mb-0">Total: $890,789
-                            <span class="float-right"> <i class="fas fa-angle-up text-success"></i> 5.5%</span>
+                        <span class="badge bg-success float-right">온도</span>
+                        <h6 id="location" class="card-title text-muted mb-10"></h6>
+                        <p class="text-muted mb-0">최고온도
+                            <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
                         </p>
-
+                        <p class="text-muted mb-0">최저온도
+                            <span class="float-right"> <i id="minTa" class="fas fa-angle-down text-success"></i></span>
+                        </p>
                     </div>
                 </div>
             </div>
 
+            <div class="col col-lg-4">
+                <div class="card mb-15">
+                    <div class="card-body">
+                        <h6 id="" class="card-title text-muted mb-10"></h6>
+                        <p class="text-muted mb-0">강수량
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">습도
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">풍속
+                            <span class="float-right"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
 
+            <div class="col col-lg-4">
+                <div class="card mb-15">
+                    <div class="card-body">
+                        <h6 id="" class="card-title text-muted mb-10">생활지수 & 영향예보</h6>
+                        <p class="text-muted mb-0">한파
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">동파
+                            <span class="float-right"></span>
+                        </p>
+                        <p class="text-muted mb-0">태풍
+                            <span class="float-right"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+<!-- 달력 ----------------------------------------------------------------------------------------------------------->      
             <div class="row">
-                <div class="col-lg-10 col-12">
+                <div class="col-lg-12 col-12">
                     <div class="card mb-15">
 
                         <div id="calendar-wrap">
@@ -291,76 +338,6 @@
                             </div><!-- /. calendar -->
                         </div><!-- /.calendar wrap -->
                     </div>         
-                </div>
-
-                <div class="col-lg-2 col-12">
-
-                    <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15">Top 5 Referrers</div>
-
-                        <div class="card-body">
-
-                            <div class="mb-15">
-                                <div style="height: 280px; max-width: 100%;" id="hl-pie-ref"></div>
-                            </div>
-
-                            <div class="mb-15">
-                                <a href="https://www.google.com" class="text-body">Google.com</a>
-                                <div class="float-right text-muted">
-                                    30.5%
-                                </div>
-                                <div class="progress progress-xs mt-5">
-                                    <div class="progress-bar" style="width: 30.5%;"></div>
-                                </div>
-                            </div>
-
-                            <div class="mb-15">
-                                <a href="https://www.twitter.com" class="text-body">Twitter.com</a>
-                                <div class="float-right text-muted">
-                                    25.5%
-                                </div>
-                                <div class="progress progress-xs mt-5">
-                                    <div class="progress-bar" style="width: 25.5%;"></div>
-                                </div>
-                            </div>
-
-                            <div class="mb-15">
-                                <a href="https://morioh.com" class="text-body">Morioh.com</a>
-                                <div class="float-right text-muted">
-                                    16%
-                                </div>
-
-                                <div class="progress progress-xs mt-5">
-                                    <div class="progress-bar" style="width: 16%;"></div>
-                                </div>
-                            </div>
-
-
-                            <div class="mb-15">
-                                <a href="https://facebook.com" class="text-body">Facebook.com</a>
-                                <div class="float-right text-muted">
-                                    8%
-                                </div>
-                                <div class="progress progress-xs mt-5">
-                                    <div class="progress-bar" style="width: 8%;"></div>
-                                </div>
-                            </div>
-
-
-                            <div class="mb-15">
-                                <a href="https://pinterest.com" class="text-body">Pinterest.com</a>
-                                <div class="float-right text-muted">
-                                    4%
-                                </div>
-                                <div class="progress progress-xs mt-5">
-                                    <div class="progress-bar" style="width: 8%;"></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
 
