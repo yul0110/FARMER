@@ -17,24 +17,20 @@ class Auth extends CI_Controller {
 		$this->load->library('authit');
 		$this->load->helper('authit');
 		$this->config->load('authit');
-		
 		$this->load->helper('url');
 	}
 	
 	public function index()
 	{
-		
-		
+
 	}
-//----------------------------------------------------------------------------------	
+
 	//로그인 페이지
 	public function login()
 	{
 		if(logged_in()) redirect('/main');
-		 
 		$this->load->view('auth/login');
 	}
-	
 	//로그인 ajax
 	public function login_ajax()
 	{
@@ -46,7 +42,8 @@ class Auth extends CI_Controller {
 		));
 
 	}
-//----------------------------------------------------------------------------------
+
+
 	//회원가입 페이지
 	public function signup()
 	{
@@ -57,7 +54,6 @@ class Auth extends CI_Controller {
 
 		if(logged_in()) redirect('/main'); 
 	}
-
 	//회원가입 ajax
 	public function join_ajax()
 	{
@@ -78,7 +74,8 @@ class Auth extends CI_Controller {
 			'result'	=> $result
 		));
 	}
-//----------------------------------------------------------------------------------
+
+
 	//로그아웃 
 	public function logout()
 	{
@@ -121,7 +118,6 @@ class Auth extends CI_Controller {
 			$this->authit->reset_password($user->id, $this->input->post('password'));
 			$data['success'] = true;
 		}
-		
 		$this->load->view('auth/reset_password', $data);
 	}
 	

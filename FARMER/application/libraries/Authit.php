@@ -1,13 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 /**
  * Authit Authentication Library
- *
  * @package Authentication
  * @category Libraries
  * @author Ron Bailey
  * @version 1.0
  */
-
 class Authit {
 
 	private $CI;
@@ -16,7 +14,6 @@ class Authit {
 	public function __construct()
 	{
 		$this->CI =& get_instance();
-
 		$this->CI->load->database();
 		$this->CI->load->library('session'); 
 		//세션클래스는 각 사용자에대한 정보를 직렬화하여 쿠키에 저장, 암호화 가능 보안을 강화하기 위하여 세션데이터를 데이터베이스 테이블에 저장할수도있다.
@@ -27,11 +24,9 @@ class Authit {
 	
 	public function logged_in()
 	{
-		echo '라이브러리';
 		return $this->CI->session->userdata('logged_in'); 
 		//세션배열에 있는 logged_in(가져오고자하는 데이터의 배열 인덱스) 정보를 가져올수있다. 존재하지 않는경우에는 FALSE 를 리턴
 	}
-
 
 	public function login()
 	{
@@ -56,7 +51,6 @@ class Authit {
 		return false;
 	}
 
-	
 	public function logout($redirect = false)
 	{
 		$this->CI->session->sess_destroy(); //sess_destroy() => 세션 제거 사용자가 호출한 함수중 제일 마지막이어야함
