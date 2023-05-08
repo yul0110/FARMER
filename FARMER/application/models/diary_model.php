@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class diary_model extends CI_Model {
+class Diary_model extends CI_Model {
 
     public function diary_model()
     {       
