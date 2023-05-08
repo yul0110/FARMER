@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class common extends CI_Controller {
+class Common extends CI_Controller {
 	
 	//파일업로드 ajax 단건처리
 	public function file_upload()

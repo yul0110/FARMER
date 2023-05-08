@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class year_calendar extends CI_Controller {
+class Year_calendar extends CI_Controller {
 
 	public function index()
 	{

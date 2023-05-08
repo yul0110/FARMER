@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class farm_list extends CI_Controller {
+class Farm_list extends CI_Controller {
 
 	public function __construct()
     {

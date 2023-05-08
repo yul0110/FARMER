@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class photo_album extends CI_Controller {
+class Photo_album extends CI_Controller {
 
 	public function __construct()
     {
