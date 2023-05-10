@@ -21,7 +21,6 @@
 			
 			var nm			= $('#nm').val();
 			var nickName 	= $('#nickName').val();
-			var pno			= $('#pno').val();
 			var pw 			= $('#pw').val();
 			var pwc			= $('#pwc').val();
 			var userId 		= $('#userId').val();
@@ -56,28 +55,22 @@
 		   }
 			if(pwc == ""){ 
 				alert("비밀번호를 알맞게 입력했는지 확인해주세요"); 		
-		   }
-			
-			if(pno == ""){
-				alert("핸드폰 번호를 작성해주세요."); 		
-				return false;
-				}
-			if(pno.search(numR) != 0){ 
-				alert("휴대폰번호를 알맞게 작성해주세요.");
-				return false; 		
-			}		
+		   }	
 
 			if(userId == ""){
 			alert("메일 주소를 작성해주세요."); 		
 			return false;
 			}
 
+			if(!yul.scFlag){
+				alert("이메일 인증을 해주세요."); 		
+				return false;
+			}
+
 			if(branchCode == ""){
 			alert("주소를 작성해주세요."); 		
 			return false;
 			}
-
-//휴대전화,메일 인증작업 해야함 --------------------------------------------------------------------------------------------------------2023.04.30
 
 			$.ajax({
                 type : "POST",
@@ -93,7 +86,7 @@
                 dataType: "json",
                 url : '/auth/join_ajax',
                 success : function(d){       
-					if(d.result == true){
+					if(d.result){
 						alert("회원가입 되었습니다.^^");
 						//location.href = '/main';
 					}else{
@@ -102,6 +95,49 @@
                 }
             })
 
+		});
+
+		$(document).on('click', '#emailPushAjax', function(){
+			
+			var userId 		= $('#userId').val();
+			
+			//이메일 형식인지 체크해야함
+
+			$.ajax({
+                type : "POST",
+                data :
+                {
+					"userId" 	 : userId
+                },
+                dataType: "json",
+                url : '/mail/mail_push_ajax',
+                success : function(d){       
+					if(d.result){
+						//이메일 전송 성공
+						alert('메일을 전송하였습니다. 인증번호를 체크해주세요.');
+						yul.sc = d.code;
+					}else{
+						//이메일 전송 실패!
+						alert('메일 전송에 실패 했습니다. 관리자에게 문의해 주세요.');
+					}
+                }
+            })
+
+		});
+
+		$(document).on('click', '#checkCode', function(){
+			
+			var a = $('#userCode').val();
+			var b = yul.sc;
+
+			if(a == b){
+				//인증번호가 맞는 경우
+				alert('인증에 성공 하였습니다 가입을 계속 진행해 주세요.');
+				yul.scFlag 	= true;
+			}else{
+				//인증번호가 틀린 경우
+				alert('인증번호가 틀렸습니다. 재시도 해주세요.');
+			}
 		});
 
 	};

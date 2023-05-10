@@ -23,12 +23,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
     <!-- css -->
-    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="../../../assets/css/login.css">
     <!-- css -->
 
     <!-- JS -->
-    <script src="../../assets/js/base/base.js"></script>
-    <script src="../../assets/js/base/common.js"></script>
+    <script src="../../../assets/js/base/base.js?ver=1121"></script>
+    <script src="../../../assets/js/base/common.js?ver=1121"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <!-- JS -->
 
@@ -40,7 +40,7 @@
 </head>
 
 <!--JS, CSS 캐시 방지처리 .js?ver=1111 -->
-<script src="../../assets/js/join/join.js?ver=1111"></script>
+<script src="../../../assets/js/join/join.js?ver=1122"></script>
 
 <body translate="no">
   <div class="container">
@@ -100,8 +100,15 @@
 
                                 <div class="col-lg-12 loginbttm">
                                     <div class="col-lg-12 login-btm login-button ">
-                                        <button type="button" id="emailCheck" class="btn btn-outline-primary">중복확인</button>
-                                        <input type="hidden" id="emailCheckFlag"/>
+                                        <button type="button" id="emailPushAjax" class="btn btn-outline-primary">인증번호 발송</button>
+                                    </div>
+                                </div>
+
+                                <label class="form-control-label" style="font-size: 20px;">인증번호</label>
+                                <input type="text" id="userCode" class="form-control" required>
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-12 login-btm login-button ">
+                                        <button type="button" id="checkCode" class="btn btn-outline-primary">인증번호 확인</button>       
                                     </div>
                                 </div>
 
