@@ -9,7 +9,7 @@
                 <div class="card mb-15">
                     <div class="card-body">
                         <span class="badge bg-success float-right">온도</span>
-                        <h6 id="location" class="card-title text-muted mb-10"></h6>
+                        <h6 id="" class="card-title text-muted mb-10"></h6>
                         <p class="text-muted mb-0">최고온도
                             <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
                         </p>
@@ -37,78 +37,8 @@
                 </div>
             </div>
 
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <h6 id="" class="card-title text-muted mb-10">생활지수 & 영향예보</h6>
-                        <p class="text-muted mb-0">여름 체감온도
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">자외선
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">태풍
-                            <span class="float-right"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-<!-- 카드2 ----------------------------------------------------------------------------------------------------------->      
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <span class="badge bg-success float-right">온도</span>
-                        <h6 id="location" class="card-title text-muted mb-10"></h6>
-                        <p class="text-muted mb-0">최고온도
-                            <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
-                        </p>
-                        <p class="text-muted mb-0">최저온도
-                            <span class="float-right"> <i id="minTa" class="fas fa-angle-down text-success"></i></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <h6 id="" class="card-title text-muted mb-10"></h6>
-                        <p class="text-muted mb-0">강수량
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">습도
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">풍속
-                            <span class="float-right"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <h6 id="" class="card-title text-muted mb-10">생활지수 & 영향예보</h6>
-                        <p class="text-muted mb-0">한파
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">동파
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">태풍
-                            <span class="float-right"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
+    
 <!-- 달력 ----------------------------------------------------------------------------------------------------------->      
             <div class="row">
                 <div class="col-lg-12 col-12">

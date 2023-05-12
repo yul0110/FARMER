@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class main extends CI_Controller {
+class Bath extends CI_Controller {
 
 	public function __construct()
     {
@@ -29,99 +29,112 @@ class main extends CI_Controller {
 		$this->load->view('main');
 	}
 
+
 	//단기예보
 	public function short_term_forecast()
-	{
+	{	
+		//현재 날짜 가져오는 함수
+		$today = date("Ymd");
+		
+		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
 		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'; /*URL*/
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); /**/
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
-		$queryParams .= '&' . urlencode('base_date') . '=' . urlencode('20230415'); /**/
-		$queryParams .= '&' . urlencode('base_time') . '=' . urlencode('0500'); /**/
-		$queryParams .= '&' . urlencode('nx') . '=' . urlencode('128'); /**/
-		$queryParams .= '&' . urlencode('ny') . '=' . urlencode('37'); /**/
+		$url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'; //URL
+		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; //Service Key
+		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
+		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
+		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
+		$queryParams .= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
+		$queryParams .= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
+		$queryParams .= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
+		$queryParams .= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
 		
-		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		$response = curl_exec($ch);
+		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);  //URL 지정하기
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);      //요청 결과를 문자로 반환
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);			 //결과값에 HEADER값을 포함 FALSE 
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');		 //전송방식
+		$response = curl_exec($ch);  
+		//curl_exec()의 결과는 Boolean 값. 
+		//출력되는 결과(문자)물을 받기위해서는 CURLOPT_RETURNTRANSFER 옵션을 사용해야 한다.
 		curl_close($ch);
-		
-		var_dump($response);
+
+		//php배열로 파싱
+		$data_value = json_decode($response, true);
+
+		$data_value_response 					= $data_value['response'];
+
+		$data_value_response_body 				= $data_value_response['body'];
+
+		$data_value_response_body_items 		= $data_value_response_body['items'];
+
+		$data_value_response_body_items_item 	= $data_value_response_body_items['item'];
+
+		$arr_size = sizeof($data_value_response_body_items_item);
+		//echo $arr_size; //809
+
+		$arr_short = array(); //1차원 list
+
+		$i_used = 0; //필요한 0600 1200인 데이터만 배열에 담기 위한 카운트
+
+		for($i = 0 ; $i < $arr_size; $i++){
+
+			$items_item = $data_value_response_body_items_item[$i]; //조건문 809회 반복
+
+			//fcstTime이 0600 이거나 1200 애들만 담아줘야하고 809개의 배열이 아닌 있는 만큼만 배열이 생성해야됨
+			if($items_item['fcstTime'] === "0600"){
+
+				//1차원 안에 -> 2차원 배열 map 형성
+				$arr_short[$i_used] = array(
+					
+					'fcstDate'	=> $items_item['fcstDate'],
+					'fcstTime'	=> $items_item['fcstTime'],
+					'fcstValue'	=> $items_item['fcstValue'],
+					'category' 	=> $items_item['category']
+				);
+
+				print_r($arr_short[$i_used]);
+				echo '<br>';
+
+				$i_used++;
+			}
+			
+			if($items_item['fcstTime'] === "1200"){
+
+				//1차원 안에 -> 2차원 배열 map 형성
+				$arr_short[$i_used] = array(
+					
+					'fcstDate'	=> $items_item['fcstDate'],
+					'fcstTime'	=> $items_item['fcstTime'],
+					'fcstValue'	=> $items_item['fcstValue'],
+					'category' 	=> $items_item['category']
+				);
+
+				print_r($arr_short[$i_used]);
+				echo '<br>';
+
+				$i_used++;
+			}		
+		}
+		echo sizeof($arr_short);
+		exit;
+
 	}
 
-	//중기예보
+
+	//중기육상예보
 	public function mid_term_forecast()
 	{
+		//현재 날짜,시간 가져오는 함수
+		$today = date("Ymd");
+
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst'; /*URL*/
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('XML'); /**/
-		$queryParams .= '&' . urlencode('stnId') . '=' . urlencode('108'); /**/
-		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode('201310170600'); /**/
 		
-		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		$response = curl_exec($ch);
-		curl_close($ch);
-		
-		var_dump($response);
-	
-	}
-	
-	//일자별 예보
-	public function day()
-	{
-		$this->load->database();
-
-		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/AsosDalyInfoService/getWthrDataList'; /*URL*/
 		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
 		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
 		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
 		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
-		$queryParams .= '&' . urlencode('dataCd') . '=' . urlencode('ASOS'); /**/
-		$queryParams .= '&' . urlencode('dateCd') . '=' . urlencode('DAY'); /**/
-		$queryParams .= '&' . urlencode('startDt') . '=' . urlencode('20230414'); /**/
-		$queryParams .= '&' . urlencode('endDt') . '=' . urlencode('20230414'); /**/
-		$queryParams .= '&' . urlencode('stnIds') . '=' . urlencode('108'); /**/
-
-		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		$response = curl_exec($ch);
-		curl_close($ch);
-
-		var_dump($response);
-	}
-
-	//시간별 예보
-	public function time()
-	{
-
-		$this->load->database();
-
-		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList'; /*URL*/
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
-		$queryParams .= '&' . urlencode('dataCd') . '=' . urlencode('ASOS'); /**/
-		$queryParams .= '&' . urlencode('dateCd') . '=' . urlencode('HR'); /**/
-		$queryParams .= '&' . urlencode('startDt') . '=' . urlencode('20230414'); /**/
-		$queryParams .= '&' . urlencode('startHh') . '=' . urlencode('00'); /**/
-		$queryParams .= '&' . urlencode('endDt') . '=' . urlencode('20230414'); /**/
-		$queryParams .= '&' . urlencode('endHh') . '=' . urlencode('23'); /**/
-		$queryParams .= '&' . urlencode('stnIds') . '=' . urlencode('108'); /**/
+		$queryParams .= '&' . urlencode('stnId') . '=' . urlencode('11D10000'); /**/
+		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode('202305120600'); /**/
 		
 		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -131,58 +144,18 @@ class main extends CI_Controller {
 		curl_close($ch);
 		
 		var_dump($response);
-	}
 
-	//영향예보
-	public function impact_forecast()
-	{
-		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/ImpactInfoService/getHWImpactValue'; /*URL*/
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('XML'); /**/
-		$queryParams .= '&' . urlencode('regId') . '=' . urlencode('L1071600'); /**/
-		$queryParams .= '&' . urlencode('tm') . '=' . urlencode('20200115'); /**/
-	
-		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		$response = curl_exec($ch);
-		curl_close($ch);
-	
-		var_dump($response);	
+		//var_dump($today.'0600');  =>>0600tl,1800시 두가지 고민-------------------------------------------
+		exit;
 
 	}
+
 
 	//생활지수
 	public function living_forecast()
 	{
 
 
-	}
-
-	//태풍예보
-	public function typhoon_forecast()
-	{
-		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/TyphoonInfoService/getTyphoonInfo'; /*URL*/
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('XML'); /**/
-		$queryParams .= '&' . urlencode('fromTmFc') . '=' . urlencode('20120928'); /**/
-		$queryParams .= '&' . urlencode('toTmFc') . '=' . urlencode('20120928'); /**/
-		
-		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_HEADER, FALSE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		$response = curl_exec($ch);
-		curl_close($ch);
-		
-		var_dump($response);
 	}
 
 
