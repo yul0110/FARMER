@@ -31,22 +31,24 @@ class Bath extends CI_Controller {
 
 
 	//단기예보
-	public function short_term_forecast()
-	{	
+	public function short_term_ajax()
+	{		
+		$this->load->model('bath_model');
+
 		//현재 날짜 가져오는 함수
 		$today = date("Ymd");
 		
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
-		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'; //URL
-		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; //Service Key
-		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
-		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
-		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
-		$queryParams .= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
-		$queryParams .= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
-		$queryParams .= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
-		$queryParams .= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
+		$ch 			= curl_init();
+		$url 			= 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'; //URL
+		$queryParams 	= '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; //Service Key
+		$queryParams 	.= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
+		$queryParams 	.= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
+		$queryParams 	.= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
+		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
+		$queryParams 	.= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
+		$queryParams 	.= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
+		$queryParams 	.= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
 		
 		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);  //URL 지정하기
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);      //요청 결과를 문자로 반환
@@ -59,69 +61,77 @@ class Bath extends CI_Controller {
 
 		//php배열로 파싱
 		$data_value = json_decode($response, true);
-
 		$data_value_response 					= $data_value['response'];
-
 		$data_value_response_body 				= $data_value_response['body'];
-
 		$data_value_response_body_items 		= $data_value_response_body['items'];
-
 		$data_value_response_body_items_item 	= $data_value_response_body_items['item'];
 
-		$arr_size = sizeof($data_value_response_body_items_item);
-		//echo $arr_size; //809
+		//리스폰된 데이터를 정리후에 배열의 사이즈를 변수에 담아둠
+		$arr_size = sizeof($data_value_response_body_items_item); //809
+		
 
-		$arr_short = array(); //1차원 list
-
-		$i_used = 0; //필요한 0600 1200인 데이터만 배열에 담기 위한 카운트
+		$arr_short		= array(); //1차원 list - db에 넣을 데이터
+		$i_used 		= 0; //필요한 0600 1200인 데이터만 배열에 담기 위한 카운트
 
 		for($i = 0 ; $i < $arr_size; $i++){
 
-			$items_item = $data_value_response_body_items_item[$i]; //조건문 809회 반복
+			$items_item = $data_value_response_body_items_item[$i]; //반복문 809회 반복중
 
 			//fcstTime이 0600 이거나 1200 애들만 담아줘야하고 809개의 배열이 아닌 있는 만큼만 배열이 생성해야됨
 			if($items_item['fcstTime'] === "0600"){
+				
+				$accurateDay = 'N';
+
+				if($items_item['fcstDate'] == $today){
+					$accurateDay = 'Y';
+				}
 
 				//1차원 안에 -> 2차원 배열 map 형성
-				$arr_short[$i_used] = array(
-					
-					'fcstDate'	=> $items_item['fcstDate'],
-					'fcstTime'	=> $items_item['fcstTime'],
-					'fcstValue'	=> $items_item['fcstValue'],
-					'category' 	=> $items_item['category']
+				$arr_short[$i_used] = 
+				array(
+					'fcstDate'		=> $items_item['fcstDate'],
+					'fcstTime'		=> $items_item['fcstTime'],
+					'fcstValue'		=> $items_item['fcstValue'],
+					'category'		=> $items_item['category'],
+					'accurateDay'	=> $accurateDay
 				);
-
-				print_r($arr_short[$i_used]);
-				echo '<br>';
 
 				$i_used++;
 			}
 			
 			if($items_item['fcstTime'] === "1200"){
 
+				$accurateDay = 'N';
+
+				if($items_item['fcstDate'] == $today){
+					$accurateDay = 'Y';
+				}
+
 				//1차원 안에 -> 2차원 배열 map 형성
 				$arr_short[$i_used] = array(
 					
-					'fcstDate'	=> $items_item['fcstDate'],
-					'fcstTime'	=> $items_item['fcstTime'],
-					'fcstValue'	=> $items_item['fcstValue'],
-					'category' 	=> $items_item['category']
+					'fcstDate'		=> $items_item['fcstDate'],
+					'fcstTime'		=> $items_item['fcstTime'],
+					'fcstValue'		=> $items_item['fcstValue'],
+					'category' 		=> $items_item['category'],
+					'accurateDay'	=> $accurateDay
 				);
-
-				print_r($arr_short[$i_used]);
-				echo '<br>';
 
 				$i_used++;
 			}		
-		}
-		echo sizeof($arr_short);
-		exit;
+		}//for end
+		
+		$result_flag = $this->bath_model->insert_shortTerm($arr_short);
+
+		echo json_encode(array(
+			'result'	=> $result_flag
+		));
 
 	}
 
 
-	//중기육상예보
-	public function mid_term_forecast()
+	//중기육상예보		
+	public function mid_term_ajax()
 	{
 		//현재 날짜,시간 가져오는 함수
 		$today = date("Ymd");
@@ -147,14 +157,6 @@ class Bath extends CI_Controller {
 
 		//var_dump($today.'0600');  =>>0600tl,1800시 두가지 고민-------------------------------------------
 		exit;
-
-	}
-
-
-	//생활지수
-	public function living_forecast()
-	{
-
 
 	}
 

@@ -6,7 +6,7 @@
 	
 	//init
 	yul.page.prototype.init = function() {
-
+		
 	}
 	
 

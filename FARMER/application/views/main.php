@@ -46,7 +46,18 @@
 
                         <div id="calendar-wrap">
                             <header class="text-center">
-                                <h1><span class="badge bg-primary">3월</span></h1>
+                                <h1>                                
+                                    <button type="button" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-chevron-left"></i> 이전달
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span class="badge" style="background-color:#8e352e;">3월</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-chevron-right"></i> 다음달
+                                    </button>
+                                </h1>
+                                
                             </header>
                             <div id="calendar">
                                 <ul class="weekdays">
@@ -58,7 +69,7 @@
                                     <li>Friday</li>
                                     <li>Saturday</li>
                                 </ul>
-
+ 
                                 <!-- Days from previous month -->
 
                                 <ul class="days">
