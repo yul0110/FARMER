@@ -35,8 +35,10 @@ class Bath extends CI_Controller {
 	{		
 		$this->load->model('bath_model');
 
+
 		//현재 날짜 가져오는 함수
 		$today = date("Ymd");
+		$yesterday = date("Ymd", strtotime("-1 day"));
 		
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
 		$ch 			= curl_init();
@@ -45,7 +47,7 @@ class Bath extends CI_Controller {
 		$queryParams 	.= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
 		$queryParams 	.= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
 		$queryParams 	.= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
-		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
+		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($yesterday); //발표일자
 		$queryParams 	.= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
 		$queryParams 	.= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
 		$queryParams 	.= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
@@ -130,21 +132,110 @@ class Bath extends CI_Controller {
 	}
 
 
-	//중기육상예보		
+	//중기육상예보 	
+	public function mid_athletics_ajax()
+	{	
+		$this->load->model('bath_model');
+
+		//현재 날짜,시간 가져오는 함수
+		$today = date("Ymd");
+		$yesterday = date("Ymd", strtotime("-1 day"));
+
+		$ch = curl_init();
+		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst'; /*URL*/
+		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
+		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
+		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
+		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
+		$queryParams .= '&' . urlencode('regId') . '=' . urlencode('11D10000'); /**/
+		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode($today.'0600'); /**/
+		
+		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		$response = curl_exec($ch);
+		curl_close($ch);
+
+		//var_dump($response);
+
+		//php배열로 파싱
+		$data_value = json_decode($response, true);
+		$data_value_response 					= $data_value['response'];
+		$data_value_response_body 				= $data_value_response['body'];
+		$data_value_response_body_items 		= $data_value_response_body['items'];
+		$data_value_response_body_items_item 	= $data_value_response_body_items['item'];
+		
+		//리스폰된 데이터를 정리후에 배열의 사이즈를 변수에 담아둠
+		$arr_size 	= sizeof($data_value_response_body_items_item[0]);
+		$value_it 	= $data_value_response_body_items_item[0];
+
+		$arr_mid = array();
+
+		array_push($arr_mid, array(
+			'day' 		=> 4,
+			'weather'	=> $value_it['wf4Am']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 5,
+			'weather'	=> $value_it['wf5Am']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 6,
+			'weather'	=> $value_it['wf6Am']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 7,
+			'weather'	=> $value_it['wf7Am']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 8,
+			'weather'	=> $value_it['wf8']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 9,
+			'weather'	=> $value_it['wf9']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 10,
+			'weather'	=> $value_it['wf10']
+		));
+
+		$result_flag = $this->bath_model->insert_mid_athletics($arr_mid);
+		
+		echo json_encode(array(
+			'result'	=> $result_flag
+		));
+
+	}
+
+
+
+
+
+
+
+
+	//중기기온예보		
 	public function mid_term_ajax()
 	{
 		//현재 날짜,시간 가져오는 함수
 		$today = date("Ymd");
 
 		$ch = curl_init();
-		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst'; /*URL*/
-		
+		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa'; /*URL*/
 		$queryParams = '?' . urlencode('serviceKey') . '=6c1ibqxDdUm7DmnffdCUeTER%2Fa1%2FV9Rjwxla0UInk3ChEu50QanAdDiap49sJz9QFI90qRrEIvGTVfSaZBIHBw%3D%3D'; /*Service Key*/
 		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
 		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
 		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
-		$queryParams .= '&' . urlencode('stnId') . '=' . urlencode('11D10000'); /**/
-		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode('202305120600'); /**/
+		$queryParams .= '&' . urlencode('regId') . '=' . urlencode('11D10000'); /**/
+		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode($today.'0600'); /**/
 		
 		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -154,11 +245,8 @@ class Bath extends CI_Controller {
 		curl_close($ch);
 		
 		var_dump($response);
-
-		//var_dump($today.'0600');  =>>0600tl,1800시 두가지 고민-------------------------------------------
-		exit;
-
 	}
+
 
 
 }
