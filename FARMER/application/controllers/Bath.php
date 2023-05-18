@@ -19,7 +19,6 @@ class Bath extends CI_Controller {
 		//화면에 데이터를 내리기 위한 주머니
 		$data = array(
 			'login_in' => false
-			
 		);
 		//$data['login_in'] = false;
 		if(isset($this->session->userdata['logged_in'])){
@@ -29,14 +28,10 @@ class Bath extends CI_Controller {
 		$this->load->view('main');
 	}
 
-
 	//단기예보
 	public function short_term_ajax()
 	{		
 		$this->load->model('bath_model');
-
-
-		//현재 날짜 가져오는 함수
 		$today = date("Ymd");
 		
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
@@ -70,7 +65,6 @@ class Bath extends CI_Controller {
 		//리스폰된 데이터를 정리후에 배열의 사이즈를 변수에 담아둠
 		$arr_size = sizeof($data_value_response_body_items_item); //809
 		
-
 		$arr_short		= array(); //1차원 list - db에 넣을 데이터
 		$i_used 		= 0; //필요한 0600 1200인 데이터만 배열에 담기 위한 카운트
 
@@ -86,7 +80,6 @@ class Bath extends CI_Controller {
 				if($items_item['fcstDate'] == $today){
 					$accurateDay = 'Y';
 				}
-
 				//1차원 안에 -> 2차원 배열 map 형성
 				$arr_short[$i_used] = 
 				array(
@@ -96,7 +89,6 @@ class Bath extends CI_Controller {
 					'category'		=> $items_item['category'],
 					'accurateDay'	=> $accurateDay
 				);
-
 				$i_used++;
 			}
 			
@@ -107,7 +99,6 @@ class Bath extends CI_Controller {
 				if($items_item['fcstDate'] == $today){
 					$accurateDay = 'Y';
 				}
-
 				//1차원 안에 -> 2차원 배열 map 형성
 				$arr_short[$i_used] = array(
 					
@@ -117,13 +108,11 @@ class Bath extends CI_Controller {
 					'category' 		=> $items_item['category'],
 					'accurateDay'	=> $accurateDay
 				);
-
 				$i_used++;
 			}		
 		}//for end
 		
 		$result_flag = $this->bath_model->insert_shortTerm($arr_short);
-
 		echo json_encode(array(
 			'result'	=> $result_flag
 		));
@@ -135,8 +124,6 @@ class Bath extends CI_Controller {
 	public function mid_athletics_ajax()
 	{	
 		$this->load->model('bath_model');
-
-		//현재 날짜,시간 가져오는 함수
 		$today = date("Ymd");
 
 		$ch = curl_init();
@@ -154,8 +141,6 @@ class Bath extends CI_Controller {
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 		$response = curl_exec($ch);
 		curl_close($ch);
-
-		//var_dump($response);
 
 		//php배열로 파싱
 		$data_value = json_decode($response, true);
@@ -211,7 +196,6 @@ class Bath extends CI_Controller {
 		));
 
 		$result_flag = $this->bath_model->insert_mid_athletics($arr_mid);
-		
 		echo json_encode(array(
 			'result'	=> $result_flag
 		));
@@ -241,8 +225,6 @@ class Bath extends CI_Controller {
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 		$response = curl_exec($ch);
 		curl_close($ch);
-		
-		//var_dump($response);
 
 		//php배열로 파싱
 		$data_value = json_decode($response, true);
@@ -254,8 +236,6 @@ class Bath extends CI_Controller {
 		//리스폰된 데이터를 정리후에 배열의 사이즈를 변수에 담아둠
 		$arr_size 	= sizeof($data_value_response_body_items_item[0]);
 		$value_it 	= $data_value_response_body_items_item[0];
-
-		//var_dump($value_it);
 		
 		$arr_mid = array();
 
@@ -306,19 +286,11 @@ class Bath extends CI_Controller {
 			'taMin'		=> $value_it['taMin10'],
 			'taMax' 	=> $value_it['taMax10']
 		));
-		// var_dump($arr_mid);
-		// exit;
 
 		$result_flag = $this->bath_model->insert_mid_term($arr_mid);
-		echo $result_flag ;
-
 		echo json_encode(array(
 			'result'	=> $result_flag
 		));
-
 	}
-
-
-
 }
 

@@ -47,12 +47,11 @@ class bath_model extends CI_Model {
         $this->load->database();
         $this->load->model('common_model'); 
 
-        $insert_data_size   = sizeof($arr_mid); //가공된 데이터 사이즈 8개 예상       
-        $insert_flag        = 0;    //0인 경우 insert 실패 / 1이상인 경우 성공!!
+        $insert_data_size   = sizeof($arr_mid); //8개  
+        $insert_flag        = 0;    
 
         for($i = 0; $i < $insert_data_size; $i++){
     
-            //$arr_mid[$i];
             $id = 0;
             $table_nm       = 'midAthletics';
             $number_result  = $this->common_model->numbering($table_nm);  
@@ -64,13 +63,9 @@ class bath_model extends CI_Model {
                 'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),
                 'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))                 
             );
-            var_dump($data);
-
-
             // insert 쿼리 
             $insert_flag = $this->db->insert('midAthletics', $data);
         }
-
         return $insert_flag;
     }
 
@@ -82,11 +77,8 @@ class bath_model extends CI_Model {
         $insert_data_size   = sizeof($arr_mid); //8
         $insert_flag        = 0;    
 
-        // var_dump($insert_data_size);
-        // exit;
         for($i = 0; $i < $insert_data_size; $i++){
-    
-            //$arr_mid[$i];
+
             $id = 0;
             $table_nm       = 'midTerm';
             $number_result  = $this->common_model->numbering($table_nm);  
@@ -99,7 +91,6 @@ class bath_model extends CI_Model {
                 'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),
                 'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))                 
             );
-            
             // insert 쿼리 
             $insert_flag = $this->db->insert('midTerm', $data);
         }
