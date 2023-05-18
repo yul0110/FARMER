@@ -38,7 +38,6 @@ class Bath extends CI_Controller {
 
 		//현재 날짜 가져오는 함수
 		$today = date("Ymd");
-		$yesterday = date("Ymd", strtotime("-1 day"));
 		
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
 		$ch 			= curl_init();
@@ -47,7 +46,7 @@ class Bath extends CI_Controller {
 		$queryParams 	.= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
 		$queryParams 	.= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
 		$queryParams 	.= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
-		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($yesterday); //발표일자
+		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
 		$queryParams 	.= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
 		$queryParams 	.= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
 		$queryParams 	.= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
@@ -139,7 +138,6 @@ class Bath extends CI_Controller {
 
 		//현재 날짜,시간 가져오는 함수
 		$today = date("Ymd");
-		$yesterday = date("Ymd", strtotime("-1 day"));
 
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst'; /*URL*/
@@ -171,6 +169,11 @@ class Bath extends CI_Controller {
 		$value_it 	= $data_value_response_body_items_item[0];
 
 		$arr_mid = array();
+
+		array_push($arr_mid, array(
+			'day' 		=> 3,
+			'weather'	=> $value_it['wf3Am']
+		));
 
 		array_push($arr_mid, array(
 			'day' 		=> 4,
@@ -216,15 +219,10 @@ class Bath extends CI_Controller {
 	}
 
 
-
-
-
-
-
-
-	//중기기온예보		
+	//중기기온예보	=>> 최근 24시간 자료만 제공	
 	public function mid_term_ajax()
 	{
+		$this->load->model('bath_model');
 		//현재 날짜,시간 가져오는 함수
 		$today = date("Ymd");
 
@@ -234,7 +232,7 @@ class Bath extends CI_Controller {
 		$queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
 		$queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
 		$queryParams .= '&' . urlencode('dataType') . '=' . urlencode('JSON'); /**/
-		$queryParams .= '&' . urlencode('regId') . '=' . urlencode('11D10000'); /**/
+		$queryParams .= '&' . urlencode('regId') . '=' . urlencode('11D10402'); /**/
 		$queryParams .= '&' . urlencode('tmFc') . '=' . urlencode($today.'0600'); /**/
 		
 		curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
@@ -244,7 +242,80 @@ class Bath extends CI_Controller {
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		var_dump($response);
+		//var_dump($response);
+
+		//php배열로 파싱
+		$data_value = json_decode($response, true);
+		$data_value_response 					= $data_value['response'];
+		$data_value_response_body 				= $data_value_response['body'];
+		$data_value_response_body_items 		= $data_value_response_body['items'];
+		$data_value_response_body_items_item 	= $data_value_response_body_items['item'];
+		
+		//리스폰된 데이터를 정리후에 배열의 사이즈를 변수에 담아둠
+		$arr_size 	= sizeof($data_value_response_body_items_item[0]);
+		$value_it 	= $data_value_response_body_items_item[0];
+
+		//var_dump($value_it);
+		
+		$arr_mid = array();
+
+		array_push($arr_mid, array(
+			'day' 		=> 3,
+			'taMin'		=> $value_it['taMin3'],
+			'taMax' 	=> $value_it['taMax3']
+		));
+		
+		array_push($arr_mid, array(
+			'day' 		=> 4,
+			'taMin'		=> $value_it['taMin4'],
+			'taMax' 	=> $value_it['taMax4']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 5,
+			'taMin'		=> $value_it['taMin5'],
+			'taMax' 	=> $value_it['taMax5']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 6,
+			'taMin'		=> $value_it['taMin6'],
+			'taMax' 	=> $value_it['taMax6']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 7,
+			'taMin'		=> $value_it['taMin7'],
+			'taMax' 	=> $value_it['taMax7']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 8,
+			'taMin'		=> $value_it['taMin8'],
+			'taMax' 	=> $value_it['taMax8']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 9,
+			'taMin'		=> $value_it['taMin9'],
+			'taMax' 	=> $value_it['taMax9']
+		));
+
+		array_push($arr_mid, array(
+			'day' 		=> 10,
+			'taMin'		=> $value_it['taMin10'],
+			'taMax' 	=> $value_it['taMax10']
+		));
+		// var_dump($arr_mid);
+		// exit;
+
+		$result_flag = $this->bath_model->insert_mid_term($arr_mid);
+		echo $result_flag ;
+
+		echo json_encode(array(
+			'result'	=> $result_flag
+		));
+
 	}
 
 
