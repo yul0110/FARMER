@@ -23,7 +23,7 @@ class bath_model extends CI_Model {
             $id = 0;
             $table_nm       = 'shortTerm';
             $number_result  = $this->common_model->numbering($table_nm);  
-            
+
             $data = array(
                 'id'            => $number_result + 1,
                 'fcstDate'      => $arr_short[$i]['fcstDate'],
@@ -31,14 +31,14 @@ class bath_model extends CI_Model {
                 'fcstValue'     => $arr_short[$i]['fcstValue'],
                 'category'      => $arr_short[$i]['category'],
                 'accurateDay'   => $arr_short[$i]['accurateDay'],
-                'realTime'      => date("Y-m-d", strtotime($arr_short[$i]['fcstDate']))
+                'realTime'      => date("Y-m-d", strtotime($arr_short[$i]['fcstDate'])),
+                'inquireDate'   => date("Y-m-d H:i:s", strtotime($arr_short[$i]['fcstDate'])),
+                'stTime'        => $arr_short[$i]['fcstDate']  
             );
 
             // insert 쿼리 for문 만큼 넣어줌
             $insert_flag = $this->db->insert('shortTerm', $data);
         }
-        
-        
         return $insert_flag;
     }
 

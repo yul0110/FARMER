@@ -9,7 +9,7 @@
                 <div class="card mb-15">
                     <div class="card-body">
                         <span class="badge bg-success float-right">온도</span>
-                        <h6 id="" class="card-title text-muted mb-10"></h6>
+                        <h6 id="" class="card-title text-muted mb-10">2023.5.18</h6>
                         <p class="text-muted mb-0">최고온도
                             <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
                         </p>

@@ -83,6 +83,7 @@ class Bath extends CI_Controller {
 				//1차원 안에 -> 2차원 배열 map 형성
 				$arr_short[$i_used] = 
 				array(
+	
 					'fcstDate'		=> $items_item['fcstDate'],
 					'fcstTime'		=> $items_item['fcstTime'],
 					'fcstValue'		=> $items_item['fcstValue'],
