@@ -77,7 +77,7 @@ class Bath extends CI_Controller {
 				
 				$accurateDay = 'N';
 
-				if($items_item['baseDate'] == $today){
+				if($items_item['fcstDate'] == $today){
 					$accurateDay = 'Y';
 				}
 				//1차원 안에 -> 2차원 배열 map 형성
@@ -97,7 +97,7 @@ class Bath extends CI_Controller {
 
 				$accurateDay = 'N';
 
-				if($items_item['baseDate'] == $today){
+				if($items_item['fcstDate'] == $today){
 					$accurateDay = 'Y';
 				}
 				//1차원 안에 -> 2차원 배열 map 형성
