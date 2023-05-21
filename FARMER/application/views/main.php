@@ -61,13 +61,13 @@
                             </header>
                             <div id="calendar">
                                 <ul class="weekdays">
-                                    <li>Sunday</li>
-                                    <li>Monday</li>
-                                    <li>Tuesday</li>
-                                    <li>Wednesday</li>
-                                    <li>Thursday</li>
-                                    <li>Friday</li>
-                                    <li>Saturday</li>
+                                    <li>일요일</li>
+                                    <li>월요일</li>
+                                    <li>화요일</li>
+                                    <li>수요일</li>
+                                    <li>목요일</li>
+                                    <li>금요일</li>
+                                    <li>토요일</li>
                                 </ul>
  
                                 <!-- Days from previous month -->

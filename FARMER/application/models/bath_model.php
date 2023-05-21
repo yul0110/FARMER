@@ -26,7 +26,7 @@ class bath_model extends CI_Model {
 
             $data = array(
                 'id'            => $number_result + 1,
-                'fcstDate'      => $arr_short[$i]['fcstDate'],
+                'baseDate'      => $arr_short[$i]['baseDate'],
                 'fcstTime'      => $arr_short[$i]['fcstTime'],
                 'fcstValue'     => $arr_short[$i]['fcstValue'],
                 'category'      => $arr_short[$i]['category'],
