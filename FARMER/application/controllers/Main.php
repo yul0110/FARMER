@@ -61,27 +61,23 @@ class main extends CI_Controller {
 		$future_day			= $calendar_all_day - $last_week;	
 
 		//화면에 뿌릴 캘린더 기본틀-------------------------------------------------------------------------------------------------------------
-		$calendar_array = array();
+		$calendar_array = array(); //총 42개를 생각, 달력생성
 
 		//과거일수 날짜
-		//이번달 일수 날짜 전부
-		//미래일수 날짜 전부
-		//총 42개를 생각, 달력생성
 		for($i=$start_week; $i>0; $i--){
 			$in_data = "-".$i." days";			
 			array_push($calendar_array, array(
 											'cdata' => date("Ymd",strtotime ($in_data, strtotime($to_year.$to_month."01")))
 											));
 		}
-
+		//이번달 일수 날짜 전부
 		for($i=0; $i<$to_total_day ; $i++){
 			$in_data = "+".$i." days";			
 			array_push($calendar_array, array(
 											'cdata' => date("Ymd",strtotime ($in_data, strtotime($to_year.$to_month."01")))
 											));
 		}
-
-
+		//미래일수 날짜 전부
 		for($i=0; $i<$future_day ; $i++){
 			$in_data = "+".$i." days";			
 			array_push($calendar_array, array(
@@ -94,10 +90,7 @@ class main extends CI_Controller {
 		//지난달 과거일 + 이번달 과거일 (단기)
 		//이번달 오늘부터 2일 (단기)
 		//이번달 3일뒤부터 10일 (중기)
-		//나머지 날짜
 
-		//배열 42개 짜리 배열만든다
-		
 
 
 		// $result_flag = $this->main_model->select_now_month();

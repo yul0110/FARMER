@@ -32,7 +32,7 @@ class bath_model extends CI_Model {
                 'category'      => $arr_short[$i]['category'],
                 'accurateDay'   => $arr_short[$i]['accurateDay'],
                 'realTime'      => date("Y-m-d", strtotime($arr_short[$i]['fcstDate'])),
-                'inquireDate'   => date("Y-m-d H:i:s", strtotime($arr_short[$i]['fcstDate'])),
+                'inquireDate'   => date("Y-m-d H:i:s", strtotime($arr_short[$i]['baseDate'])),
                 'stTime'        => $arr_short[$i]['fcstDate']  
             );
 
