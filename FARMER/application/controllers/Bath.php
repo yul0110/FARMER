@@ -71,16 +71,36 @@ class Bath extends CI_Controller {
 		for($i = 0 ; $i < $arr_size; $i++){
 
 			$items_item = $data_value_response_body_items_item[$i]; //반복문 809회 반복중
+			
+			if($items_item['fcstDate'] == $today){
+				$accurateDay = 'Y';
+			}
 
-			//fcstTime이 0600 이거나 1200 애들만 담아줘야하고 809개의 배열이 아닌 있는 만큼만 배열이 생성해야됨
-			if($items_item['fcstTime'] === "0600"){
-				
-				$accurateDay = 'N';
+			$inset_flag = false;
 
-				if($items_item['fcstDate'] == $today){
-					$accurateDay = 'Y';
-				}
+			if($items_item['category'] == 'POP'){ //매시간
+				$inset_flag = true;
+			}
+
+			if($items_item['category'] == 'REH'){ //매시간
+				$inset_flag = true;
+			}
+
+			if($items_item['category'] == 'SKY'){ //매시간
+				$inset_flag = true;
+			}
+
+			if($items_item['category'] == 'TMN'){ // 2개 //최저온도는 오늘을 제외한 내일 내일모레
+				$inset_flag = true;
+			}
+
+			if($items_item['category'] == 'TMX'){ // 3개 //매일 0600
+				$inset_flag = true;
+			}
+
+			if($inset_flag){
 				//1차원 안에 -> 2차원 배열 map 형성
+				echo '<br>'.$i;
 				$arr_short[$i_used] = 
 				array(
 					'baseDate'		=> $items_item['baseDate'],
@@ -91,26 +111,10 @@ class Bath extends CI_Controller {
 					'accurateDay'	=> $accurateDay
 				);
 				$i_used++;
-			}
-			
-			if($items_item['fcstTime'] === "1200"){
-
+				$inset_flag = false;
 				$accurateDay = 'N';
-
-				if($items_item['fcstDate'] == $today){
-					$accurateDay = 'Y';
-				}
-				//1차원 안에 -> 2차원 배열 map 형성
-				$arr_short[$i_used] = array(
-					'baseDate'		=> $items_item['baseDate'],
-					'fcstDate'		=> $items_item['fcstDate'],
-					'fcstTime'		=> $items_item['fcstTime'],
-					'fcstValue'		=> $items_item['fcstValue'],
-					'category' 		=> $items_item['category'],
-					'accurateDay'	=> $accurateDay
-				);
-				$i_used++;
-			}		
+			}
+						
 		}//for end
 		
 		$result_flag = $this->bath_model->insert_shortTerm($arr_short);
