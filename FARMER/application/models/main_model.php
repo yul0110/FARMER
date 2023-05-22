@@ -8,5 +8,9 @@ class main_model extends CI_Model {
         parent::__construct();
     }
 
+    function select_now_month(){
+        $this->load->database();
 
-}
+    }
+
+} 
