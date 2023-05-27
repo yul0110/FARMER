@@ -32,7 +32,7 @@ class Bath extends CI_Controller {
 	public function short_term_ajax()
 	{		
 		$this->load->model('bath_model');
-		$today = date("Ymd");
+		$today = date("Ymd"); //20230524
 		
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
 		$ch 			= curl_init();
@@ -70,7 +70,7 @@ class Bath extends CI_Controller {
 
 		for($i = 0 ; $i < $arr_size; $i++){
 
-			$items_item = $data_value_response_body_items_item[$i]; //반복문 809회 반복중
+			$items_item = $data_value_response_body_items_item[$i]; //반복문 반복중
 			
 			if($items_item['fcstDate'] == $today){
 				$accurateDay = 'Y';
@@ -78,15 +78,15 @@ class Bath extends CI_Controller {
 
 			$inset_flag = false;
 
-			if($items_item['category'] == 'POP'){ //매시간
+			if($items_item['category'] == 'POP'){ //강수량
 				$inset_flag = true;
 			}
 
-			if($items_item['category'] == 'REH'){ //매시간
+			if($items_item['category'] == 'REH'){ //습도
 				$inset_flag = true;
 			}
 
-			if($items_item['category'] == 'SKY'){ //매시간
+			if($items_item['category'] == 'SKY'){ //날씨
 				$inset_flag = true;
 			}
 
@@ -94,15 +94,13 @@ class Bath extends CI_Controller {
 				$inset_flag = true;
 			}
 
-			if($items_item['category'] == 'TMX'){ // 3개 //매일 0600
+			if($items_item['category'] == 'TMX'){ // 3개 //매일 1500
 				$inset_flag = true;
 			}
 
 			if($inset_flag){
 				//1차원 안에 -> 2차원 배열 map 형성
-				echo '<br>'.$i;
-				$arr_short[$i_used] = 
-				array(
+				$short_data = array(
 					'baseDate'		=> $items_item['baseDate'],
 					'fcstDate'		=> $items_item['fcstDate'],
 					'fcstTime'		=> $items_item['fcstTime'],
@@ -110,6 +108,11 @@ class Bath extends CI_Controller {
 					'category'		=> $items_item['category'],
 					'accurateDay'	=> $accurateDay
 				);
+
+				$arr_short[$i_used] = $short_data;
+				
+				unset($short_data);
+
 				$i_used++;
 				$inset_flag = false;
 				$accurateDay = 'N';

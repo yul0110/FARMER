@@ -60,8 +60,8 @@ class bath_model extends CI_Model {
                 'id'            => $number_result + 1,
                 'weatherType'   => $arr_mid[$i]['weather'],
                 'realTime'      => date("Y-m-d H:i:s", strtotime(date("Ymd"))),
-                'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),
-                'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))                 
+                'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),  //다음달 처리해야함 1970-01-01 09:00:00.000
+                'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))           //다음달 처리해야함 19700101
             );
             // insert 쿼리 
             $insert_flag = $this->db->insert('midAthletics', $data);
@@ -88,8 +88,8 @@ class bath_model extends CI_Model {
                 'taMin'         => $arr_mid[$i]['taMin'],
                 'taMax'         => $arr_mid[$i]['taMax'],
                 'realTime'      => date("Y-m-d H:i:s", strtotime(date("Ymd"))),
-                'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),
-                'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))                 
+                'inquireDate'   => date("Y-m-d H:i:s", strtotime(date("Ymd") + $arr_mid[$i]['day'])),  //다음달 처리해야함 1970-01-01 09:00:00.000
+                'stTime'        => date("Ymd", strtotime(date("Ymd") + $arr_mid[$i]['day']))           //다음달 처리해야함 19700101
             );
             // insert 쿼리 
             $insert_flag = $this->db->insert('midTerm', $data);
