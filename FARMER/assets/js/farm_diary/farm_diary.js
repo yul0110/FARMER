@@ -46,7 +46,7 @@
                 data :
                 {
                     "title" : title,
-					"contents" : contents,
+					"contents" : contents
                 },
                 dataType: "json",
                 url : '/farm_diary/diary_ajax',
