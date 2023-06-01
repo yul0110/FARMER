@@ -34,20 +34,32 @@ class main extends CI_Controller {
 	{
 		$this->load->model('main_model');
 
-		// POST으로 넘겨 받은 year값이 있다면 넘겨 받은걸 year변수에 적용, 없다면 현재 년도
-		$to_year 	= isset($_POST['year']) ? $_POST['year'] : date('Y');
-		$to_month 	= isset($_POST['month']) ? $_POST['month'] : date('m');
+		$now_year		= $_POST['nowYear'];
+		$now_month 		= $_POST['nowMonth']; //1
+		$update_month 	= $_POST['updateMonth']; //0
+		$to_year 		= $now_year == 0 ? date('Y') : $now_year;
+		$to_month 		= 0;
 
-		//현재가 1월이고 이전달이 12월인 경우
-		if($to_month <= 1){
-			$to_year  = $to_year - 1;
-			$to_month = 12;
+		if($now_month != 0){ //최초 1회만 타지 않는다
+
+			//현재가 1월이고 이전달이 12월인 경우
+			if($now_month <= 1){
+				$to_year  = $to_year - 1;
+				$to_month = 12;
+			}
+			//현재가 12월이고 다음달이 내년인 경우
+			if($now_month >= 12){
+				$to_year  = $to_year + 1;
+				$to_month = 1; 
+			}
+			//2월~11월 처리
+			if($now_month > 1 && $now_month < 12){  
+				$to_month = $update_month;
+			}
 		}
-		//현재가 12월이고 다음달이 내년인 경우
-		if($to_month >= 12){
-			$to_year  = $to_year + 1;
-			$to_month = 1;
-		}
+
+		// POST으로 넘겨 받은 month값이 1~12이면 넘겨 받은걸 month변수에 적용, 없다면 현재 월
+		$to_month 	= $now_month >= 1 && $now_month <= 12 ?  $to_month : date('m');
 
 		//기준을 잡기 위해 해당달의 1일을 만들어줌 
 		$first_date = $to_year."-".$to_month."-01"; //2023-05-01
@@ -254,8 +266,16 @@ class main extends CI_Controller {
 			}
 		}	
 
-		var_dump($calendar_array);
-		exit;
+		// var_dump($calendar_array);
+		// exit;
+
+		//데이터 result
+		echo json_encode(array(
+			'result'		=> sizeof($calendar_array),
+			'toYear'  		=> $to_year,
+			'toMonth'	  	=> $to_month,
+			'calendarArray' => $calendar_array
+		));
 	}//calendar_ajax
 
 		

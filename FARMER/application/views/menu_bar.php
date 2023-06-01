@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="../../assets/css/morioh.css">
 
     <!-- css -->
-    <link rel="stylesheet" href="../../assets/css/calendar.css">
+    <link rel="stylesheet" href="../../assets/css/calendar.css?ver=2">
     <!-- css -->
 
     
