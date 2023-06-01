@@ -9,7 +9,7 @@
 		this.clickEvent();
 	}
 	
-	//클릭이벤트 세팅
+	//이전달, 다음달 클릭 이벤트 
 	yul.page.prototype.clickEvent = function() {
 
 		$(document).on('click', '.btnMove', function(){
@@ -26,13 +26,9 @@
 				moveYear = moveYear + 1;
 				$('#nowYear').data(moveYear);
 			}
-
 			//console.log(moveNum);
-
 			//getList();
 		})
-
-
 	}
 
 	//작동할 이벤트를 프로토 타입으로 세팅
@@ -79,7 +75,8 @@
 					$('#calendar').html('');
 					weekNodeCopy.attr('style', '');
 					$('#calendar').append(weekNodeCopy); //요일생성
-
+					
+					//달력을 생성해주는 for문
 					for(var i=0; i<42; i++){		
 						
 						//calendarList배열을 이용해 날짜를 채워준다
@@ -98,10 +95,10 @@
 						}
 
 						if(frontDay == 0){
-							//일자가 한자리수
+							//해당 일자가 한자리수
 							dayNum = lastDay;
 						}else{
-							//일자가 두자리수
+							//해당 일자가 두자리수
 							dayNum = frontDay + lastDay;
 						}
 
@@ -114,18 +111,19 @@
 							$('#calendar').append(calendarItem);
 						}
 
+						//ul이 생길때 li생성
 						let calendarDayItem = calendarDayNodeCopy.clone();
 						calendarDayItem.attr('style', '');
 						calendarDayItem.attr('id', '');
 						
-						if(Number(monthNum) == Number(cnm)){ //monthNum=5 cnm =06 
+						//해당 월이 이번달과 같지 않으면 일자 앞에 몇월인지 붙여준다 ex)05/31
+						if(Number(monthNum) == Number(cnm)){ 
 							calendarDayItem.find('.dayNum').html(dayNum);
 						}else{
 							calendarDayItem.find('.dayNum').html(monthNum + '/' + dayNum);
 						}
 
 						$('.ul'+ulNum).append(calendarDayItem);
-
 					}
 
 					$.each(calendarList, function( i, item ) {

@@ -82,7 +82,7 @@ class Bath extends CI_Controller {
 				$inset_flag = true;
 			}
 
-			if($items_item['category'] == 'REH'){ //습도
+			if($items_item['category'] == 'PTY'){ //강수 형태
 				$inset_flag = true;
 			}
 
