@@ -21,7 +21,7 @@ class main_model extends CI_Model {
     //단기 과거 SKY 하늘상태   
     function select_last_month_sky($start_date, $now_date, $now_st_time){
         $this->load->database();
-        //SKY CODE => 맑음 (0 - 5) , 구름많음 (6 - 8) , 흐림 (9 - 10)
+        //SKY CODE => 맑음(1) , 구름많음(3) , 흐림(4)
         $now_st_time = '0900';
         
         $this->db
@@ -35,6 +35,25 @@ class main_model extends CI_Model {
 
         $sky_arr = $this->db->get(); 
         return $sky_arr->result_array();
+    }
+
+    //단기 과거 PTY 강수상태   
+    function select_last_month_pty($start_date, $now_date, $now_st_time){
+        $this->load->database();
+        //PTY CODE => 비(1) , 비/눈(3) , 눈(4)
+        $now_st_time = '0900';
+        
+        $this->db
+                ->select('stTime, category, fcstValue')
+                ->from('shortTerm')
+                ->where('category =', 'PTY')
+                ->where('accurateDay =', 'Y')
+                ->where('fcstTime =', $now_st_time)
+                ->where('realTime >=', $start_date)
+                ->where('realTime <', $now_date);
+
+        $pty_arr = $this->db->get(); 
+        return $pty_arr->result_array();
     }
 
     //단기 과거 TMN(최저기온) = '0600' 당일예보 없음 
@@ -73,7 +92,7 @@ class main_model extends CI_Model {
 //---이번달 (당일 포함 향후2일) 
 
     //단기예보 SKY (당일 포함 향후2일)	
-    //SKY CODE => 맑음 (0 - 5) , 구름많음 (6 - 8) , 흐림 (9 - 10)
+    //SKY CODE => 맑음(1) , 구름많음(3) , 흐림(4)
     function select_term_today_sky($now_date, $now_st_time){
         $this->load->database();
         $now_st_time = '0900';
@@ -88,6 +107,23 @@ class main_model extends CI_Model {
         $sky_arr = $this->db->get(); 
         return $sky_arr->result_array();
     }
+    
+    //단기예보 PTY (당일 포함 향후2일)	
+    //PTY CODE => 비(1) , 비/눈(3) , 눈(4)
+    function select_term_today_pty($now_date, $now_st_time){
+        $this->load->database();
+        $now_st_time = '0900';
+
+        $this->db
+        ->select('stTime, category, fcstValue')
+        ->from('shortTerm')
+        ->where('category =', 'PTY')
+        ->where('fcstTime =', $now_st_time)// 예보시간 = 현재시간
+        ->where('inquireDate =', $now_date); //조회날짜 = 현재날짜 시분초
+
+        $pty_arr = $this->db->get(); 
+        return $pty_arr->result_array();
+    } 
 
     //단기예보 TMN(최저기온) 당일 데이터 = '0600' 당일예보 없음 =>>전날 예보를 당일 사용
     function select_term_today_tmn($now_date, $yesterday){

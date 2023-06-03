@@ -75,16 +75,18 @@
 					$('#calendar').html('');
 					weekNodeCopy.attr('style', '');
 					$('#calendar').append(weekNodeCopy); //요일생성
-					
+
 					//달력을 생성해주는 for문
-					for(var i=0; i<42; i++){		
+					for(var i=0; i<calendarList.length; i++){		
 						
 						//calendarList배열을 이용해 날짜를 채워준다
-						var calendarDate	= calendarList[i].st_date; //20230528
-						var frontMonth		= calendarDate[4]; //0
-						var backMonth		= calendarDate[5]; //5
-						var frontDay		= calendarDate[6]; //2
-						var lastDay			= calendarDate[7]; //8
+						var calendarDate		= calendarList[i].st_date; //20230528
+						var calendarIconCode	= calendarList[i].icon_code;
+						var dayIcon				= $('.daySky');
+						var frontMonth			= calendarDate[4]; //0
+						var backMonth			= calendarDate[5]; //5
+						var frontDay			= calendarDate[6]; //2
+						var lastDay				= calendarDate[7]; //8
 
 						if(frontMonth == 0){ 
 							//해당 월이 한자리수
@@ -123,7 +125,40 @@
 							calendarDayItem.find('.dayNum').html(monthNum + '/' + dayNum);
 						}
 
+						//icon 넣어주기 
+						console.log(calendarIconCode);
+						if(calendarIconCode === ''){
+							// 날씨 데이터가 없는 경우
+							dayIcon.attr("src","/assets/images/icons/noForecast.png");
+
+						}else if(calendarIconCode === 'S'){
+							// 	S	: 맑음
+							dayIcon.attr("src", "/assets/images/icons/sunny.png");
+
+						}else if(calendarIconCode === 'CM'){
+							// 	CM	: 구름많음	
+							dayIcon.attr("src", "/assets/images/icons/cloudy.png");
+
+						}else if(calendarIconCode === 'C'){
+							// 	C	: 흐림
+							dayIcon.attr("src", "/assets/images/icons/cloudyAndRain.png");
+
+						}else if(calendarIconCode === 'R'){
+							// 	R	: 비
+							dayIcon.attr("src", "/assets/images/icons/rain.png");
+
+						}else if(calendarIconCode === 'RS'){
+							// 	RS	: 비/눈
+							dayIcon.attr("src", "/assets/images/icons/rainSnow.png");
+
+						}else if(calendarIconCode === 'SN'){
+							// 	SN	: 눈
+							dayIcon.attr("src", "/assets/images/icons/snow.png");
+						}
+
 						$('.ul'+ulNum).append(calendarDayItem);
+						dayIcon.removeClass('daySky'); //$('.daySky') 비워줌
+
 					}
 
 					$.each(calendarList, function( i, item ) {

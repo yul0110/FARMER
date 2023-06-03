@@ -194,7 +194,7 @@
             <li id='calendarDayNode' class="day">
                 <div class="calendarDay dayNum">일자</div>
                 <div>
-                    <img src="assets/images/sunny.png" class="daySky" style="max-width:30px; max-height:30px;">  
+                    <img src="assets/images/snow.png" class="daySky" style="max-width:30px; max-height:30px;">  
                     <i class="mdi mdi-arrow-down font-2xl" class="dayTmn" style="color:#2E9AFE;"></i>15 / 
                     <i class="mdi mdi-arrow-up font-2xl" class="dayTMX" style="color:#FA5858;"></i>35 
                 </div>
