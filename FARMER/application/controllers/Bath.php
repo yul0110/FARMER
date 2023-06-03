@@ -73,7 +73,8 @@ class Bath extends CI_Controller {
 			$items_item = $data_value_response_body_items_item[$i]; //반복문 반복중
 			
 			if($items_item['fcstDate'] == $today){
-				$accurateDay = 'Y';
+				$accurateDay = 'Y
+				';
 			}
 
 			$inset_flag = false;

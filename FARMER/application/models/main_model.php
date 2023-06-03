@@ -183,7 +183,7 @@ class main_model extends CI_Model {
         return $midAthletics_arr->result_array();
     }
 
-    //중기육상예보 (당일로부터 3일 후 ~ 10일치의 하늘상태) 
+    //중기일기예보 (당일로부터 3일 후 ~ 10일치의 최저/최고온도) 
     function select_midTerm($now_date){
         $this->load->database();
 

@@ -174,15 +174,22 @@ class main extends CI_Controller {
 																);		
 	//------------------------------------------------------------------------------------------------------------------------------------------------	
 
+	$select_midTerm_date = date('Y-m-d H').':00:00';
+
+	if($select_midTerm_date < date('Y-m-d').'06:00:00'){ //당일 06시 12시에 발표함 
+		//발표전 시각이라 어제데이터를 불러옴
+		$select_midTerm_date = date("Y-m-d",strtotime ("-1 days")).' 00:00:00';
+	}
+
 	//중기예보
-		//중기육상예보 (당일로부터 3일 후 ~ 10일치의 하늘상태)	
-		$midAthletics_arr = $this->main_model->select_midAthletics(
-																$calendar_today
-																);		
-		//중기예보 (당일로부터 3일 후 ~ 10일치의 최저,최고기온)	
-		$midTerm_arr = $this->main_model->select_midTerm(
-														$calendar_today
-														);	
+	//중기육상예보 (당일로부터 3일 후 ~ 10일치의 하늘상태)	
+	$midAthletics_arr = $this->main_model->select_midAthletics(
+															$select_midTerm_date
+															);		
+	//중기예보 (당일로부터 3일 후 ~ 10일치의 최저,최고기온)	
+	$midTerm_arr = $this->main_model->select_midTerm(
+													$select_midTerm_date
+													);	
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -396,14 +403,21 @@ class main extends CI_Controller {
 		//이번달 3일뒤부터 10일 (중기기온예보)      
 		for($x=0;$x < sizeof($calendar_array);$x++){ 			
 			for($y=0;$y < sizeof($midTerm_arr);$y++){
-				if($calendar_array[$x]['st_date'] == $midTerm_arr[$y]['stTime']){
+				
+				if($calendar_array[$x]['st_date'] == $midTerm_arr[$y]['stTime']){		
 					array_push($calendar_array[$x]['weather_data'], array(
-																		'taMin' => $midTerm_arr[$y]['taMin'],
-																		'taMax' => $midTerm_arr[$y]['taMax']
+																		'category'	=> 'TMN',
+																		'fcstValue' => $midTerm_arr[$y]['taMin']
+																	));
+																	
+					array_push($calendar_array[$x]['weather_data'], array(
+																		'category'	=> 'TMX',
+																		'fcstValue' => $midTerm_arr[$y]['taMax']
 																	));
 				}
 			}
-		}	
+		}
+		
 
 		// var_dump($calendar_array);
 		// exit;

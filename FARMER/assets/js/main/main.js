@@ -26,7 +26,6 @@
 				moveYear = moveYear + 1;
 				$('#nowYear').data(moveYear);
 			}
-			//console.log(moveNum);
 			//getList();
 		})
 	}
@@ -63,6 +62,7 @@
 					var calendarNodeCopy 	= $('#calendarNode').clone();
 					var calendarDayNodeCopy	= $('#calendarDayNode').clone();
 					
+					
 					//정적데이터 세팅
 					$('#calendarMonth').html(Number(d.toMonth) + '월');
 					$('#nowYear').val(d.toYear);
@@ -81,13 +81,13 @@
 						
 						//calendarList배열을 이용해 날짜를 채워준다
 						var calendarDate		= calendarList[i].st_date; //20230528
+						var calendarWeatherArr	= calendarList[i].weather_data;
 						var calendarIconCode	= calendarList[i].icon_code;
-						var dayIcon				= $('.daySky');
 						var frontMonth			= calendarDate[4]; //0
 						var backMonth			= calendarDate[5]; //5
 						var frontDay			= calendarDate[6]; //2
 						var lastDay				= calendarDate[7]; //8
-
+						
 						if(frontMonth == 0){ 
 							//해당 월이 한자리수
 							monthNum = backMonth;
@@ -117,7 +117,7 @@
 						let calendarDayItem = calendarDayNodeCopy.clone();
 						calendarDayItem.attr('style', '');
 						calendarDayItem.attr('id', '');
-						
+
 						//해당 월이 이번달과 같지 않으면 일자 앞에 몇월인지 붙여준다 ex)05/31
 						if(Number(monthNum) == Number(cnm)){ 
 							calendarDayItem.find('.dayNum').html(dayNum);
@@ -125,13 +125,12 @@
 							calendarDayItem.find('.dayNum').html(monthNum + '/' + dayNum);
 						}
 
-						//icon 넣어주기 
-						console.log(calendarIconCode);
-						if(calendarIconCode === ''){
-							// 날씨 데이터가 없는 경우
-							dayIcon.attr("src","/assets/images/icons/noForecast.png");
+						let dayIcon				= calendarDayItem.find('.daySky');
+						let dayTmn				= calendarDayItem.find('.dayTmn');
+						let dayTmx				= calendarDayItem.find('.dayTmx');
 
-						}else if(calendarIconCode === 'S'){
+						//icon 넣어주기
+						if(calendarIconCode === 'S'){
 							// 	S	: 맑음
 							dayIcon.attr("src", "/assets/images/icons/sunny.png");
 
@@ -150,15 +149,34 @@
 						}else if(calendarIconCode === 'RS'){
 							// 	RS	: 비/눈
 							dayIcon.attr("src", "/assets/images/icons/rainSnow.png");
-
 						}else if(calendarIconCode === 'SN'){
 							// 	SN	: 눈
-							dayIcon.attr("src", "/assets/images/icons/snow.png");
+							dayIcon.attr("src", "/assets/images/icons/snowman.png");
+						}else{
+							// 날씨 데이터가 없는 경우
+							dayIcon.attr("src","/assets/images/icons/noForecast.png");
+						}
+
+						
+						//dayTmn 최저기온 dayTMX 최고기온
+						if(calendarWeatherArr != undefined && calendarWeatherArr != '' && calendarWeatherArr != null){
+							for(t=0;t<calendarWeatherArr.length;t++){
+								if(calendarWeatherArr[t]['category'] == 'TMN'){ //최저기온
+									dayTmn.html(calendarWeatherArr[t]['fcstValue']+' / ');
+								}
+								if(calendarWeatherArr[t]['category'] == 'TMX'){ //최고기온
+									dayTmx.html(calendarWeatherArr[t]['fcstValue']);
+								}
+							}
+						}else{
+							dayTmn.remove();
+							dayTmx.remove();
 						}
 
 						$('.ul'+ulNum).append(calendarDayItem);
 						dayIcon.removeClass('daySky'); //$('.daySky') 비워줌
-
+						dayTmn.removeClass('dayTmn'); //$('.dayTmn') 비워줌
+						dayTmx.removeClass('dayTmx'); //$('.dayTmx') 비워줌
 					}
 
 					$.each(calendarList, function( i, item ) {

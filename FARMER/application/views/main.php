@@ -1,5 +1,5 @@
 
-<script src="../../assets/js/main/main.js?ver=7"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
+<script src="../../assets/js/main/main.js?ver=9"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
 
     <div class="container-fluid mt-15">
 
@@ -194,9 +194,9 @@
             <li id='calendarDayNode' class="day">
                 <div class="calendarDay dayNum">일자</div>
                 <div>
-                    <img src="assets/images/snow.png" class="daySky" style="max-width:30px; max-height:30px;">  
-                    <i class="mdi mdi-arrow-down font-2xl" class="dayTmn" style="color:#2E9AFE;"></i>15 / 
-                    <i class="mdi mdi-arrow-up font-2xl" class="dayTMX" style="color:#FA5858;"></i>35 
+                    <img src="" class="daySky" style="max-width:30px; max-height:30px;">  
+                    <span class="mdi mdi-arrow-down font-2xl dayTmn" style="color:#2E9AFE;">0 / </span>
+                    <span class="mdi mdi-arrow-up font-2xl dayTmx" style="color:#FA5858;">0</span>
                 </div>
             </li>
 
