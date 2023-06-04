@@ -26,9 +26,23 @@
 		
 		$(document).on('click', '#upload_ajax', function(){
 			
+			//var diaryDate	= $('#diaryDate').val();
+			var diaryInfo	= $('input[name="diaryInfo"]:checked').val(); //checked value
 			var title		= $('#title').val();
 			var contents 	= $('#contents').val();
-			
+
+			// //날짜 빈값 체크
+			// if(diaryDate == ""){
+			// 	alert("날짜를 선택해주세요."); 		
+			// 	return false;
+			// }
+
+			//중요도 빈값 체크		
+			if(diaryInfo == undefined){
+			alert('중요도를 체크해주세요');                       
+			return false;
+			}
+
 			//제목 빈값 체크
 			if(title == ""){
 			alert("제목을 작성해주세요."); 		
@@ -45,8 +59,9 @@
                 type : "POST",
                 data :
                 {
-                    "title" : title,
-					"contents" : contents
+					"diaryInfo"	: diaryInfo,
+                    "title"		: title,
+					"contents" 	: contents
                 },
                 dataType: "json",
                 url : '/farm_diary/diary_ajax',

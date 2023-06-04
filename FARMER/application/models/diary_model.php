@@ -16,15 +16,16 @@ class Diary_model extends CI_Model {
         date_default_timezone_set("Asia/Seoul");
 
         $data = array(
-            'id'          => $number_result + 1,
-            'title'       => $this->input->post('title'),
-            'contents'    => $this->input->post('contents'),
-            'imgGroupId'  => '123',
-            'regDt'       => date('Y-m-d H:i:s'),
-            'regId'       => 1,
-            'updateDt'    => date('Y-m-d H:i:s'),
-            'updateId'    => 1,
-            'useYn'       => 'Y'
+            'id'                => $number_result + 1,
+            'title'             => $this->input->post('title'),
+            'contents'          => $this->input->post('contents'),
+            'imgGroupId'        => '123',
+            'difficultyLevel'   => $this->input->post('diaryInfo'),
+            'regDt'             => date('Y-m-d H:i:s'),
+            'regId'             => 1,
+            'updateDt'          => date('Y-m-d H:i:s'),
+            'updateId'          => 1,
+            'useYn'             => 'Y'
 
         );
 

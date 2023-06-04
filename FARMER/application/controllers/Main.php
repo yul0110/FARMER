@@ -181,11 +181,14 @@ class main extends CI_Controller {
 																);		
 	//------------------------------------------------------------------------------------------------------------------------------------------------	
 
-	$select_midTerm_date = date('Y-m-d H').':00:00';
+	$select_midTerm_date = strtotime(date('Y-m-d H').':00:00');
+    $pt_already			 = strtotime(date('Y-m-d').' 06:00:00');																
 
-	if($select_midTerm_date < date('Y-m-d').'06:00:00'){ //당일 06시 12시에 발표함 
+	if($select_midTerm_date < $pt_already){ //당일 06시 12시에 발표함 
 		//발표전 시각이라 어제데이터를 불러옴
 		$select_midTerm_date = date("Y-m-d",strtotime ("-1 days")).' 00:00:00';
+	}else{
+		$select_midTerm_date = date("Y-m-d").' 00:00:00';
 	}
 
 	//중기예보
@@ -426,8 +429,6 @@ class main extends CI_Controller {
 		}
 		
 
-		// var_dump($calendar_array);
-		// exit;
 
 		//데이터 result
 		echo json_encode(array(

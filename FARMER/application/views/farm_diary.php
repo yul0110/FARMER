@@ -1,41 +1,34 @@
 
-        <script src="../../assets/js/farm_diary/farm_diary.js"></script>
+        <script src="../../assets/js/farm_diary/farm_diary.js?ver=3"></script>
 
         <div class="container-fluid mt-15">
 
             <div class="card mb-15">
                 <div class="card-body">
                     <h2>농사일지</h2>
-                    <br>                  
-                    <hr>
-                    <br>
-                    <div class="form-file">
-                        <input id="file_upload_ajax" type="file" class="form-file-input" id="customFile">
-                        <label class="form-file-label" for="customFile">
-                            <span class="form-file-text">이미지</span>
-                            <span class="form-file-button">파일 찾기</span>
-                        </label>
-                    </div>
-                    <br>
-                    <hr>
-                    <br>
+                    
                     <br>
                     <form role="form" class="form-horizontal">
 
                         <div class="mb-15">
-                                <label class="col-sm-2 col-form-label" for="date">날짜 선택</label>  
-                                    <input type="date" id="nowDate" value="">
-                            </div>
-                            <br>
+                            <label class="col-sm-2 col-form-label">날짜 선택</label>  
+                            <input type="date" id="diaryDate" value="">
+                        </div>
+
+                        <div class="mb-15">
+                            <label class="col-sm-2 col-form-label">중요도 선택</label>  
+                            <input type="radio" id="easy" name="diaryInfo" value="1"> <span class="badge bg-warning" for="easy">일기</span>&nbsp;&nbsp;
+                            <input type="radio" id="nomal" name="diaryInfo" value="2"> <span class="badge bg-success" for="nomal">일정</span>&nbsp;&nbsp;
+                            <input type="radio" id="hard" name="diaryInfo" value="3"> <span class="badge bg-danger" for="hard">중요한 일정</span>
+                        </div>
+                        <br>
 
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">일지 제목</label>
                             <div class="col-sm-10">
-                                <input type="text" id="title" name="example-input-normal"
-                                    class="form-control " placeholder="일지 제목을 입력해주세요">
+                                <input type="text" id="title" name="example-input-normal" class="form-control " placeholder="일지 제목을 입력해주세요">
                             </div>
                         </div>
-                        <br>
 
                         <div class="mb-15 row">
                             <label class="col-sm-2 col-form-label" for="example-input-normal">내용</label>
@@ -43,22 +36,32 @@
                                 <textarea id="contents" class="form-control" rows="2" placeholder="일지 내용을 입력해주세요"></textarea>
                             </div>
                         </div>
+                        <br>   
+                        <hr>
+                        <br>
+
+                        <div class="form-file">
+                            <input id="file_upload_ajax" type="file" class="form-file-input" id="customFile">
+                            <label class="form-file-label" for="customFile">
+                                <span class="form-file-text">이미지</span>
+                                <span class="form-file-button">파일 찾기</span>
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
                         <br>
 
                         <div class="mb-15">
-
                             <button id="upload_ajax" type="button" class="btn btn-block btn-outline-primary">
                                 일지 올리기
                             </button>
-
                         </div>
                         <br>
 
                     </form>
-
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -77,8 +80,6 @@
 
         gtag('config', 'UA-50750921-19');
         </script>
-
-        <script src="../../js/morioh.js"></script>
 
     </body>
 </html>
