@@ -21,6 +21,7 @@ class Diary_model extends CI_Model {
             'contents'          => $this->input->post('contents'),
             'imgGroupId'        => '123',
             'difficultyLevel'   => $this->input->post('diaryInfo'),
+            'inquireDate'       => $this->input->post('diaryDate'),
             'regDt'             => date('Y-m-d H:i:s'),
             'regId'             => 1,
             'updateDt'          => date('Y-m-d H:i:s'),

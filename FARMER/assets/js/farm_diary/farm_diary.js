@@ -26,16 +26,16 @@
 		
 		$(document).on('click', '#upload_ajax', function(){
 			
-			//var diaryDate	= $('#diaryDate').val();
+			var diaryDate	= $('#diaryDate').val();
 			var diaryInfo	= $('input[name="diaryInfo"]:checked').val(); //checked value
 			var title		= $('#title').val();
 			var contents 	= $('#contents').val();
 
-			// //날짜 빈값 체크
-			// if(diaryDate == ""){
-			// 	alert("날짜를 선택해주세요."); 		
-			// 	return false;
-			// }
+			//날짜 빈값 체크
+			if(diaryDate == ""){
+				alert("날짜를 선택해주세요."); 		
+				return false;
+			}
 
 			//중요도 빈값 체크		
 			if(diaryInfo == undefined){
@@ -59,6 +59,7 @@
                 type : "POST",
                 data :
                 {
+					"diaryDate"	: diaryDate,
 					"diaryInfo"	: diaryInfo,
                     "title"		: title,
 					"contents" 	: contents
