@@ -122,6 +122,13 @@ class main extends CI_Controller {
 		$calendar_yesterday		= date("Y-m-d",strtotime ("-1 days")).' 00:00:00'; 
 		$calendar_now_time		= date("h").'00'; //현재시간
 
+		$select_shortTerm_date = date('Y-m-d H').':00:00';
+
+		if($select_shortTerm_date < date('Y-m-d').'06:00:00'){ //당일 06시 12시에 발표함 
+			//발표전 시각이라 어제데이터를 불러옴
+			$select_shortTerm_date = date("Y-m-d",strtotime ("-1 days")).' 00:00:00';
+		}
+
 	//지난달 과거일 + 이번달 과거일 (단기예보)
 		//단기 과거 SKY(아이콘 출력)
 		$lastday_sky_arr = $this->main_model->select_last_month_sky(
@@ -147,30 +154,30 @@ class main extends CI_Controller {
 																	);										
 		//php는 for문 안에 배열의 값을 저장시 for문이 끝날때 같이 사라져서 배열에 반영되지않는다.	****************************			
 	//------------------------------------------------------------------------------------------------------------------------------------------------		
-	
+
 	//단기예보 
 		//단기예보 SKY (당일 포함 향후2일)	
 		$today_sky_arr = $this->main_model->select_term_today_sky(
-																$calendar_today,
+																$select_shortTerm_date,
 																$calendar_now_time
 																);		
 		//단기예보 PTY (당일 포함 향후2일)	
 		$today_pty_arr = $this->main_model->select_term_today_pty(
-																$calendar_today,
+																$select_shortTerm_date,
 																$calendar_now_time
 																);	
 		//단기예보 TMN 최저기온 당일 하루 데이터			
 		$today_tmn_arr = $this->main_model->select_term_today_tmn(
-																$calendar_today,
+																$select_shortTerm_date,
 																$calendar_yesterday
 																);		
 		//단기예보 TMN 최저기온 당일제외 향후2일			
 		$two_days_tmn_arr = $this->main_model->select_term_two_days_tmn(
-																		$calendar_today
+																		$select_shortTerm_date
 																		);	
 		//단기예보 TMX 최고기온	(당일 포함 향후2일)		
 		$today_tmx_arr = $this->main_model->select_term_today_tmx(
-																$calendar_today
+																$select_shortTerm_date
 																);		
 	//------------------------------------------------------------------------------------------------------------------------------------------------	
 
