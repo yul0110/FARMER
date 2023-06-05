@@ -11,6 +11,7 @@ class Diary_model extends CI_Model {
 
     function insert_diary($number_result){
         $this->load->database();
+ 
 
         //한국시간으로 디폴트 설정
         date_default_timezone_set("Asia/Seoul");
@@ -22,6 +23,7 @@ class Diary_model extends CI_Model {
             'imgGroupId'        => '123',
             'difficultyLevel'   => $this->input->post('diaryInfo'),
             'inquireDate'       => $this->input->post('diaryDate'),
+            'stTime'            => date('Ymd',strtotime($this->input->post('diaryDate'))),
             'regDt'             => date('Y-m-d H:i:s'),
             'regId'             => 1,
             'updateDt'          => date('Y-m-d H:i:s'),

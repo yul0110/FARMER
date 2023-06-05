@@ -40,9 +40,9 @@ class Farm_diary extends CI_Controller {
 		$this->load->model('diary_model'); 
 		
 		//테이블id 넘버링
-		$table_nm = 'farmDiary';
-		$number_result = $this->common_model->numbering($table_nm);  
-		$result = $this->diary_model->insert_diary($number_result);  
+		$table_nm 		= 'farmDiary';
+		$number_result 	= $this->common_model->numbering($table_nm);
+		$result 		= $this->diary_model->insert_diary($number_result);  
 		
 		//데이터 result
 		echo json_encode(array(
