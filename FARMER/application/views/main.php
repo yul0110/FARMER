@@ -191,7 +191,7 @@
     <div class="calendar">
         <ul class="days" style='display:none;'>
 
-            <li id='calendarDayNode' class="day">
+            <li id='calendarDayNode' class="day" data-datenum="">
                 <div class="calendarDay dayNum">일자</div>
                 <div>
                     <img src="" class="daySky" style="max-width:30px; max-height:30px;">  

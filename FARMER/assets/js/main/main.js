@@ -28,6 +28,10 @@
 			}
 			//getList();
 		})
+
+		$(document).on('click', '.day', function(){
+			console.log($(this).data('datenum'));
+		})
 	}
 
 	//작동할 이벤트를 프로토 타입으로 세팅
@@ -79,14 +83,14 @@
 					for(var i=0; i<calendarList.length; i++){		
 						
 						//calendarList배열을 이용해 날짜를 채워준다
-						var calendarDate		= calendarList[i].st_date; //20230528
-						var calendarWeatherArr	= calendarList[i].weather_data;
-						var calendarIconCode	= calendarList[i].icon_code;
-						var calendardiaryArr	= calendarList[i].diary_data;
-						var frontMonth			= calendarDate[4]; //0
-						var backMonth			= calendarDate[5]; //5
-						var frontDay			= calendarDate[6]; //2
-						var lastDay				= calendarDate[7]; //8
+						let calendarDate		= calendarList[i].st_date; //20230528
+						let calendarWeatherArr	= calendarList[i].weather_data;
+						let calendarIconCode	= calendarList[i].icon_code;
+						let calendardiaryArr	= calendarList[i].diary_data;
+						let frontMonth			= calendarDate[4]; //0
+						let backMonth			= calendarDate[5]; //5
+						let frontDay			= calendarDate[6]; //2
+						let lastDay				= calendarDate[7]; //8
 
 						if(frontMonth == 0){ 
 							//해당 월이 한자리수
@@ -117,6 +121,7 @@
 						let calendarDayItem = calendarDayNodeCopy.clone();
 						calendarDayItem.attr('style', '');
 						calendarDayItem.attr('id', '');
+						calendarDayItem.data('datenum', calendarDate);
 
 						//해당 월이 이번달과 같지 않으면 일자 앞에 몇월인지 붙여준다 ex)05/31
 						if(Number(monthNum) == Number(cnm)){ 
@@ -183,7 +188,7 @@
 								if(calendardiaryArr[q]['difficultyLevel'] == '1'){
 
 									let easyNodeCopy = $('.easyNode').clone();
-									
+
 									daydiary.append(easyNodeCopy);
 									daydiary.append(' ');
 									easyNodeCopy.attr('style', '');
@@ -213,6 +218,7 @@
 						}
 
 						//append---------------append---------------append-------------------append--------------------append---------------append
+						
 						$('.ul'+ulNum).append(calendarDayItem); 
 						dayIcon.removeClass('daySky'); //$('.daySky') 비워줌
 						dayTmn.removeClass('dayTmn'); //$('.dayTmn') 비워줌
