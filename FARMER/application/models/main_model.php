@@ -196,4 +196,19 @@ class main_model extends CI_Model {
         return $midTerm_arr->result_array();
     }
 
+
+    //일정
+    function select_month_diary($start_date, $last_date){
+        $this->load->database();
+
+        $this->db
+        ->select('id, title, contents, imgGroupId, difficultyLevel, inquireDate, stTime')
+        ->from('farmDiary')
+        ->where('useYn =', 'Y')
+        ->where('inquireDate >=', $start_date)
+        ->where('inquireDate <=', $last_date);
+
+        $diary_arr = $this->db->get();
+        return $diary_arr->result_array();
+    }
 } 

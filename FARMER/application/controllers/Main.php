@@ -69,7 +69,7 @@ class main extends CI_Controller {
 		$to_one_time_stamp	= strtotime($first_date);// 1682866800   날짜 형식의 문자열을 1970년 1월 1일 0시 부터 시작하는 유닉스 타임스탬프로 변환
 		$start_week 		= date('w', $to_one_time_stamp); // 1                 시작 요일   date('w')=>>  0(일요일) ~ 6(토요일)
 		$to_total_day 		= date('t', $to_one_time_stamp); // 31                현재 달의 총 날짜   date('t')=>> 주어진 월의 일 수 28~31
-		$last_week			= $start_week + $to_total_day; 
+		$last_week			= $start_week + $to_total_day; 	 // 
 		$future_day			= $calendar_all_day - $last_week;	
 
 //화면에 뿌릴 캘린더 기본틀--------------------------------------------------------------------------------------------------------------------------
@@ -91,7 +91,8 @@ class main extends CI_Controller {
 											'st_date'		=> date("Ymd",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'weather_data'	=> array(),
-											'icon_code'		=> '' // 아이콘코드
+											'icon_code'		=> '',
+											'diary_data'	=> array()
 											));
 		}
 		//이번달 일수 날짜 전부
@@ -101,7 +102,8 @@ class main extends CI_Controller {
 											'st_date'		=> date("Ymd",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'weather_data'	=> array(),
-											'icon_code'		=> ''
+											'icon_code'		=> '',
+											'diary_data'	=> array()
 											));
 		}
 		//미래일수 날짜 전부
@@ -111,13 +113,14 @@ class main extends CI_Controller {
 											'st_date'		=> date("Ymd",strtotime ($in_data, strtotime ("+1 months", strtotime($to_year.$to_month."01")))),
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime ("+1 months", strtotime($to_year.$to_month."01")))),
 											'weather_data'	=> array(),
-											'icon_code'		=> ''
+											'icon_code'		=> '',
+											'diary_data'	=> array()
 											));
 		}
 //달력 생성 완료--------------------------------------------------------------------------------------------------------------------------------------
 		
-		$calendar_first_date 	= $calendar_array[0]['st_bar_date'].' 00:00:00'; //20230430 00:00:00
-		$calendar_last_date		= $calendar_array[41]['st_bar_date'].' 00:00:00';//20230610 00:00:00
+		$calendar_first_date 	= $calendar_array[0]['st_bar_date'].' 00:00:00'; //20230528 00:00:00
+		$calendar_last_date		= $calendar_array[41]['st_bar_date'].' 00:00:00';//20230708 00:00:00
 		$calendar_today			= date("Y-m-d").' 00:00:00';
 		$calendar_yesterday		= date("Y-m-d",strtotime ("-1 days")).' 00:00:00'; 
 		$calendar_now_time		= date("h").'00'; //현재시간
@@ -201,7 +204,14 @@ class main extends CI_Controller {
 													$select_midTerm_date
 													);	
 
+	//일정	
+	$diary_arr = $this->main_model->select_month_diary(
+													$calendar_first_date,
+													$calendar_last_date	
+													);	
 	//------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 		//단기 과거 SKY 데이터 가공
 		for($x=0;$x < sizeof($calendar_array);$x++){ 			
@@ -428,7 +438,19 @@ class main extends CI_Controller {
 			}
 		}
 		
+		//일정 데이터 가공   difficultyLevel = 난이도 1=>easy , 2=>nomal , 3=>hard 로 나눠 표시 
+		for($x=0;$x < sizeof($calendar_array);$x++){ 			
+			for($y=0;$y < sizeof($diary_arr);$y++){
+				if($calendar_array[$x]['st_date'] == $diary_arr[$y]['stTime']){
+					array_push($calendar_array[$x]['diary_data'], array(
+																		'difficultyLevel' => $diary_arr[$y]['difficultyLevel']
+																	));
+				}
+			}
+		}	
 
+		// var_dump($calendar_array);
+		// exit;
 
 		//데이터 result
 		echo json_encode(array(

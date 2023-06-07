@@ -198,12 +198,30 @@
                     <span class="mdi mdi-arrow-down font-2xl dayTmn" style="color:#2E9AFE;">0 / </span>
                     <span class="mdi mdi-arrow-up font-2xl dayTmx" style="color:#FA5858;">0</span>
                 </div>
+                <div class="diaryLevel">
+                <!-- tmpl zone -->
+                <!-- tmpl zone -->
+                <!-- tmpl zone -->
+                <!-- tmpl zone -->
+                <!-- tmpl zone -->
+                </div>
             </li>
 
         </ul>
     </div>
     <!--END day tmpl -->
 
+    <!--diary warning tmpl -->
+    <span class="badge bg-warning easyNode" style='display:none;'>easy</span>
+    <!--END warning tmpl -->
+
+    <!--diary nomal tmpl -->
+    <span class="badge bg-success nomalNode" style='display:none;'>nomal</span>
+    <!--END nomal tmpl -->
+
+    <!--diary danger tmpl -->
+    <span class="badge bg-danger hardNode" style='display:none;'>hard</span>
+    <!--END danger tmpl -->
 
 <!-- templ  -->
 

@@ -60,8 +60,7 @@
 					var calendarList 		= d.calendarArray;     
 					var weekNodeCopy 		= $('#weekNode').clone();
 					var calendarNodeCopy 	= $('#calendarNode').clone();
-					var calendarDayNodeCopy	= $('#calendarDayNode').clone();
-					
+					var calendarDayNodeCopy	= $('#calendarDayNode').clone();		
 					
 					//정적데이터 세팅
 					$('#calendarMonth').html(Number(d.toMonth) + '월');
@@ -76,18 +75,21 @@
 					weekNodeCopy.attr('style', '');
 					$('#calendar').append(weekNodeCopy); //요일생성
 
-					//달력을 생성해주는 for문
+					//달력을 생성해주는 for문-------------------------------------------------------------------------------------------------------
 					for(var i=0; i<calendarList.length; i++){		
 						
 						//calendarList배열을 이용해 날짜를 채워준다
 						var calendarDate		= calendarList[i].st_date; //20230528
 						var calendarWeatherArr	= calendarList[i].weather_data;
 						var calendarIconCode	= calendarList[i].icon_code;
+						var calendardiaryArr	= calendarList[i].diary_data;
 						var frontMonth			= calendarDate[4]; //0
 						var backMonth			= calendarDate[5]; //5
 						var frontDay			= calendarDate[6]; //2
 						var lastDay				= calendarDate[7]; //8
-						
+//--------------------------------------------------------------------------------------------------여기이이이이
+
+
 						if(frontMonth == 0){ 
 							//해당 월이 한자리수
 							monthNum = backMonth;
@@ -113,7 +115,7 @@
 							$('#calendar').append(calendarItem);
 						}
 
-						//ul이 생길때 li생성
+						//ul이 생길때 li생성------------li----------------li----------------li------------------li-----------------li-----------------li
 						let calendarDayItem = calendarDayNodeCopy.clone();
 						calendarDayItem.attr('style', '');
 						calendarDayItem.attr('id', '');
@@ -125,11 +127,12 @@
 							calendarDayItem.find('.dayNum').html(monthNum + '/' + dayNum);
 						}
 
-						let dayIcon				= calendarDayItem.find('.daySky');
-						let dayTmn				= calendarDayItem.find('.dayTmn');
-						let dayTmx				= calendarDayItem.find('.dayTmx');
+						let dayIcon		= calendarDayItem.find('.daySky');
+						let dayTmn	 	= calendarDayItem.find('.dayTmn');
+						let dayTmx		= calendarDayItem.find('.dayTmx');
+						let daydiary	= calendarDayItem.find('.diaryLevel'); 
 
-						//icon 넣어주기
+						//icon 넣어주기-------------icon-------------icon--------------icon-----------------icon------------------icon--------------icon
 						if(calendarIconCode === 'S'){
 							// 	S	: 맑음
 							dayIcon.attr("src", "/assets/images/icons/sunny.png");
@@ -156,11 +159,11 @@
 							// 날씨 데이터가 없는 경우
 							dayIcon.attr("src","/assets/images/icons/noForecast.png");
 						}
-
 						
-						//dayTmn 최저기온 dayTMX 최고기온
+						//dayTmn 최저기온 dayTMX 최고기온 --------------dayTmn------------------dayTMX-------------------dayTmn---------------------dayTMX
 						if(calendarWeatherArr != undefined && calendarWeatherArr != '' && calendarWeatherArr != null){
-							for(t=0;t<calendarWeatherArr.length;t++){
+							for(t=0; t<calendarWeatherArr.length; t++){
+
 								if(calendarWeatherArr[t]['category'] == 'TMN'){ //최저기온
 									dayTmn.html(calendarWeatherArr[t]['fcstValue']+' / ');
 								}
@@ -173,10 +176,46 @@
 							dayTmx.remove();
 						}
 
-						$('.ul'+ulNum).append(calendarDayItem);
+						//일정 중요도 표시
+						if(calendardiaryArr != undefined && calendardiaryArr != '' && calendardiaryArr != null){
+
+							for(q=0; q<calendardiaryArr.length; q++){
+
+								if(calendardiaryArr[q]['difficultyLevel'] == '1'){
+
+									let easyNodeCopy = $('.easyNode').clone();
+									daydiary.append(easyNodeCopy);
+									daydiary.append(' ');
+									easyNodeCopy.attr('style', '');
+									easyNodeCopy.removeClass('easyNode');
+								}
+
+								if(calendardiaryArr[q]['difficultyLevel'] == '2'){	
+
+									let nomalNodeCopy = $('.nomalNode').clone();	
+									daydiary.append(nomalNodeCopy);
+									daydiary.append(' ');
+									nomalNodeCopy.attr('style', '');
+									nomalNodeCopy.removeClass('nomalNode');
+								}
+								
+								if(calendardiaryArr[q]['difficultyLevel'] == '3'){
+
+									let hardNodeCopy = $('.hardNode').clone();
+									daydiary.append(hardNodeCopy);
+									daydiary.append(' ');
+									hardNodeCopy.attr('style', '');
+									hardNodeCopy.removeClass('hardNode');
+								}
+							}
+						}
+
+						//append---------------append---------------append-------------------append--------------------append---------------append
+						$('.ul'+ulNum).append(calendarDayItem); 
 						dayIcon.removeClass('daySky'); //$('.daySky') 비워줌
 						dayTmn.removeClass('dayTmn'); //$('.dayTmn') 비워줌
 						dayTmx.removeClass('dayTmx'); //$('.dayTmx') 비워줌
+						daydiary.removeClass('diaryLevel'); //$('.diaryLevel') 비워줌
 					}
 
 					$.each(calendarList, function( i, item ) {

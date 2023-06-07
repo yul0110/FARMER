@@ -32,8 +32,9 @@ class Bath extends CI_Controller {
 	public function short_term_ajax()
 	{		
 		$this->load->model('bath_model');
-		$today = date("Ymd"); //20230524
-		
+		$today 		= date("Ymd"); //20230524
+		$yesterday	= date("Ymd",strtotime ("-1 days")); 
+
 		//Rest API를 구축하였다면 PHP를 사용하여 curl로 json 문자열을 주고 받을 수 있다
 		$ch 			= curl_init();
 		$url 			= 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'; //URL
@@ -41,7 +42,7 @@ class Bath extends CI_Controller {
 		$queryParams 	.= '&' . urlencode('pageNo') . '=' . urlencode('1'); //페이지 수
 		$queryParams 	.= '&' . urlencode('numOfRows') . '=' . urlencode('1000'); // 페이지 내에 출력할 결과 수 
 		$queryParams 	.= '&' . urlencode('dataType') . '=' . urlencode('JSON'); //전송방식
-		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($today); //발표일자
+		$queryParams 	.= '&' . urlencode('base_date') . '=' . urlencode($today ); //발표일자
 		$queryParams 	.= '&' . urlencode('base_time') . '=' . urlencode('0500'); //발표시간
 		$queryParams 	.= '&' . urlencode('nx') . '=' . urlencode('37'); // X좌표
 		$queryParams 	.= '&' . urlencode('ny') . '=' . urlencode('128'); // Y좌표
@@ -73,8 +74,7 @@ class Bath extends CI_Controller {
 			$items_item = $data_value_response_body_items_item[$i]; //반복문 반복중
 			
 			if($items_item['fcstDate'] == $today){
-				$accurateDay = 'Y
-				';
+				$accurateDay = 'Y';
 			}
 
 			$inset_flag = false;
@@ -133,7 +133,7 @@ class Bath extends CI_Controller {
 	public function mid_athletics_ajax()
 	{	
 		$this->load->model('bath_model');
-		$today = date("Ymd");
+		$today 		= date("Ymd");
 
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst'; /*URL*/
@@ -215,9 +215,8 @@ class Bath extends CI_Controller {
 	//중기기온예보	=>> 최근 24시간 자료만 제공	
 	public function mid_term_ajax()
 	{
-		$this->load->model('bath_model');
-		//현재 날짜,시간 가져오는 함수
-		$today = date("Ymd");
+		$this->load->model('bath_model');//현재 날짜,시간 가져오는 함수
+		$today		= date("Ymd");
 
 		$ch = curl_init();
 		$url = 'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa'; /*URL*/
