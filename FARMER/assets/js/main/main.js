@@ -87,8 +87,6 @@
 						var backMonth			= calendarDate[5]; //5
 						var frontDay			= calendarDate[6]; //2
 						var lastDay				= calendarDate[7]; //8
-//--------------------------------------------------------------------------------------------------여기이이이이
-
 
 						if(frontMonth == 0){ 
 							//해당 월이 한자리수
@@ -127,6 +125,7 @@
 							calendarDayItem.find('.dayNum').html(monthNum + '/' + dayNum);
 						}
 
+						//템플릿 복사본 들어갈 위치
 						let dayIcon		= calendarDayItem.find('.daySky');
 						let dayTmn	 	= calendarDayItem.find('.dayTmn');
 						let dayTmx		= calendarDayItem.find('.dayTmx');
@@ -176,7 +175,7 @@
 							dayTmx.remove();
 						}
 
-						//일정 중요도 표시
+						//일정 중요도 표시-----------diary-----------diary------------diary-----------diary-----------diary-----------diary-----------diary
 						if(calendardiaryArr != undefined && calendardiaryArr != '' && calendardiaryArr != null){
 
 							for(q=0; q<calendardiaryArr.length; q++){
@@ -184,6 +183,7 @@
 								if(calendardiaryArr[q]['difficultyLevel'] == '1'){
 
 									let easyNodeCopy = $('.easyNode').clone();
+									
 									daydiary.append(easyNodeCopy);
 									daydiary.append(' ');
 									easyNodeCopy.attr('style', '');
@@ -193,6 +193,7 @@
 								if(calendardiaryArr[q]['difficultyLevel'] == '2'){	
 
 									let nomalNodeCopy = $('.nomalNode').clone();	
+
 									daydiary.append(nomalNodeCopy);
 									daydiary.append(' ');
 									nomalNodeCopy.attr('style', '');
@@ -202,10 +203,11 @@
 								if(calendardiaryArr[q]['difficultyLevel'] == '3'){
 
 									let hardNodeCopy = $('.hardNode').clone();
-									daydiary.append(hardNodeCopy);
+
+									daydiary.append(hardNodeCopy); //템플릿방식으로 작업하기 때문에 복사본을 붙여준다
 									daydiary.append(' ');
 									hardNodeCopy.attr('style', '');
-									hardNodeCopy.removeClass('hardNode');
+									hardNodeCopy.removeClass('hardNode');  //복사본의 class를 지우지 않으면 그 전 작업이 또 복사됨.
 								}
 							}
 						}
@@ -216,6 +218,7 @@
 						dayTmn.removeClass('dayTmn'); //$('.dayTmn') 비워줌
 						dayTmx.removeClass('dayTmx'); //$('.dayTmx') 비워줌
 						daydiary.removeClass('diaryLevel'); //$('.diaryLevel') 비워줌
+						//append---------------append---------------append-------------------append--------------------append---------------append
 					}
 
 					$.each(calendarList, function( i, item ) {
