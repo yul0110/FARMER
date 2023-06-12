@@ -30,7 +30,8 @@
 		})
 
 		$(document).on('click', '.day', function(){
-			console.log($(this).data('datenum'));
+			let dateNum		= $(this).data('datenum');
+			location.href 	= "/day_list?dateNum="+dateNum;
 		})
 	}
 

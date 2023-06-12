@@ -1,146 +1,98 @@
 
-<script src="../../assets/js/day_list/day_list.js?ver=3"></script>
+<script src="../../assets/js/day_list/day_list.js?ver=20"></script>
 
     <div class="container-fluid mt-15">
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-11 col-md-12">
 
                 <div class="card mb-15">
-                    <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>농부 일지 리스트</b></div>
+                    <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>오늘의 일지</b></div>
+                    <div class="card-header bg-transparent py-15 text-left" style="font-size:20px"><b><?=$yyyy?>년 <?=$mm?>월 <?=$dd?>일</b></div>
 
                     <div class="table-responsive">
                         <table class="table">
 
                             <thead>
                                 <tr>
-                                    <th>날짜</th>
-                                    <th>날씨</th>
+                                    <th>중요도</th>
                                     <th>제목</th>
                                     <th>일정</th>
-                                    <th>중요도</th>
-                                    <th class="text-right">Action</th>
+                                    <th class="text-right">작성일자</th>
+                                    <th class="text-center">일정 상태</th>
                                 </tr>
                             </thead>
+                            
+                            <?php 
+                            $today_list = sizeof($today_list_arr);
+                            for($i=0; $i<$today_list; $i++){
+                            ?>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                        <?php
+                                        if($today_list_arr[$i]['difficultyLevel'] == 1){
+                                        ?>
+                                            <h5><span class="badge bg-warning"><?='낮음'?></span></h5>
+                                        <?php
+                                        }
+                                        ?>
 
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        2023-04-13 10:10:10 AM
-                                    </td>
+                                        <?php
+                                        if($today_list_arr[$i]['difficultyLevel'] == 2){
+                                        ?>
+                                            <h5><span class="badge bg-success"><?='중요'?></span></h5>
+                                        <?php
+                                        }
+                                        ?>
 
-                                    <td>
-                                        햇님
-                                    </td>
+                                        <?php
+                                        if($today_list_arr[$i]['difficultyLevel'] == 3){
+                                        ?>
+                                            <h5><span class="badge bg-danger"><?='매우중요'?></span></h5>
+                                        <?php
+                                        }
+                                        ?>
+                                        </td>
 
-                                    <td>
-                                        고구마밭 
-                                    </td>
+                                        <td>
+                                            <?=$today_list_arr[$i]['title']?>
+                                        </td>
 
-                                    <td>
-                                        비닐 씌우기
-                                    </td>
+                                        <td>
+                                            <?=$today_list_arr[$i]['contents']?>
+                                        </td>
 
-                                    <td>
-                                        <span class="badge bg-danger">별이 다섯개</span>
-                                    </td>
+                                        <td class="text-right">
+                                            <?=substr($today_list_arr[$i]['updateDt'],0,10)?>
+                                        </td>
 
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                type="button" id="d350ad" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                <div class="dropdown-menu dropdown-menu-right"
-                                                    aria-labelledby="d350ad">
-                                                    <a class="dropdown-item" href="#">View</a>
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Detele</a>
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                        <td class="text-center">
+                                            <div class="way">
+                                                <input type='hidden' class='did' value='<?=$today_list_arr[$i]['id']?>' />
+                                                <input type='hidden' class='uy' value='<?=$today_list_arr[$i]['useYn']?>' />
+                                                <?php
+                                                if($today_list_arr[$i]['useYn'] == 'Y'){
+                                                ?>
+                                                    <button class="btn btn-outline-success useYn">일정 진행중</button>
+                                                <?php
+                                                }
+                                                ?>
 
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        2023-04-13 10:10:10 AM
-                                    </td>
+                                                <?php
+                                                if($today_list_arr[$i]['useYn'] == 'N'){
+                                                ?>
+                                                    <button class="btn btn-outline-warning useYn">&nbsp;일정 종료&nbsp;</button>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php
+                                }
+                            ?>
 
-                                    <td>
-                                        햇님
-                                    </td>
-
-                                    <td>
-                                        고구마밭 
-                                    </td>
-
-                                    <td>
-                                        비닐 씌우기
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-info">중요</span>
-                                    </td>
-
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                type="button" id="d350ad" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                <div class="dropdown-menu dropdown-menu-right"
-                                                    aria-labelledby="d350ad">
-                                                    <a class="dropdown-item" href="#">View</a>
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Detele</a>
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        2023-04-13 10:10:10 AM
-                                    </td>
-
-                                    <td>
-                                        햇님
-                                    </td>
-
-                                    <td>
-                                        고구마밭 
-                                    </td>
-
-                                    <td>
-                                        비닐 씌우기
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-warning">낮음</span>
-                                    </td>
-
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                type="button" id="d350ad" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                <div class="dropdown-menu dropdown-menu-right"
-                                                    aria-labelledby="d350ad">
-                                                    <a class="dropdown-item" href="#">View</a>
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Detele</a>
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>   
@@ -150,7 +102,6 @@
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
 

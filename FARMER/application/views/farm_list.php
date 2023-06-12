@@ -8,152 +8,116 @@
 
             <div class="col-lg-8 col-md-12">
 
-                <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>농부 일지 리스트</b></div>
+            <div class="card mb-15">
+                <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>오늘의 일지</b></div>
 
-                        <div class="table-responsive">
-                            <table class="table">
+                <div class="table-responsive">
+                    <table class="table">
 
-                                <thead>
-                                    <tr>
-                                        <th>날짜</th>
-                                        <th>날씨</th>
-                                        <th>제목</th>
-                                        <th>일정</th>
-                                        <th>중요도</th>
-                                        <th class="text-right">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
+                        <thead>
+                            <tr>
+                                <th>날짜</th>
+                                <th>날씨</th>
+                                <th>제목</th>
+                                <th>일정</th>
+                                <th>중요도</th>
+                                <th class="text-center">일정 상태</th>
+                            </tr>
+                        </thead>
 
-                                        <td>
-                                            햇님
-                                        </td>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    2023-04-13 10:10:10 AM
+                                </td>
 
-                                        <td>
-                                            고구마밭 
-                                        </td>
+                                <td>
+                                    햇님
+                                </td>
 
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
+                                <td>
+                                    고구마밭 
+                                </td>
 
-                                        <td>
-                                            <span class="badge bg-danger">별이 다섯개</span>
-                                        </td>
+                                <td>
+                                    비닐 씌우기
+                                </td>
 
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                <td>
+                                    <h5><span class="badge bg-danger">★★★★★</span></h5>
+                                </td>
 
-                                </tbody>
+                                <td class="text-center">
+                                    <div class="">
+                                        <button class="btn btn-outline-warning">진행중</button>
+                                        <button class="btn btn-outline-success">완료</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    2023-04-13 10:10:10 AM
+                                </td>
 
-                                        <td>
-                                            햇님
-                                        </td>
+                                <td>
+                                    햇님
+                                </td>
 
-                                        <td>
-                                            고구마밭 
-                                        </td>
+                                <td>
+                                    고구마밭 
+                                </td>
 
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
+                                <td>
+                                    비닐 씌우기
+                                </td>
 
-                                        <td>
-                                            <span class="badge bg-info">중요</span>
-                                        </td>
+                                <td>
+                                    <h5><span class="badge bg-info">★★★</span><h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="">
+                                        <button class="btn btn-outline-warning">진행중</button>
+                                        <button class="btn btn-outline-success">완료</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
 
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    2023-04-13 10:10:10 AM
+                                </td>
 
-                                </tbody>
+                                <td>
+                                    햇님
+                                </td>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
+                                <td>
+                                    고구마밭 
+                                </td>
 
-                                        <td>
-                                            햇님
-                                        </td>
+                                <td>
+                                    비닐 씌우기
+                                </td>
 
-                                        <td>
-                                            고구마밭 
-                                        </td>
-
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-warning">낮음</span>
-                                        </td>
-
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default btn-sm btn-icon btn-transparent font-xl"
-                                                    type="button" id="d350ad" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="d350ad">
-                                                        <a class="dropdown-item" href="#">View</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Detele</a>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                            </table>
-
-                            </table>
-                        </div>
-                    </div>   
+                                <td>
+                                    <h5><span class="badge bg-success">★</span></h5>
+                                </td>
+                                <td class="text-center">
+                                    <div class="">
+                                        <button class="btn btn-outline-warning">진행중</button>
+                                        <button class="btn btn-outline-success">완료</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>   
 
 
             <div class="col-lg-4 col-md-12">
