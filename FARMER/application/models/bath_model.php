@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class bath_model extends CI_Model {
+class Bath_model extends CI_Model {
 
     public function bath_model()
     {       
