@@ -215,15 +215,7 @@
                             <span class="menu-label">2023 전체 달력</span>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="/farm_list" class="menu-link">
-                            <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
 
-                            <i class="menu-icon mdi mdi-format-size"></i>
-                            <!-- <i class="fas fa-heading"></i> -->
-                            <span class="menu-label">일지 목록</span>
-                        </a>
-                    </li>
                     <li class="menu-item">
                         <a href="/farm_diary" class="menu-link">
                             <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
@@ -233,6 +225,7 @@
                             <span class="menu-label">일지 쓰러가기</span>
                         </a>
                     </li>
+                    
                     <li class="menu-item">
                         <a href="photo_album" class="menu-link">
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
