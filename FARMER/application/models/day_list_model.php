@@ -35,8 +35,6 @@ class Day_list_model extends CI_Model {
                             ->set('useYn', $useYn_reverce) 
                             ->where('id', $id)
                             ->update('farmDiary');
-    echo $update_flag;
-    exit;
 
     return $update_flag;
     }

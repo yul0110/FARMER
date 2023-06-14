@@ -33,22 +33,33 @@ class Farm_diary extends CI_Controller {
 	}
 	
 	//일지등록 ajax
-	public function diary_ajax()
+	public function diary_insert_ajax()
 	{		
-		// model('diarymodel')로드시킴
-		$this->load->model('common_model'); 
-		$this->load->model('diary_model'); 
-		
-		//테이블id 넘버링
-		$table_nm 		= 'farmDiary';
-		$number_result 	= $this->common_model->numbering($table_nm);
-		$result 		= $this->diary_model->insert_diary($number_result);  
-		
+
+		//모델 생성
+		$this->load->model('diary_model');
+
+		//변수
+		$diary_date			= $_POST['diaryDate'];//D
+		$diary_info			= $_POST['diaryInfo'];	//S
+		$diary_tit			= $_POST['title'];		//S
+		$diary_cont			= $_POST['contents'];	//S
+		$diary_img_path_arr = isset($_POST['imgPathArr']) ? $_POST['imgPathArr'] : false;	//SA
+
+		$diary_obj = []; //다이어리 오브젝트
+		$diary_obj["diaryDate"] 	= $diary_date;
+		$diary_obj["diaryInfo"] 	= $diary_info;
+		$diary_obj["title"] 		= $diary_tit;
+		$diary_obj["contents"] 		= $diary_cont;
+		$diary_obj["imgPathArr"]	= $diary_img_path_arr;
+
+		$diary_flag	= $this->diary_model->insert_diary($diary_obj);  
+
+
 		//데이터 result
 		echo json_encode(array(
-			'result'	=> $result
+			'result'		=> $diary_flag
 		));
-
 	}
 }
 

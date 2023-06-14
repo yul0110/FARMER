@@ -1,5 +1,5 @@
 
-        <script src="../../assets/js/farm_diary/farm_diary.js?ver=3"></script>
+        <script src="../../assets/js/farm_diary/farm_diary.js?ver=5"></script>
 
         <div class="container-fluid mt-15">
 
@@ -41,17 +41,21 @@
                         <br>
 
                         <div class="form-file">
-                            <input id="file_upload_ajax" type="file" class="form-file-input" id="customFile">
+                            <input id="file_upload" type="file" class="form-file-input">
                             <label class="form-file-label" for="customFile">
                                 <span class="form-file-text">이미지</span>
                                 <span class="form-file-button">파일 찾기</span>
                             </label>
+                            <br>
+                            <br>
+                            <div id='previewZone' class="narrow-w form-search d-flex align-items-stretch mb-3" >
+								<!-- 사진데이터가 들어올 공간 -->
+								<!-- 사진데이터가 들어올 공간 -->
+								<!-- 사진데이터가 들어올 공간 -->
+							</div> 
                         </div>
                         <br>
                         <br>
-                        <br>
-                        <br>
-
                         <div class="mb-15">
                             <button id="upload_ajax" type="button" class="btn btn-block btn-outline-primary">
                                 일지 올리기
@@ -64,6 +68,16 @@
             </div>
         </div>
     </div>
+
+
+	<!--   data templ zone   -->
+	<!--   Img   -->
+	<div id="imgTemple" class="">
+		<img id="previewImg" src="" class="" style="display:none; width: 100px; height: 100px;"/>
+		<input id="imgPath" type="hidden" class="" value="" />
+	</div>
+	<!--   Img END   -->
+
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

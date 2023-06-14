@@ -77,7 +77,7 @@ class Common extends CI_Controller {
 		
 		//데이터 result
 		echo json_encode(array(
-			'upload_path'	=> $src_path
+			'path'	=> $src_path
 		));
 
 	}

@@ -9,8 +9,15 @@
 		this.clickEvent(); 
 	}
 
+	// $('#userId, #pw').on('keydown', function(e){
+	// 	if (e.code == 'Enter'){
+	// 		$('.loginBtn').click();
+	// 	}
+	// })
+	
 	//작동할 이벤트를 프로토 타입으로 세팅
 	yul.page.prototype.clickEvent = function() {
+
 		
 		$(document).on('click', '#login_ajax', function(){
 			

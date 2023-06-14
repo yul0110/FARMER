@@ -71,7 +71,7 @@
 
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-12 login-btm login-button">
-                                    <button type="button" id="login_ajax" class="btn btn-outline-primary" style="width:100%">로그인</button>
+                                    <button type="button" id="login_ajax" class="btn btn-outline-primary loginBtn" style="width:100%">로그인</button>
                                 </div>
                             </div>
 

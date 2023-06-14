@@ -9,21 +9,77 @@ class Diary_model extends CI_Model {
         parent::__construct();
     }
 
-    function insert_diary($number_result){
-        $this->load->database();
- 
+    function insert_diary($diary_obj){
 
-        //한국시간으로 디폴트 설정
+        //설정 및 세팅
         date_default_timezone_set("Asia/Seoul");
+        $this->load->database();
 
-        $data = array(
-            'id'                => $number_result + 1,
-            'title'             => $this->input->post('title'),
-            'contents'          => $this->input->post('contents'),
-            'imgGroupId'        => '123',
-            'difficultyLevel'   => $this->input->post('diaryInfo'),
-            'inquireDate'       => $this->input->post('diaryDate'),
-            'stTime'            => date('Ymd',strtotime($this->input->post('diaryDate'))),
+        //모델
+        $this->load->model('common_model'); 
+ 
+        //변수
+        $img_group_id = 0;
+
+
+        if($diary_obj['imgPathArr'] != false){
+            $imgGroup_tb 		  = 'imgGroup';
+            $imgGroup_number 	  = $this->common_model->numbering($imgGroup_tb);
+            $img_group_id =  $imgGroup_number + 1;
+    
+            $data_img_group = array(
+    
+                'id'        => $img_group_id,
+                'regDt'     => date('Y-m-d H:i:s'),
+                'regId'     => 999,
+                'updateDt'  => date('Y-m-d H:i:s'),
+                'updateId'  => 999,
+                'useYn'     => 'Y'
+            );
+            $this->db->insert($imgGroup_tb, $data_img_group);
+    
+    
+            $img_path_arr = $diary_obj['imgPathArr'];
+            $diary_obj_item = '';
+            
+            //이미지가 1개이상 들어옴
+            for($i=0; $i>=sizeof($img_path_arr); $i++){
+                //이미지 넘버링
+                //이미지 등록
+                $img_tb 		  = 'img';
+                $img_number 	  = $this->common_model->numbering($img_tb);
+                $diary_obj_item   = $img_path_arr[$i];
+    
+                //img insert
+                $data_img = array(
+        
+                    'id'            => $img_number + 1,
+                    'imgGroupId'    => $img_group_id,
+                    'nm'            => '다이어리 이미지',
+                    'path'          => $diary_obj_item,
+                    'regDt'         => date('Y-m-d H:i:s'),
+                    'regId'         => 999,
+                    'updateDt'      => date('Y-m-d H:i:s'),
+                    'updateId'      => 999,
+                    'useYn'         => 'Y'
+                );
+                $this->db->insert($img_tb, $data_img);
+            }
+        }
+
+        //다이어리 넘버링
+        //다이어리 등록
+        $diary_tb 		  = 'farmDiary';
+        $diary_number 	  = $this->common_model->numbering($diary_tb);
+
+        $data_diary = array(
+            'id'                => $diary_number + 1,
+            'title'             => $diary_obj['title'],
+            'contents'          => $diary_obj['contents'],
+            'imgGroupId'        => $img_group_id,
+            'difficultyLevel'   => $diary_obj['diaryInfo'],
+            'inquireDate'       => $diary_obj['diaryDate'],
+            'stTime'            => date('Ymd',strtotime($diary_obj['diaryDate'])),
             'regDt'             => date('Y-m-d H:i:s'),
             'regId'             => 1,
             'updateDt'          => date('Y-m-d H:i:s'),
@@ -32,9 +88,9 @@ class Diary_model extends CI_Model {
 
         );
 
-        // insert 쿼리  //액티브레코드 = JPA
-        $update_flag = $this->db->insert('farmDiary', $data);
-
-        return $update_flag;
+        $diary_flag = $this->db->insert($diary_tb, $data_diary);
+        return $diary_flag;
     }
+
+
 }
