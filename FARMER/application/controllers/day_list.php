@@ -60,8 +60,6 @@ class day_list extends CI_Controller {
 		$diary_id		= $_POST['diaryId'];
 		$diary_useYn	= $_POST['useYn'];
 
-		echo $diary_id;
-
 		$updat_flag = $this->day_list_model->update_useyn($diary_id, $diary_useYn);
 	}
 }

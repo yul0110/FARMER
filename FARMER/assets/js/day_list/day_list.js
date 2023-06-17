@@ -13,29 +13,29 @@
 
 		$(document).on('click', '.way', function(){
 
-			let diaryIdNode 	= $(this).find('.did');
-			let diaryuseYnNode 	= $(this).find('.uy');
+			let diaryIdValue 	= $(this).find('.did');
+			let diaryuseYnValue	= $(this).find('.uy');
 			let useYnNode		= $(this).find('.useYn');
 
 			$.ajax({
 				type : "POST",
 				data :
 				{
-					"diaryId" 	: diaryIdNode.val(),
-					"useYn" 	: diaryuseYnNode.val()
+					"diaryId" 	: diaryIdValue.val(),
+					"useYn" 	: diaryuseYnValue.val()
 				},
 				dataType: "json",
 				url : '/day_list/useYn_update_ajax',
 				success : function(d){			
 	
 					//DB 데이터update를 성공한 후에 화면 데이터를 수정해준다
-					if(diaryuseYnNode.val() == 'Y'){					
-						diaryuseYnNode.val('N');
+					if(diaryuseYnValue.val() == 'Y'){					
+						diaryuseYnValue.val('N');
 						useYnNode.removeClass();
 						useYnNode.addClass('btn btn-outline-warning useYn');
 						useYnNode.html('종료');
 					}else{
-						diaryuseYnNode.val('Y');
+						diaryuseYnValue.val('Y');
 						useYnNode.removeClass();
 						useYnNode.addClass('btn btn-outline-success useYn');
 						useYnNode.html('진행중');
