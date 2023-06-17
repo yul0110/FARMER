@@ -119,70 +119,73 @@ class Main extends CI_Controller {
 		}
 //달력 생성 완료--------------------------------------------------------------------------------------------------------------------------------------
 		
-		$calendar_first_date 	= $calendar_array[0]['st_bar_date'].' 00:00:00'; //20230528 00:00:00
-		$calendar_last_date		= $calendar_array[41]['st_bar_date'].' 00:00:00';//20230708 00:00:00
-		$calendar_today			= date("Y-m-d").' 00:00:00';
-		$calendar_yesterday		= date("Y-m-d",strtotime ("-1 days")).' 00:00:00'; 
-		$calendar_now_time		= date("h").'00'; //현재시간
+	$calendar_first_date 	= $calendar_array[0]['st_bar_date'].' 00:00:00'; //20230528 00:00:00
+	$calendar_last_date		= $calendar_array[41]['st_bar_date'].' 00:00:00';//20230708 00:00:00
+	$calendar_today			= date("Y-m-d").' 00:00:00';
+	$calendar_yesterday		= date("Y-m-d",strtotime ("-1 days")).' 00:00:00'; 
+	$calendar_now_time		= date("h").'00'; //현재시간
 
-		$select_shortTerm_date = date('Y-m-d H').':00:00';
+	$select_shortTerm_date = date('Y-m-d H').':00:00';
 
-		if($select_shortTerm_date < date('Y-m-d').'06:00:00'){ //당일 06시 12시에 발표함 
-			//발표전 시각이라 어제데이터를 불러옴
-			$select_shortTerm_date = date("Y-m-d",strtotime ("-1 days")).' 00:00:00';
-		}
+
+	if($select_shortTerm_date < date('Y-m-d').' 06:00:00'){ //당일 06시 12시에 발표함 
+		//발표전 시각이라 어제데이터를 불러옴
+		$select_shortTerm_date = date("Y-m-d",strtotime ("-1 days")).' 00:00:00';
+	}else{
+		$select_shortTerm_date = date("Y-m-d").' 00:00:00';
+	}
 
 	//지난달 과거일 + 이번달 과거일 (단기예보)
-		//단기 과거 SKY(아이콘 출력)
-		$lastday_sky_arr = $this->main_model->select_last_month_sky(
-																	$calendar_first_date,
-		 															$calendar_today,
-																	$calendar_now_time
-																	);
-		//단기 과거 PTY(아이콘 출력)
-		$lastday_pty_arr = $this->main_model->select_last_month_pty(
-																	$calendar_first_date,
-																	$calendar_today,
-																	$calendar_now_time
-																	);
-		//단기 과거 TMN 최저기온 (마지막 과거일 ~ 오늘)
-		$lastday_tmn_arr = $this->main_model->select_last_month_tmn(
-																	$calendar_first_date,
-																	$calendar_today
-																	);															
-		//단기 과거 TMX 최고기온			
-		$lastday_tmx_arr = $this->main_model->select_last_month_tmx(
-																	$calendar_first_date,
-																	$calendar_today
-																	);										
-		//php는 for문 안에 배열의 값을 저장시 for문이 끝날때 같이 사라져서 배열에 반영되지않는다.	****************************			
+	//단기 과거 SKY(아이콘 출력)
+	$lastday_sky_arr = $this->main_model->select_last_month_sky(
+																$calendar_first_date,
+																$calendar_today,
+																$calendar_now_time
+																);
+	//단기 과거 PTY(아이콘 출력)
+	$lastday_pty_arr = $this->main_model->select_last_month_pty(
+																$calendar_first_date,
+																$calendar_today,
+																$calendar_now_time
+																);
+	//단기 과거 TMN 최저기온 (마지막 과거일 ~ 오늘)
+	$lastday_tmn_arr = $this->main_model->select_last_month_tmn(
+																$calendar_first_date,
+																$calendar_today
+																);															
+	//단기 과거 TMX 최고기온			
+	$lastday_tmx_arr = $this->main_model->select_last_month_tmx(
+																$calendar_first_date,
+																$calendar_today
+																);										
+	//php는 for문 안에 배열의 값을 저장시 for문이 끝날때 같이 사라져서 배열에 반영되지않는다.	****************************			
 	//------------------------------------------------------------------------------------------------------------------------------------------------		
 
 	//단기예보 
-		//단기예보 SKY (당일 포함 향후2일)	
-		$today_sky_arr = $this->main_model->select_term_today_sky(
-																$select_shortTerm_date,
-																$calendar_now_time
-																);		
-		//단기예보 PTY (당일 포함 향후2일)	
-		$today_pty_arr = $this->main_model->select_term_today_pty(
-																$select_shortTerm_date,
-																$calendar_now_time
-																);	
-		//단기예보 TMN 최저기온 당일 하루 데이터			
-		$today_tmn_arr = $this->main_model->select_term_today_tmn(
-																$select_shortTerm_date,
-																$calendar_yesterday
-																);		
-		//단기예보 TMN 최저기온 당일제외 향후2일			
-		$two_days_tmn_arr = $this->main_model->select_term_two_days_tmn(
-																		$select_shortTerm_date
-																		);	
-		//단기예보 TMX 최고기온	(당일 포함 향후2일)		
-		$today_tmx_arr = $this->main_model->select_term_today_tmx(
-																$select_shortTerm_date
-																);		
-	//------------------------------------------------------------------------------------------------------------------------------------------------	
+	//단기예보 SKY (당일 포함 향후2일)	
+	$today_sky_arr = $this->main_model->select_term_today_sky(
+															$select_shortTerm_date,
+															$calendar_now_time
+															);		
+	//단기예보 PTY (당일 포함 향후2일)	
+	$today_pty_arr = $this->main_model->select_term_today_pty(
+															$select_shortTerm_date,
+															$calendar_now_time
+															);	
+	//단기예보 TMN 최저기온 당일 하루 데이터			
+	$today_tmn_arr = $this->main_model->select_term_today_tmn(
+															$select_shortTerm_date,
+															$calendar_yesterday
+															);		
+	//단기예보 TMN 최저기온 당일제외 향후2일			
+	$two_days_tmn_arr = $this->main_model->select_term_two_days_tmn(
+																	$select_shortTerm_date
+																	);	
+	//단기예보 TMX 최고기온	(당일 포함 향후2일)		
+	$today_tmx_arr = $this->main_model->select_term_today_tmx(
+															$select_shortTerm_date
+															);		
+	//------------------------------------------------------------------------------------------------------------------------------------------------																
 
 	$select_midTerm_date = strtotime(date('Y-m-d H').':00:00');
     $pt_already			 = strtotime(date('Y-m-d').' 06:00:00');																
@@ -297,7 +300,7 @@ class Main extends CI_Controller {
 																	));
 				}
 			}
-		}	
+		}
 
 		//단기예보 PTY 데이터 가공 (당일)
 		for($x=0;$x < sizeof($calendar_array);$x++){ 			
@@ -368,7 +371,9 @@ class Main extends CI_Controller {
 																	));
 				}
 			}
-		}	
+		}
+	
+	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------
 			/* icon_code = '';
 			S	: 맑음
@@ -401,13 +406,13 @@ class Main extends CI_Controller {
 					}else if(strpos($add_zero,'구름많음')){
 						$calendar_array[$x]['icon_code'] = 'CM';
 
-					}else if(strpos($add_zero,'비') && !strpos($add_zero,'눈')){
-						$calendar_array[$x]['icon_code'] = 'R';
+					}else if(strpos($add_zero, '비') && strpos($add_zero,'눈') == false){
+						$calendar_array[$x]['icon_code'] = 'R'; //비는 있고 눈은 없고
 						
-					}else if(strpos($add_zero,'눈' && !strpos($add_zero,'비'))){
+					}else if(strpos($add_zero, '눈') && strpos($add_zero,'비') == false){
 						$calendar_array[$x]['icon_code'] = 'SN';
 						
-					}else if(strpos($add_zero,'비' && strpos($add_zero,'눈'))){
+					}else if(strpos($add_zero,'비') && strpos($add_zero,'눈')){
 						$calendar_array[$x]['icon_code'] = 'RS';
 						
 					}else if(strpos($add_zero,'소나기')){
