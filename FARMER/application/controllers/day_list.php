@@ -15,7 +15,7 @@ class day_list extends CI_Controller {
 
 	public function index()
 	{
-		//로그인 세션 /////////////////////////////////////////////////////
+		//로그인 세션------------------------------------------------------------
 		$this->load->library('session'); 
 		$data = array(
 			'login_in' => false	
@@ -29,7 +29,7 @@ class day_list extends CI_Controller {
 		if(!logged_in()){
 			redirect('/auth/login');
 		}
-		//END 로그인 세션 /////////////////////////////////////////////////////
+		//END 로그인 세션 ------------------------------------------------------
 		
 		//모델
 		$this->load->model('day_list_model');
@@ -61,7 +61,6 @@ class day_list extends CI_Controller {
 		$diary_useYn	= $_POST['useYn'];
 
 		$updat_flag = $this->day_list_model->update_useyn($diary_id, $diary_useYn);
-		
 	}
 }
 
