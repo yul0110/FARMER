@@ -466,6 +466,28 @@ class Main extends CI_Controller {
 		));
 	}//calendar_ajax
 
+
+	//일지 리스트 ajax
+	public function today_list_ajax()
+	{
+		$this->load->model('main_model');
+		
+		$today 	= date("Ymd"); //20230615 오늘날짜
+
+		//일지 리스트
+		$today_list_array = $this->main_model->select_today_list($today);
+
+		// if(sizeof($today_list_arr) == 0){
+		// 	redirect('/');
+		// }
+
+		//데이터 result
+		echo json_encode(array(
+			'result'		=> sizeof($today_list_array),
+			'todayListArr' 	=> $today_list_array,
+			'today'			=> $today
+		));
+	}
 		
 }
 

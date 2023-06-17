@@ -9,6 +9,20 @@ class Main_model extends CI_Model {
 
     }
 
+    //선택 날짜의 일지 리스트를 가져오는 쿼리
+    function select_today_list($today){
+        $this->load->database();
+
+        $this->db
+        ->select('id, title, contents, difficultyLevel, stTime, regId, updateDt, useYn')
+        ->from('farmDiary')
+        ->where('stTime =', $today);
+
+        $diary_arr = $this->db->get(); 
+        return $diary_arr->result_array();
+    }
+
+
 //---지난달 과거일 - 이번달 과거일 (단기)---------------------------------------------------------------------------------------
 
     // SKY => 0900시 데이터 사용하기

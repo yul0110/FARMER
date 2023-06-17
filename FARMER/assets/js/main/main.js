@@ -4,8 +4,10 @@
 		this.init();
 	};
 	
+	//this.init();안에 세팅
 	yul.page.prototype.init = function() {
-		this.getList() 
+		this.getList();
+		this.getDiaryList();
 		this.clickEvent();
 	}
 	
@@ -33,11 +35,46 @@
 			let dateNum		= $(this).data('datenum');
 			location.href 	= "/day_list?dateNum="+dateNum;
 		})
+
+		$(document).on('click', '.way', function(){
+
+			let diaryIdValue 	= $(this).find('.did');
+			let diaryuseYnValue	= $(this).find('.uy');
+			let useYnNode		= $(this).find('.useYn');
+
+			$.ajax({
+				type : "POST",
+				data :
+				{
+					"diaryId" 	: diaryIdValue.val(),
+					"useYn" 	: diaryuseYnValue.val()
+				},
+				dataType: "json",
+				url : '/day_list/useYn_update_ajax',
+				success : function(d){			
+	
+					//DB 데이터update를 성공한 후에 화면 데이터를 수정해준다
+					if(diaryuseYnValue.val() == 'Y'){					
+						diaryuseYnValue.val('N');
+						useYnNode.removeClass();
+						useYnNode.addClass('btn btn-outline-warning useYn');
+						useYnNode.html('종료');
+					}else{
+						diaryuseYnValue.val('Y');
+						useYnNode.removeClass();
+						useYnNode.addClass('btn btn-outline-success useYn');
+						useYnNode.html('진행중');
+					}
+
+				}
+			})
+			
+		})
 	}
 
 	//작동할 이벤트를 프로토 타입으로 세팅
 	yul.page.prototype.getList = function() {
-		
+	
 		var nowMonth		= $('#nowMonth').val();
 		var updateMonth 	= $('#updateMonth').val();
 		var nowYear 		= $('#nowYear').val();
@@ -236,11 +273,106 @@
 				}
 			}
 		})
-
-	}	
+	}//getList event
 	
+
+	//getDiaryList
+	yul.page.prototype.getDiaryList = function() {
+		
+		$.ajax({
+			type : "POST",
+			data :{},
+			dataType: "json",
+			url : '/main/today_list_ajax',
+			success : function(d){
+
+				if(d.result){  //result값은 정수로 내려온다.  0빼고는 전부 참이다
+
+					//변수
+					let todayList 	= d.todayListArr; 
+					let toDate 		= d.today;  
+					
+					//NodeCopy
+					let listNodeCopy 	= $('#diaryNode').clone();
+					
+					//일지 리스트를 생성해주는 for문
+					for(var y=0; y<todayList.length; y++){		
+						
+						let listNodeCopyIn = listNodeCopy.clone();
+
+						//todayList배열을 이용해 리스트를 채워준다
+						let diaryId			= todayList[y].id;
+						let diaryLevel		= todayList[y].difficultyLevel;
+						let diaryTitle		= todayList[y].title;
+						let diaryContents	= todayList[y].contents;
+						let diaryRegDate	= todayList[y].updateDt;
+						let diaryYn			= todayList[y].useYn;
+					
+						//템플릿 복사본 들어갈 위치
+						let diaryDid 		= listNodeCopyIn.find('.did');
+						let diaryUy 		= listNodeCopyIn.find('.uy');
+						let diarytit 		= listNodeCopyIn.find('.title');
+						let diaryDt 		= listNodeCopyIn.find('.diaryDate'); 
+						let diaryCotents 	= listNodeCopyIn.find('.contents');
+						let diaryBand 		= listNodeCopyIn.find('.difficultyLevel');
+						let diaryUse 		= listNodeCopyIn.find('.useYn');
+						
+						//todayListNode clone
+						listNodeCopyIn.attr('style', '');
+						listNodeCopyIn.attr('id', '');
+						$('#todayDiaryList').append(listNodeCopyIn);
+
+						
+						//딱지
+						let bandCopy = '';
+						if(diaryLevel == '1'){
+							//이지
+							bandCopy = $('#easyBand').clone();
+							bandCopy.attr('id', '');
+						}else if(diaryLevel == '2'){
+							//노말
+							bandCopy = $('#nomalBand').clone();
+							bandCopy.attr('id', '');
+						}else{ // 3
+							//하드
+							bandCopy = $('#hardBand').clone();
+							bandCopy.attr('id', '');
+						}
+												
+						diaryBand.append(bandCopy);
+						diaryDid.val(diaryId);
+						diaryUy.val(diaryYn);
+						diaryDt.html(diaryRegDate);
+
+						//진행&종료 버튼
+						if(diaryYn == 'Y'){
+							//Y
+							diaryUse.removeClass();
+							diaryUse.addClass('btn btn-outline-success useYn');
+							diaryUse.html('진행중');
+						}else{
+							//N
+							diaryUse.removeClass();
+							diaryUse.addClass('btn btn-outline-warning useYn');
+							diaryUse.html('종료');
+						}
+
+						diarytit.html(diaryTitle);
+						diaryCotents.html(diaryContents);
+
+					}
+	
+				}else{
+					alert("실패");
+				}
+			}
+		})
+	}//End getDiaryList 
+
+	
+	//즉시 실행 함수
 	$(function() {
-		yul.page = new yul.page();
+		yul.page = new yul.page(); //객체 생성 후 위에서 세팅해두었던 이벤트들을 실행해!!
 	});
 	 
 	return yul.page;

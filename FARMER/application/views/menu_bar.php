@@ -227,10 +227,21 @@
                     </li>
                     
                     <li class="menu-item">
-                        <a href="photo_album" class="menu-link">
+                        <a href="/photo_album" class="menu-link">
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
                             <i class="menu-icon mdi mdi-view-dashboard"></i>
                             <span class="menu-label">앨범</span>
+                            <span class="menu-badge">
+                                <span class="badge bg-info">1</span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="/day" class="menu-link">
+                            <!-- <i class="menu-icon fas fa-magic"></i> -->
+                            <i class="menu-icon mdi mdi-view-dashboard"></i>
+                            <span class="menu-label">뤼스트</span>
                             <span class="menu-badge">
                                 <span class="badge bg-info">1</span>
                             </span>

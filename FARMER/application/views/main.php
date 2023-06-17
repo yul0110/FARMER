@@ -1,45 +1,9 @@
 
-<script src="../../assets/js/main/main.js?ver=9"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
+<script src="../../assets/js/main/main.js?ver=11"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
 
     <div class="container-fluid mt-15">
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <span class="badge bg-success float-right">온도</span>
-                        <h6 id="" class="card-title text-muted mb-10">2023.5.18</h6>
-                        <p class="text-muted mb-0">최고온도
-                            <span class="float-right"> <i id="maxTa" class="fas fa-angle-up text-success"></i></span>
-                        </p>
-                        <p class="text-muted mb-0">최저온도
-                            <span class="float-right"> <i id="minTa" class="fas fa-angle-down text-success"></i></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col col-lg-4">
-                <div class="card mb-15">
-                    <div class="card-body">
-                        <h6 id="" class="card-title text-muted mb-10"></h6>
-                        <p class="text-muted mb-0">강수량
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">습도
-                            <span class="float-right"></span>
-                        </p>
-                        <p class="text-muted mb-0">풍속
-                            <span class="float-right"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    
-<!-- 달력 ----------------------------------------------------------------------------------------------------------->      
+<!------------------------------------------------달력-------------------------------------------------------->      
             <div class="row">
                 <div class="col-lg-12 col-12">
                     <div class="card mb-15">
@@ -62,152 +26,37 @@
                                 
                             </header>
                             <div id="calendar">
-                                <!-- tmpl zone -->
-                                <!-- tmpl zone -->
-                                <!-- tmpl zone -->
-                                <!-- tmpl zone -->
-                                <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
                             </div>
                         </div>
                     </div>         
                 </div>
             </div>
 
+
+
+
+
+<!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone -->
+
             <div class="row">
-
-                <div class="col-lg-8 col-md-12">
-
-                    <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>일정 리스트</b></div>
-
-                        <div class="table-responsive">
-                            <table class="table">
-
-                                <thead>
-                                    <tr>
-                                        <th>날짜</th>
-                                        <th>날씨</th>
-                                        <th>제목</th>
-                                        <th>일정</th>
-                                        <th>중요도</th>
-                                        <th class="text-center">일정 상태</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
-
-                                        <td>
-                                            햇님
-                                        </td>
-
-                                        <td>
-                                            고구마밭 
-                                        </td>
-
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
-
-                                        <td>
-                                            <h5><span class="badge bg-danger">★★★★★</span></h5>
-                                        </td>
-
-                                        <td class="text-center">
-                                            <div class="">
-                                                <button class="btn btn-outline-warning">진행중</button>
-                                                <button class="btn btn-outline-success">완료</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
-
-                                        <td>
-                                            햇님
-                                        </td>
-
-                                        <td>
-                                            고구마밭 
-                                        </td>
-
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
-
-                                        <td>
-                                            <h5><span class="badge bg-info">★★★</span><h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="">
-                                                <button class="btn btn-outline-warning">진행중</button>
-                                                <button class="btn btn-outline-success">완료</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            2023-04-13 10:10:10 AM
-                                        </td>
-
-                                        <td>
-                                            햇님
-                                        </td>
-
-                                        <td>
-                                            고구마밭 
-                                        </td>
-
-                                        <td>
-                                            비닐 씌우기
-                                        </td>
-
-                                        <td>
-                                            <h5><span class="badge bg-success">★</span></h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="">
-                                                <button class="btn btn-outline-warning">진행중</button>
-                                                <button class="btn btn-outline-success">완료</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>   
-                </div>
-
-
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-12 col-md-12">
 
                     <div class="card mb-15">
-                        <div class="card-header bg-transparent py-15"  style="font-size:30px"><b>이번달 대표일정</b></div>
+                        <div class="card-header bg-transparent py-15 text-center" style="font-size:50px"><b>오늘의 일지</b></div>
+                        <div class="card-header py-8 text-center"></div>
 
-                        <div class="card-body">
-                            <div class="mb-15">
-                                <div class="d-flex">
-                                    <div class="flex-fill">
-                                        <div class="float-right mt-10">
-                                            <button class="btn btn-outline-primary btn-sm">보러가기</button>
-                                        </div>
-                                        <h6 class="my-3">율이 맛있는거 사주기</h6>
-                                        <small class="text-muted">족발</small>
-                                    </div>
-                                </div>
+                            <div id="todayDiaryList">
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -216,13 +65,19 @@
         </div>
     </div>
 
-<!----------------------------------------------------------------- templ --------------------------------------------------------------->
+
+
+<!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ -->
+
+
+
+
 
     <!-- calendar head tmpl -->
     <div class="calendar">
         <ul id="weekNode" class="weekdays" style='display:none;'>
             <li class="sun">일요일</li>
-            <li class="mon" >월요일</li>
+            <li class="mon">월요일</li>
             <li class="tue">화요일</li>
             <li class="wed">수요일</li>
             <li class="thur">목요일</li>
@@ -260,23 +115,87 @@
 
         </ul>
     </div>
+
+    
     <!--END day tmpl -->
 
     <!--diary warning tmpl -->
-    <span class="badge bg-warning easyNode" style='display:none;'>easy</span>
+    <span class="badge bg-warning easyNode" style='display:none;'>보통</span>
     <!--END warning tmpl -->
 
     <!--diary nomal tmpl -->
-    <span class="badge bg-success nomalNode" style='display:none;'>nomal</span>
+    <span class="badge bg-success nomalNode" style='display:none;'>중요</span>
     <!--END nomal tmpl -->
 
     <!--diary danger tmpl -->
-    <span class="badge bg-danger hardNode" style='display:none;'>hard</span>
+    <span class="badge bg-danger hardNode" style='display:none;'>매우중요</span>
     <!--END danger tmpl -->
 
-<!-- templ  -->
+
+
+
 
     
+    <!--today list tmpl --> <!--today list tmpl --> <!--today list tmpl --> <!--today list tmpl -->  <!--today list tmpl -->
+    <div id="diaryNode" class="todayList" style="display:none;">
+        <div class="card-body">
+            <div class="mb-15">
+                <div class="d-flex">
+                    <div class="flex-fill"> 
+
+                        <div class="difficultyLevel">
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                            <!-- tmpl zone -->
+                        </div>
+
+                        <div class="float-right mt-10 way">
+                            <input type='hidden' class='did' value=/>
+                            <input type='hidden' class='uy' value=/>
+                            
+                            <small class="text-muted diaryDate">20230617</small>
+
+
+                            <button class="useYn">일정 진행중</button>
+                        </div>
+
+                        <div>
+                            <b><h5 class="my-3 title">멍멍</h5></b>
+                        </div>
+                        <br>
+
+                        <div style='max-width:300px; overflow:hidden; word-wrap:break-word;'>
+                            <small class="text-muted contents" >쏼라쏼라</small>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-header py-8 text-center"></div>
+    </div>    
+    <!--END today list tmpl -->
+
+
+
+    <!--list warning tmpl -->
+    <h5 id='easyBand'><span class="badge bg-warning" style='display:none;'>보통</span></h5>
+    <!--END warning tmpl -->
+
+    <!--list nomal tmpl -->
+    <h5 id='nomalBand'><span class="badge bg-success" style='display:none;'>중요</span></h5>
+    <!--END nomal tmpl -->
+
+    <!--list danger tmpl -->
+    <h5 id='hardBand'><span class="badge bg-danger" style='display:none;'>매우중요</span></h5>
+    <!--END danger tmpl -->
+
+
+<!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ --><!-- templ -->
+
+    
+
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
 
