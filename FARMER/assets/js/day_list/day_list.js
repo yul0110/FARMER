@@ -25,7 +25,7 @@
 					"useYn" 	: diaryuseYnNode.val()
 				},
 				dataType: "json",
-				url : '/day_list/diary_use_ajax',
+				url : '/day_list/useYn_update_ajax',
 				success : function(d){			
 	
 					//DB 데이터update를 성공한 후에 화면 데이터를 수정해준다
@@ -33,12 +33,12 @@
 						diaryuseYnNode.val('N');
 						useYnNode.removeClass();
 						useYnNode.addClass('btn btn-outline-warning useYn');
-						useYnNode.html('일정 종료');
+						useYnNode.html('종료');
 					}else{
 						diaryuseYnNode.val('Y');
 						useYnNode.removeClass();
 						useYnNode.addClass('btn btn-outline-success useYn');
-						useYnNode.html('일정 진행중');
+						useYnNode.html('진행중');
 					}
 
 				}

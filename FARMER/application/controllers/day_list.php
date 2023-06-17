@@ -53,12 +53,14 @@ class day_list extends CI_Controller {
 	}
 
 	//일정 진행중/종료 수정 ajax
-	public function diary_use_ajax()
+	public function useYn_update_ajax()
 	{
 		$this->load->model('day_list_model');
 
 		$diary_id		= $_POST['diaryId'];
 		$diary_useYn	= $_POST['useYn'];
+
+		echo $diary_id;
 
 		$updat_flag = $this->day_list_model->update_useyn($diary_id, $diary_useYn);
 	}

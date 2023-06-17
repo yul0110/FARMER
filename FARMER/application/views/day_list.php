@@ -75,7 +75,7 @@
                                 </div>
                                 <br>
 
-                                <div>
+                                <div style='max-width:300px; overflow:hidden; word-wrap:break-word;'>
                                     <small class="text-muted"><?=$today_list_arr[$i]['contents']?></small>
                                 </div>
                                     
