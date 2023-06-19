@@ -57,7 +57,11 @@
     <script src="../../assets/js/base/common.js"></script>
     <!-- js -->
 
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="kingbob0110" data-description="Support me on Buy me a coffee!" data-message="당신에게 도움이 되었다면 맥주 한 잔을 선물해주세요.//If it's helpful to you, please give me a cup of beer." data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    
 </head>
+
+
 
 <body class="menubar-enabled navbar-top-fixed">
 
