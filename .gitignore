@@ -1,2 +1,6 @@
 FARMER/application/config/database.php
 FARMER/application/config/custom.php
+FARMER/wapi/batch_sample.php
+FARMER/wapi/mtw.php
+FARMER/wapi/mw.php
+FARMER/wapi/sw.php
