@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Bath_model extends CI_Model {
 
-    public function bath_model()
+    public function __construct()
     {       
         parent::__construct();
     }

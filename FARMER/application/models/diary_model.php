@@ -3,9 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Diary_model extends CI_Model {
 
-    public function diary_model()
+    public function __construct()
     {       
-        //생성자를 사용하고자 할때 부모를 수동으로 호출해주어야함 
         parent::__construct();
     }
 
@@ -25,7 +24,7 @@ class Diary_model extends CI_Model {
         if($diary_obj['imgPathArr'] != false){
             $imgGroup_tb 		  = 'imgGroup';
             $imgGroup_number 	  = $this->common_model->numbering($imgGroup_tb);
-            $img_group_id =  $imgGroup_number + 1;
+            $img_group_id         =  $imgGroup_number + 1;
     
             $data_img_group = array(
     
@@ -37,19 +36,19 @@ class Diary_model extends CI_Model {
                 'useYn'     => 'Y'
             );
             $this->db->insert($imgGroup_tb, $data_img_group);
-    
+
     
             $img_path_arr = $diary_obj['imgPathArr'];
             $diary_obj_item = '';
-            
+
             //이미지가 1개이상 들어옴
-            for($i=0; $i>=sizeof($img_path_arr); $i++){
+            for($i=0; $i < sizeof($img_path_arr); $i++){
                 //이미지 넘버링
                 //이미지 등록
                 $img_tb 		  = 'img';
                 $img_number 	  = $this->common_model->numbering($img_tb);
                 $diary_obj_item   = $img_path_arr[$i];
-    
+
                 //img insert
                 $data_img = array(
         
@@ -63,6 +62,7 @@ class Diary_model extends CI_Model {
                     'updateId'      => 999,
                     'useYn'         => 'Y'
                 );
+
                 $this->db->insert($img_tb, $data_img);
             }
         }

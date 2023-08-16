@@ -4,9 +4,8 @@
         
         <div class="container-fluid mt-15">
     
-            <h4>농부의 사진첩</h4>
+            <h4>도담이네 앨범 </h4>
             <p class="text-multed">
-                Use card groups to render cards as a single, attached element with equal width and height columns.
             </p>
             <hr>
     
@@ -16,12 +15,12 @@
     
                     <div class="card d-block">
                         <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                            <h5 class="card-title">일정제목</h5>
+                            <h6 class="card-subtitle text-muted">일정 날짜 (년,월,일)</h6>
                         </div>
                         <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
+                            <a href="javascript: void(0);" class="card-link text-custom">사진 크게보기</a>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div><!-- end col -->
@@ -29,12 +28,12 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card d-block">
                         <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                            <h5 class="card-title">일정제목</h5>
+                            <h6 class="card-subtitle text-muted">일정 날짜 (년,월,일)</h6>
                         </div>
                         <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
+                            <a href="javascript: void(0);" class="card-link text-custom">사진 크게보기</a>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div><!-- end col -->
@@ -42,12 +41,12 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card d-block">
                         <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                            <h5 class="card-title">일정제목</h5>
+                            <h6 class="card-subtitle text-muted">일정 날짜 (년,월,일)</h6>
                         </div>
                         <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
+                            <a href="javascript: void(0);" class="card-link text-custom">사진 크게보기</a>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div><!-- end col -->
@@ -55,140 +54,21 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card d-block">
                         <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                            <h5 class="card-title">일정제목</h5>
+                            <h6 class="card-subtitle text-muted">일정 날짜 (년,월,일)</h6>
                         </div>
                         <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
+                            <a href="javascript: void(0);" class="card-link text-custom">사진 크게보기</a>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div><!-- end col -->
     
             </div>
-            <br>
-            <hr>
-            <br>
-            <div class="row">
-    
-                <div class="col-md-6 col-lg-3">
-    
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-            </div>
-    
-            <br>
-            <hr>
-            <br>
-            
-            <div class="row">
-    
-                <div class="col-md-6 col-lg-3">
-    
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-                <div class="col-md-6 col-lg-3">
-                    <div class="card d-block">
-                        <div class="card-body">
-                            <h5 class="card-title">이미지</h5>
-                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                        </div>
-                        <img class="img-fluid" src="https://i.imgur.com/gp5BUjl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <a href="javascript: void(0);" class="card-link text-custom">일정 보러가기</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div><!-- end col -->
-    
-            </div>
-            <br>
-            <hr>
-            <br>
+
+        <br>
+        <hr>
+        <br>
     
         </div>
     

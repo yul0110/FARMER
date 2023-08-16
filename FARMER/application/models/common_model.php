@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Common_model extends CI_Model {
 
-    public function common_model()
+    public function __construct()
     {       
-        //생성자를 사용하고자 할때 부모를 수동으로 호출해주어야함 
+    
         parent::__construct();
     }
 
@@ -25,6 +25,12 @@ class Common_model extends CI_Model {
         foreach ($query->result() as $row){
             $numbering = $row->id;
         }
+        
+        
+        if($numbering <= 0){
+            $numbering = 1;
+        }
+
         return $numbering;
     }
 
