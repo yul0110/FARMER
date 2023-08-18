@@ -34,26 +34,28 @@ class Main extends CI_Controller {
 	{
 		$this->load->model('main_model');
 
-		$now_year		= isset($_POST['nowYear']) ? $_POST['nowYear'] : date('Y');
-		$now_month 		= isset($_POST['nowMonth']) ? $_POST['nowMonth'] : date('m');
-		$update_month 	= isset($_POST['updateMonth']) ? $_POST['updateMonth'] : date('m');
+		$now_year		= isset($_POST['nowYear']) ? $_POST['nowYear'] : date('Y'); //2022
+		$now_month 		= isset($_POST['nowMonth']) ? $_POST['nowMonth'] : date('m'); //12
+		$update_month 	= isset($_POST['updateMonth']) ? $_POST['updateMonth'] : date('m'); //11
+
 		$to_year 		= $now_year == 0 ? date('Y') : $now_year;
+
 		$to_month 		= 0;
 
 		if($now_month != 0){ //최초 1회만 타지 않는다
 
 			//현재가 1월이고 이전달이 12월인 경우
-			if($now_month <= 1){
+			if($update_month <= 1){
 				$to_year  = $to_year - 1;
 				$to_month = 12;
 			}
 			//현재가 12월이고 다음달이 내년인 경우
-			if($now_month >= 12){
+			if($update_month >= 12){
 				$to_year  = $to_year + 1;
-				$to_month = 1; 
+				$to_month = 01; 
 			}
 			//2월~11월 처리
-			if($now_month > 1 && $now_month < 12){  
+			if($update_month > 1 && $update_month < 12){  
 				$to_month = $update_month;
 			}
 		}

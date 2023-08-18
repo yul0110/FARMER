@@ -19,16 +19,24 @@
 			var moveNum		= $(this).data('cm'); 
 			var moveYear	= Number($('#nowYear').val());
 
+			//년도 변경 및 달 설정
 			if(moveNum < 1){
 				moveYear = moveYear - 1;
-				$('#nowYear').data(moveYear);
+				$('#nowYear').data(moveYear.toString());
+				$('#updateMonth').val("12");
+			}else if(moveNum > 12){
+				moveYear = moveYear + 1;
+				$('#nowYear').data(moveYear.toString());
+				$('#updateMonth').val("01");
+			}else{
+				if(Number(moveNum) < 10){
+					$('#updateMonth').val('0' + moveNum);
+				}else{
+					$('#updateMonth').val(moveNum);
+				}
 			}
 
-			if(moveNum > 12){
-				moveYear = moveYear + 1;
-				$('#nowYear').data(moveYear);
-			}
-			//getList();
+			yul.page.getList();
 		})
 
 		$(document).on('click', '.day', function(){
@@ -97,12 +105,22 @@
 					var dayNum				= '';				//일
 					var ulNum 				= 0;
 					var cnm 				= d.toMonth; 		//이번달
-					var cpm 				= Number(cnm) - 1; 	//이전달 
-					var cnem 				= Number(cnm) + 1;	//다음달 
 					var calendarList 		= d.calendarArray;     
 					var weekNodeCopy 		= $('#weekNode').clone();
 					var calendarNodeCopy 	= $('#calendarNode').clone();
 					var calendarDayNodeCopy	= $('#calendarDayNode').clone();		
+
+					var cpm 				= Number(cnm) - 1; 	//이전달 
+					var cnem 				= Number(cnm) + 1;	//다음달 
+
+
+					if(Number(d.toMonth) >= 12){
+						cpm 				= 11; 	//이전달 
+						cnem 				= 1;	//다음달 
+					}else if(Number(d.toMonth) <= 1){
+						cpm 				= 12; 	//이전달 
+						cnem 				= 2;	//다음달 
+					}
 					
 					//정적데이터 세팅
 					$('#calendarMonth').html(Number(d.toMonth) + '월');
