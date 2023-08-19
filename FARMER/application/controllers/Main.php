@@ -94,7 +94,8 @@ class Main extends CI_Controller {
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'weather_data'	=> array(),
 											'icon_code'		=> '',
-											'diary_data'	=> array()
+											'diary_data'	=> array(),
+											'todayFlag'		=> 'N'
 											));
 		}
 		//이번달 일수 날짜 전부
@@ -105,7 +106,8 @@ class Main extends CI_Controller {
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime($to_year.$to_month."01"))),
 											'weather_data'	=> array(),
 											'icon_code'		=> '',
-											'diary_data'	=> array()
+											'diary_data'	=> array(),
+											'todayFlag'		=> date("Ymd",strtotime ($in_data, strtotime($to_year.$to_month."01"))) == date("Ymd") ? 'Y' : 'N'
 											));
 		}
 		//미래일수 날짜 전부
@@ -116,7 +118,8 @@ class Main extends CI_Controller {
 											'st_bar_date'	=> date("Y-m-d",strtotime ($in_data, strtotime ("+1 months", strtotime($to_year.$to_month."01")))),
 											'weather_data'	=> array(),
 											'icon_code'		=> '',
-											'diary_data'	=> array()
+											'diary_data'	=> array(),
+											'todayFlag'		=> 'N'
 											));
 		}
 //달력 생성 완료--------------------------------------------------------------------------------------------------------------------------------------

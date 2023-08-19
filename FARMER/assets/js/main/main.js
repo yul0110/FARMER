@@ -175,7 +175,13 @@
 
 						//ul이 생길때 li생성------------li----------------li----------------li------------------li-----------------li-----------------li
 						let calendarDayItem = calendarDayNodeCopy.clone();
-						calendarDayItem.attr('style', '');
+						
+						//오늘은다르게 처리해줌
+						if(calendarList[i].todayFlag == 'Y'){
+							calendarDayItem.attr('style', 'border:5px solid #5ACCFF');
+						}else{
+							calendarDayItem.attr('style', '');
+						}
 						calendarDayItem.attr('id', '');
 						calendarDayItem.data('datenum', calendarDate);
 
