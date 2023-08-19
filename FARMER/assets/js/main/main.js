@@ -14,6 +14,10 @@
 	//이전달, 다음달 클릭 이벤트 
 	yul.page.prototype.clickEvent = function() {
 
+		$(document).on('click', '#topGo', function(){
+			window.scrollTo(0,0);
+		})
+
 		$(document).on('click', '.btnMove', function(){
 
 			var moveNum		= $(this).data('cm'); 
