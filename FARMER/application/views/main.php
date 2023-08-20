@@ -1,5 +1,5 @@
 
-<script src="../../assets/js/main/main.js?ver=11"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
+<script src="../../assets/js/main/main.js?ver=12"></script><!-- php 오류 JS파일이 수정후에도 그래로면 버전을 바꿔준다 ?ver=1 숫자는 아무거나 -->
 
     <div class="container-fluid mt-15">
 
