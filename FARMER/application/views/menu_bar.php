@@ -69,14 +69,13 @@
 
         <div class="main-navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
 
-            <button class="btn d-md-none" type="button" data-toggle="collapse" data-target="#main-menu"
+            <div class="btn d-md-none" type="button" data-toggle="collapse" data-target="#main-menu"
                 aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+            </div>
 
 
             <img src="../../assets/images/profile.png" title="Morioh" class="navbar-logo d-md-none"
-                style="height: 36px;">
+                style="height: 45px; text-align:center">
 
 
             <button class="btn d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -89,12 +88,7 @@
                 <ul class="navbar-nav mr-auto hidden-sm-down">
 
                     <li class="nav-item mr-5">
-                        <a href="javascript://" class="nav-icon font-2xl" id="navbar-toggler">
-                            <!-- <i class="fas fa-bars"></i> -->
-                            <!-- <i class="mdi mdi-view-sequential font-2xl"></i> -->
-
-                            <i class="mdi mdi-menu"></i>
-                        </a>
+                        
                     </li>
                 </ul>
 
@@ -104,7 +98,7 @@
                     <?php
                     if($login_in){
                     ?>
-                        <!-- 알림 숫자-->
+                       <!--
                         <li class="nav-item mr-10 dropdown">
                             <span class="badge bg-danger">1</span>
                             <a class="nav-icon font-2xl" href="#" id="QBDX05" role="button" data-toggle="dropdown"
@@ -116,7 +110,7 @@
                             <div class="dropdown-menu dropdown-menu-right p-0 border-0 w-400" 
                                 aria-labelledby="QBDX05">
                                 
-                                <!-- 알림 -->
+                                
                                 <div class="card mb-15">
                                     <div class="card-header">
                                         <a href="javascript://" class="float-right text-body">
@@ -153,21 +147,15 @@
                             </div>
 
                         </li>
+                        -->
+
 
                         <!-- 마이 페이지 -->
                         <li class="nav-item mr-10 dropdown">
                             <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                                 data-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/dodam.jpg">
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-account-circle-outline"></i>마이 페이지</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings-outline"></i>설정</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/auth/logout"><i class="mdi mdi-exit-to-app"></i>로그아웃</a>
-                            </div>
+                            </a>
                         </li>
 
                     <?php
@@ -176,10 +164,6 @@
                         <li class="nav-item mr-10 dropdown">
                             <a href="#" class="nav-icon avatar rounded-circle" id="PJXN7R" role="button"
                                 data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-account-circle-outline"></i>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="PJXN7R">
                                 <a class="dropdown-item" href="/auth/login">
                                 <i class="mdi mdi-exit-to-app"></i>로그인
                                 </a>
@@ -187,7 +171,7 @@
                                 <a class="dropdown-item" href="/auth/signup">
                                     <i class="mdi mdi-account-circle-outline"></i>회원가입
                                 </a>
-                            </div>
+                            </a>
                         </li>
                     <?php
                     }
@@ -202,8 +186,8 @@
 
             <div class="menubar-header text-center bg-primary">
                 <a class="menubar-brand" href="/main" style="background-color:#8e352e;">
-                    <img src="../../assets/images/dodam.jpg" title="Morioh" class="menubar-logo"
-                        style="height: 50px;">
+                    <img src="../../assets/images/profile.png" title="도담농장" class="menubar-logo"
+                        style="height: 100px;">
                 </a>
             </div>
 
@@ -211,15 +195,6 @@
                  
                 <ul class="menu accordion">
                     
-                    <li class="menu-item">
-                        <a href="/year_calendar" class="menu-link">
-                            <!-- <i class="menu-icon fas fa-info"></i> -->
-                            <!-- <i class="menu-icon fas fa-seedling"></i> -->
-                            <i class="menu-icon mdi mdi-code-braces-box"></i>
-                            <span class="menu-label">2023 전체 달력</span>
-                        </a>
-                    </li>
-
                     <li class="menu-item">
                         <a href="/farm_diary" class="menu-link">
                             <!-- <i class="menu-icon fas fa-fill-drip"></i> -->
@@ -235,20 +210,6 @@
                             <!-- <i class="menu-icon fas fa-magic"></i> -->
                             <i class="menu-icon mdi mdi-view-dashboard"></i>
                             <span class="menu-label">앨범</span>
-                            <span class="menu-badge">
-                                <span class="badge bg-info">1</span>
-                            </span>
-                        </a>
-                    </li>
-
-                    <li class="menu-item">
-                        <a href="/day" class="menu-link">
-                            <!-- <i class="menu-icon fas fa-magic"></i> -->
-                            <i class="menu-icon mdi mdi-view-dashboard"></i>
-                            <span class="menu-label">뤼스트</span>
-                            <span class="menu-badge">
-                                <span class="badge bg-info">1</span>
-                            </span>
                         </a>
                     </li>
 

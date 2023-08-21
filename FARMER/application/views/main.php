@@ -43,7 +43,7 @@
 
 <!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone --><!-- list zone -->
 
-            <div class="row">
+            <div id='todayDiaryListZone' class="row">
                 <div class="col-lg-12 col-md-12">
 
                     <div class="card mb-15">
@@ -62,6 +62,9 @@
                 </div>
 
             </div>
+
+
+
         </div>
     </div>
 
@@ -214,7 +217,7 @@
         gtag('config', 'UA-50750921-19');
     </script>
 
-    <div id="topGo" style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgb(95, 127, 255); color: white; border-radius: 32px; position: fixed; left: 18px; bottom: 18px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; z-index: 9999; cursor: pointer; font-weight: 600; transition: all 0.25s ease 0s; transform: scale(1);"><img src="/assets/images/dodam.jpg" alt="Buy Me A Coffee" style="height: 36px; width: 36px; margin: 0; padding: 0;"></div>
+    <div id="topGo" style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgb(95, 127, 255); color: white; border-radius: 32px; position: fixed; left: 18px; bottom: 18px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; z-index: 9999; cursor: pointer; font-weight: 600; transition: all 0.25s ease 0s; transform: scale(1);"><img src="/assets/images/dodam.jpg" alt="top" style="height: 36px; width: 36px; margin: 0; padding: 0;"></div>
 
 </body>
 

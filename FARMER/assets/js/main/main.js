@@ -390,6 +390,8 @@
 
 					}
 	
+				}else{
+					$('#todayDiaryListZone').remove();
 				}
 			}
 		})
