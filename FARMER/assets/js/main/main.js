@@ -46,10 +46,15 @@
 
 		//날짜 칸 클릭시 일정 보여주는 이벤트
 		$(document).on('click', '.day', function(){
-			let dateNum		= $(this).data('datenum');
-			location.href 	= "/day_list?dateNum="+dateNum;
-		})
 
+			let dateNum		= $(this).data('datenum');
+
+			if($(this).find('.badgeList').length > 0){
+				location.href 	= "/day_list?dateNum="+dateNum;		
+			}else{
+				location.href 	= "/farm_diary";
+			}
+		})
 
 		$(document).on('click', '.way', function(){
 

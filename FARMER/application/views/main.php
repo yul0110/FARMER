@@ -123,15 +123,15 @@
     <!--END day tmpl -->
 
     <!--diary warning tmpl -->
-    <span class="badge bg-warning easyNode" style='display:none;'>보통</span>
+    <span class="badge bg-warning easyNode badgeList" style='display:none;'>보통</span>
     <!--END warning tmpl -->
 
     <!--diary nomal tmpl -->
-    <span class="badge bg-success nomalNode" style='display:none;'>중요</span>
+    <span class="badge bg-success nomalNode badgeList" style='display:none;'>중요</span>
     <!--END nomal tmpl -->
 
     <!--diary danger tmpl -->
-    <span class="badge bg-danger hardNode" style='display:none;'>매우중요</span>
+    <span class="badge bg-danger hardNode badgeList" style='display:none;'>매우중요</span>
     <!--END danger tmpl -->
 
 
