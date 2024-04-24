@@ -104,7 +104,7 @@
                 <div class="calendarDay dayNum">일자</div>
                 <div>
                     <img src="" class="daySky" style="max-width:30px; max-height:30px;">  
-                    <span class="mdi mdi-arrow-down font-2xl dayTmn" style="color:#2E9AFE;">0 / </span>
+                    <span class="mdi mdi-arrow-down font-2xl dayTmn" style="color:#2E9AFE;">/ 0</span>
                     <span class="mdi mdi-arrow-up font-2xl dayTmx" style="color:#FA5858;">0</span>
                 </div>
                 <div class="diaryLevel">
@@ -156,19 +156,19 @@
                             <input type='hidden' class='did' value=/>
                             <input type='hidden' class='uy' value=/>
                             
-                            <small class="text-muted diaryDate">20230617</small>
+                            <small class="text-muted diaryDate">년월일</small>
 
 
-                            <button class="useYn">일정 진행중</button>
+                            <button class="useYn">일정 진행여부</button>
                         </div>
 
                         <div>
-                            <b><h5 class="my-3 title">멍멍</h5></b>
+                            <b><h5 class="my-3 title">제목</h5></b>
                         </div>
                         <br>
 
                         <div style='max-width:300px; overflow:hidden; word-wrap:break-word;'>
-                            <small class="text-muted contents" >쏼라쏼라</small>
+                            <small class="text-muted contents" >일정내용</small>
                         </div>
                         
                     </div>
@@ -217,7 +217,12 @@
         gtag('config', 'UA-50750921-19');
     </script>
 
-    <div id="topGo" style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgb(95, 127, 255); color: white; border-radius: 32px; position: fixed; left: 18px; bottom: 18px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; z-index: 9999; cursor: pointer; font-weight: 600; transition: all 0.25s ease 0s; transform: scale(1);"><img src="/assets/images/dodam.jpg" alt="top" style="height: 36px; width: 36px; margin: 0; padding: 0;"></div>
+    <div id="topGo" style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgb(95, 127, 255); color: white; border-radius: 32px; position: fixed; left: 18px; bottom: 18px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; z-index: 9999; cursor: pointer; font-weight: 600; transition: all 0.25s ease 0s; transform: scale(1);">
+        <img src="/assets/images/dodam.jpg" alt="top" style="height: 36px; width: 36px; margin: 0; padding: 0;">
+    </div>
+  
+
+
 
 </body>
 

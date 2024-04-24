@@ -27,8 +27,8 @@
     <!-- css -->
 
     <!-- JS -->
-    <script src="../../../assets/js/base/base.js?ver=1121"></script>
-    <script src="../../../assets/js/base/common.js?ver=1121"></script>
+    <script src="../../../assets/js/base/base.js?ver=33"></script>
+    <script src="../../../assets/js/base/common.js?ver=33"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <!-- JS -->
 
@@ -40,7 +40,7 @@
 </head>
 
 <!--JS, CSS 캐시 방지처리 .js?ver=1111 -->
-<script src="../../../assets/js/join/join.js?ver=1122"></script>
+<script src="../../../assets/js/join/join.js?ver=33"></script>
 
 <body translate="no">
   <div class="container">
@@ -98,11 +98,11 @@
                                 <label class="form-control-label" style="font-size: 20px;">메일주소</label>
                                 <input type="text" id="userId" class="form-control" required>
 
-                                <div class="col-lg-12 loginbttm">
+                                <!-- <div class="col-lg-12 loginbttm">
                                     <div class="col-lg-12 login-btm login-button ">
                                         <button type="button" id="emailPushAjax" class="btn btn-outline-primary">인증번호 발송</button>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <label class="form-control-label" style="font-size: 20px;">인증번호</label>
                                 <input type="text" id="userCode" class="form-control" required>

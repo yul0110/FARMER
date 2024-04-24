@@ -23,6 +23,7 @@
 			var nickName 	= $('#nickName').val();
 			var pw 			= $('#pw').val();
 			var pwc			= $('#pwc').val();
+			var pno 		= $('#pno').val();
 			var userId 		= $('#userId').val();
 			var branchCode	= $('#branchCode').val();
 			
@@ -62,10 +63,10 @@
 			return false;
 			}
 
-			if(!yul.scFlag){
-				alert("이메일 인증을 해주세요."); 		
-				return false;
-			}
+			// if(!yul.scFlag){
+			// 	alert("이메일 인증을 해주세요."); 		
+			// 	return false;
+			// }
 
 			if(branchCode == ""){
 			alert("주소를 작성해주세요."); 		

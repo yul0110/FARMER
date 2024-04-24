@@ -10,7 +10,8 @@
 		this.getDiaryList();
 		this.clickEvent();
 	}
-	
+
+
 	//이전달, 다음달 클릭 이벤트 
 	yul.page.prototype.clickEvent = function() {
 
@@ -43,10 +44,12 @@
 			yul.page.getList();
 		})
 
+		//날짜 칸 클릭시 일정 보여주는 이벤트
 		$(document).on('click', '.day', function(){
 			let dateNum		= $(this).data('datenum');
 			location.href 	= "/day_list?dateNum="+dateNum;
 		})
+
 
 		$(document).on('click', '.way', function(){
 
@@ -82,6 +85,8 @@
 			})
 			
 		})
+
+
 	}
 
 	//작동할 이벤트를 프로토 타입으로 세팅

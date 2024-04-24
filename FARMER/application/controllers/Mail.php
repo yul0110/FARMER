@@ -59,11 +59,13 @@ class Mail extends CI_Controller {
         $this->email->message($data);
 
 		$email_send = $this->email->send();
+        
 
         //데이터 result
 		echo json_encode(array(
 			'result'	=> $email_send,
             'code'      => $code
+            // 'err'       => $this->email->print_debugger()
 		));	
 	}
 
